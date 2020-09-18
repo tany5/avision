@@ -1,0 +1,104 @@
+<section class="freequiz">
+    <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-12 col-sm-12 col-md-11 col-lg-8">
+                    <h1>{{title}}</h1>
+                    <mat-accordion class="example-headers-align" multi>
+                        <mat-expansion-panel id="{{quizQuestionAnswer.question_details.question_id}}" [expanded]="step === i || opendTrue" (opened)="setStep(i)" hideToggle *ngFor="let quizQuestionAnswer of quizQuestionAnswer index as i">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <h3>Question {{i+1}}</h3>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p class="main-question" id="question_{{quizQuestionAnswer.question_details.question_id}}" [innerHTML]="quizQuestionAnswer.question_details.question"></p>
+
+
+
+                            <div class="row" id="row_toggle_enable_{{quizQuestionAnswer.question_details.question_id}}">
+
+
+                                <div class="answer_list col-12" id="answer_given_{{answer.answer_id}}" (click)="nextStep(quizQuestionAnswer.question_details.question_id, answer.answer_id)" *ngFor="let answer of quizQuestionAnswer.answers_list index as j">
+
+                                    <label class="container-fluid">
+
+                                        <div class="row">
+
+                                            <div class="col-1">
+                                            <span class="charecter_span">{{charArray[j]}}</span>
+                                            </div>
+
+                                            <div class="col-10">
+                                            <span id="{{answer.answer_id}}" [innerHTML]="answer.answer"></span>
+                                            </div>
+                                            
+
+                                        </div>
+
+
+                                        </label>
+
+
+
+                                </div>
+
+                            </div>
+
+                        </mat-expansion-panel>
+
+                    </mat-accordion>
+                </div>
+
+                <div class="col-md-12 col-lg-4 fixed-top-analysis">
+                    <mat-accordion class="example-headers-left ">
+                        <mat-expansion-panel [expanded]="true" hideToggle>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-5 text-left">
+                                                <h3>QUESTION ANALYSIS</h3>
+                                            </div>
+                                            <div class="col-7 text-right">
+                                                <button mat-raised-button color="warn" class="btn-block float-right">
+                          Time Left:
+                          <countdown *ngIf="showTimer" #cd [config]="customFormat" (event)="handleEvent($event)">
+                          </countdown>
+                        </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div class="row row-cols-5 question-analysis">
+                                <div class="col" *ngFor="let question of quizQuestionAnswer index as i">
+                                    <span class="justify-center" id="answer_{{question.question_details.question_id}}" (click)="scrollToQuestion(question.question_details.question_id, i)">{{i+1}}</span>
+                                </div>
+                            </div>
+
+                            <div class="show-question-status">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-6 text-left">
+                                            <mat-icon class="not-answerd-icon">fiber_manual_record</mat-icon>
+                                            Unanswered
+                                        </div>
+                                        <div class="col-6 text-right">
+                                            <mat-icon class="answerd-icon">fiber_manual_record</mat-icon>
+                                            Answered
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <mat-action-row>
+                                <button class="btn-block" mat-raised-button color="primary" (click)="submitQuiz()">Submit Quiz</button>
+                            </mat-action-row>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

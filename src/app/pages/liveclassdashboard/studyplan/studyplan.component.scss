@@ -1,0 +1,27 @@
+.card-header::after {
+	content: "\f107";
+	color: #333;
+	top: 20px;
+    right: 20px;
+    font-size: 18px;
+    font-weight: bold;
+	position: absolute;
+    font-family: "FontAwesome"
+}
+
+.card-header[aria-expanded="true"]::after {
+	content: "\f106";
+}
+
+.cus_livestudyplan-leftbar {
+	margin-top: 50px;
+}
+.liveclass-studyplan-collaps {
+	margin-top: 50px;
+}
+
+.liveclass-subject-sub-head {
+    font-size: 16px;
+    color: #28227a;
+    margin: 15px 0 0;
+}

@@ -1,0 +1,29 @@
+<!--Services Section-->
+<section class="services-section" style="background:url('assets/images/map_background.png');background-size: cover;background-repeat: no-repeat;">
+    <div class="auto-container">
+        <!--Sec Title-->
+        <div class="sec-title centered">
+            <h1>Centers</h1>
+            <div class="text">Select a nearby Online Learning Center and Schedule your Free Demo</div>
+        </div>
+        
+        <div class="row clearfix">
+            
+            <!--Services Block-->
+            <div class="services-block col-lg-6 col-md-6 col-sm-6 col-12" *ngFor="let center of centerList">
+                <div class="inner-box" style="background:url('assets/images/map.png');background-size: cover;">
+                    <div class="icon-box">
+                        <span class="icon"><img src="assets/images/icons/map_icon.png" alt="" /></span>
+                    </div>
+                    <h3><a href="javascript:void(0)">{{center.center_name}}</a></h3>
+                    <div class="text" [innerHTML]="center.center_address"></div>
+                    <a href="javascript:void(0)" class="read-more"><span class="icon flaticon-right-arrow-1"></span> Visit Center Page</a>
+                </div>
+            </div>
+            
+            <!--Services Block-->
+        </div>
+        
+    </div>
+</section>
+<!--End Services Section-->

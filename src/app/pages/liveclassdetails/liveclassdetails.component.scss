@@ -1,0 +1,41 @@
+.sticky-top {
+    z-index: 99;
+}
+
+.courses_instructors {
+    min-height: 30vh;
+}
+.student-review-star {
+    float: right !important;
+}
+
+.refar-back {
+    width: 100%;
+    float: left;
+    background: #ff976d;
+    padding: 50px 15px 200px;
+}
+
+@media screen and (max-width: 600px) {
+    // .courses_instructors {
+    //     height: 45vh;
+    // }
+
+    .student-review-star {
+        float: left !important;
+        top: 60px;
+    }
+}
+
+/************************************/
+/**********liveclass 20-06-2020 css **********/
+/************************************/
+.cus-page-title-two {padding:80px 0;}
+.cus-page-title-two h1{font-size:22px;text-align:left;color:#fff;}
+.cus-page-title-two p{color:#fff;}
+.liveclasses-tag{font-size:12px;display: inline-block;background: #fb1212;color: #fff;padding: 2px 5px;border-radius: 3px;margin-bottom: 7px;}
+.liveclasses-tag i{font-size:10px;}
+.cus-mg-top{margin-top:-140px;}
+.what_get li{display: table-cell;vertical-align: top;padding: 10px 8px;}
+.what_get li h4{font-size: 16px;font-weight: 600;margin-bottom: 6px;color: #636363;}
+.what_get li p{font-size: 14px;margin-bottom: 6px;color: #636363;}

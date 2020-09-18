@@ -1,0 +1,88 @@
+
+        <div class="container">
+          <div class="main_pass_back">
+                <div class="close" (click)="closePopup()"><mat-icon>clear</mat-icon></div>
+            <h2 class="cus_heading_plan">Avision Prime</h2>
+            <div class="row">
+              <div class="col-sm-10 col-md-10 mx-auto">
+                <div class="row clearfix" *ngIf="!passLoader">
+                  <div class="col-lg-4 col-md-6 col-sm-9 col-12 mx-auto">
+                    <ngx-skeleton-loader [theme]="{ 
+                                         'border-radius': '5px',
+                                         height: '30vh',
+                                         'width': '100%',                    
+                                         border: '1px solid white'
+                                         }">
+                    </ngx-skeleton-loader>
+                  </div>
+     
+                  <div class="col-lg-4 col-md-6 col-sm-9 col-12 mx-auto">
+                    <ngx-skeleton-loader [theme]="{ 
+                                         'border-radius': '5px',
+                                         height: '30vh',
+                                         'width': '100%',                    
+                                         border: '1px solid white'
+                                         }">
+                    </ngx-skeleton-loader>
+                  </div>
+     
+                  <div class="col-lg-4 col-md-6 col-sm-9 col-12 mx-auto">
+                    <ngx-skeleton-loader [theme]="{ 
+                                         'border-radius': '5px',
+                                         height: '30vh',
+                                         'width': '100%',                    
+                                         border: '1px solid white'
+                                         }">
+                    </ngx-skeleton-loader>
+                  </div>
+                </div>
+                <div class="row cus-plan-row" *ngIf="passLoader">
+                  <ng-container *ngFor="let passData of passData; index as i">
+                    <div class="col-lg-6 col-md-12 col-sm-12" *ngIf="(i%2)!==0">
+                      <div class="plan_back plan_back_one">
+     
+                        <div class="row">
+                          <div class="col-6 pass1">
+                            <h5>Prime</h5>
+                            <h2>{{passData.plan_name}}</h2>
+                            <h6>All Test Series for All Exams Except IBPS SO Mains & UGC NET</h6>
+                            <h4><del style="color: #ddd; font-size: 13px;padding-right: 10px;padding-top: -5px;"><span><i class="fa fa-inr"
+                             aria-hidden="true"></i></span>{{passData.price}}</del><i class="fa fa-inr" aria-hidden="true"></i>{{passData.offer_price}}</h4>
+                          </div>
+                          <div class="col-6 text-right">
+                            <h3>Our Recommendation</h3>
+                            <p>Save
+                              <span>{{(passData.price - passData.offer_price)*100/passData.price | number: "2.0-0"}}%</span>
+                             of your money</p>
+                            <a href="javascript:void(0)" class="btn btn-buynow target1" (click)="PayForPlan(passData.plan_id)"  style="background-image:linear-gradient(#ff8640,#ff0000)">BUY NOW</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12" *ngIf="(i%2)==0">
+                      <div class="plan_back plan_back_two">
+                        <div class="row">
+                          <div class="col-6 pass2">
+                            <h5>Prime</h5>
+                            <h2>{{passData.plan_name}}</h2>
+                            <h6>All Test Series for All Exams Except IBPS SO Mains & UGC NET</h6>
+                            <h4><del style="color: #ddd; font-size: 13px; padding-right: 10px;"><span><i class="fa fa-inr"
+                             aria-hidden="true"></i></span>{{passData.price}}</del><i class="fa fa-inr" aria-hidden="true"></i>{{passData.offer_price}}</h4>
+                          </div>
+                          <div class="col-6 text-right">
+                            <p>Save
+                              <span>{{(passData.price - passData.offer_price)*100/passData.price | number: "2.0-0"}}%</span>
+                              of your money</p>
+                            <a href="javascript:void(0)" class="btn btn-buynow target2" (click)="PayForPlan(passData.plan_id)" style="background-image:linear-gradient(#08c1ec,#08b0ef)">BUY NOW</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+     

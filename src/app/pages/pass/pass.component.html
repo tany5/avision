@@ -1,0 +1,532 @@
+ <!----------------------------------Banner Section------------------------------------->
+ <section class="planpage_main_banner"
+   style="background:url(assets/images/prime-back.jpg);background-size:cover;background-repeat:no-repeat;">
+   <div class="container">
+     <div class="row">
+       <div class="col-sm-12">
+         <div class="plan_buy_main_heading">
+           <h1>One Plan. All Exams. Unlimited Tests</h1>
+         </div>
+       </div>
+       <div class="col-sm-12">
+         <div class="plan_buy_sub_heading">
+           <h5>Banking, SSC, Railways and many other exams.</h5>
+         </div>
+       </div>
+       <div class="col-sm-12">
+         <div class="plan_buy_sub_heading2">
+           <p class="mar_b2" translate="BUYPASS">Buy <span class="">Prime</span> and <span class="">Unlock</span> All
+             Tests</p>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+ <!----------------------------------Banner Section------------------------------------->
+
+
+ <!----------------------------------Plan Display Section------------------------------------->
+ <section class="main_plan_section">
+   <div class="container">
+     <div class="main_pass_back">
+       <h2 class="cus_heading_plan">Avision Prime</h2>
+       <div class="row">
+         <div class="col-sm-10 col-md-10 mx-auto">
+           <div class="row clearfix" *ngIf="!passLoader">
+             <div class="col-lg-4 col-md-6 col-sm-9 col-12 mx-auto">
+               <ngx-skeleton-loader [theme]="{ 
+                                    'border-radius': '5px',
+                                    height: '30vh',
+                                    'width': '100%',                    
+                                    border: '1px solid white'
+                                    }">
+               </ngx-skeleton-loader>
+             </div>
+
+             <div class="col-lg-4 col-md-6 col-sm-9 col-12 mx-auto">
+               <ngx-skeleton-loader [theme]="{ 
+                                    'border-radius': '5px',
+                                    height: '30vh',
+                                    'width': '100%',                    
+                                    border: '1px solid white'
+                                    }">
+               </ngx-skeleton-loader>
+             </div>
+
+             <div class="col-lg-4 col-md-6 col-sm-9 col-12 mx-auto">
+               <ngx-skeleton-loader [theme]="{ 
+                                    'border-radius': '5px',
+                                    height: '30vh',
+                                    'width': '100%',                    
+                                    border: '1px solid white'
+                                    }">
+               </ngx-skeleton-loader>
+             </div>
+           </div>
+           <div class="row cus-plan-row" *ngIf="passLoader">
+             <ng-container *ngFor="let passData of passData; index as i">
+               <div class="col-md-6 col-sm-12" *ngIf="(i%2)!==0">
+                 <div class="plan_back plan_back_one">
+
+                   <div class="row">
+                     <div class="col-6 pass1">
+                       <h5>Prime</h5>
+                       <h2>{{passData.plan_name}}</h2>
+                       <h6>Buy Prime membership and unlock all test.</h6>
+                       <h4><del style="color: #ddd; font-size: 13px;padding-right: 10px;padding-top: -5px;"><span><i class="fa fa-inr"
+                        aria-hidden="true"></i></span>{{passData.price}}</del><i class="fa fa-inr" aria-hidden="true"></i>{{passData.offer_price}}</h4>
+                     </div>
+                     <div class="col-6 text-right">
+                       <h3>Our Recommendation</h3>
+                       <p>Save
+                         <span>{{(passData.price - passData.offer_price)*100/passData.price | number: "2.0-0"}}%</span>
+                        of your money</p>
+                       <a href="javascript:void(0)" class="btn btn-buynow target1" (click)="PayForPlan(passData.plan_id)"  style="background-image:linear-gradient(#ff8640,#ff0000)">BUY NOW</a>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               <div class="col-md-6 col-sm-12" *ngIf="(i%2)==0">
+                 <div class="plan_back plan_back_two">
+                   <div class="row">
+                     <div class="col-6 pass2">
+                       <h5>Prime</h5>
+                       <h2>{{passData.plan_name}}</h2>
+                       <h6>Buy Prime membership and unlock all test.</h6>
+                       <h4><del style="color: #ddd; font-size: 13px; padding-right: 10px;"><span><i class="fa fa-inr"
+                        aria-hidden="true"></i></span>{{passData.price}}</del><i class="fa fa-inr" aria-hidden="true"></i>{{passData.offer_price}}</h4>
+                     </div>
+                     <div class="col-6 text-right">
+                       <p>Save
+                         <span>{{(passData.price - passData.offer_price)*100/passData.price | number: "2.0-0"}}%</span>
+                         of your money</p>
+                       <a href="javascript:void(0)" class="btn btn-buynow target2" (click)="PayForPlan(passData.plan_id)" style="background-image:linear-gradient(#08c1ec,#08b0ef)">BUY NOW</a>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </ng-container>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+
+ </section>
+
+ <section class="cus_avision_pass_section">
+   <div class="container">
+     <h2 class="text-center main_avi_heading">Why should you buy Avision Prime?</h2>
+     <div class="row">
+       <div class="col-sm-4">
+         <div class="avision_passes">
+           <div class="avision_passes_img"><img src="https://estore.avision24x7.com/frnt_assest/img/pass_ic1.png"
+               class="img-responsive" alt="" style=""></div>
+           <h5 class="avision_passes_head">Best Quality Content</h5>
+           <div class="avision_passes_details">
+             Our content is what brings people back to us every time. We continuously research and try to outperform
+             ourselves and everyone else </div>
+         </div>
+       </div>
+       <div class="col-sm-4">
+         <div class="avision_passes">
+           <div class="avision_passes_img"><img src="https://estore.avision24x7.com/frnt_assest/img/pass_ic2.png"
+               class="img-responsive" alt="" style=""></div>
+           <h5 class="avision_passes_head">Adaptive Learning</h5>
+           <div class="avision_passes_details">
+             Your learning must reflect your preparation. Adaptive Learning helps you start from the level you are at
+             and then takes you higher </div>
+         </div>
+       </div>
+       <div class="col-sm-4">
+         <div class="avision_passes">
+           <div class="avision_passes_img"><img src="https://estore.avision24x7.com/frnt_assest/img/pass_ic3.png"
+               class="img-responsive" alt="" style=""></div>
+           <h5 class="avision_passes_head">All India Ranking</h5>
+           <div class="avision_passes_details">
+             Comparison with thousands of test takers all over the country gives you a better idea about your
+             preparation and progress </div>
+         </div>
+       </div>
+       <div class="col-sm-4">
+         <div class="avision_passes">
+           <div class="avision_passes_img"><img src="https://estore.avision24x7.com/frnt_assest/img/pass_ic4.png"
+               class="img-responsive" alt="" style=""></div>
+           <h5 class="avision_passes_head">Detailed Solutions</h5>
+           <div class="avision_passes_details">
+             Elaborate solutions to every question help you understand your mistakes and in improving your future
+             performance </div>
+         </div>
+       </div>
+       <div class="col-sm-4">
+         <div class="avision_passes">
+           <div class="avision_passes_img"><img src="https://estore.avision24x7.com/frnt_assest/img/pass_ic5.png"
+               class="img-responsive" alt="" style=""></div>
+           <h5 class="avision_passes_head">Insightful Personalized Analytics</h5>
+           <div class="avision_passes_details">
+             Analytics work when they are insightful and actionable. We bring just that and tell you in simple terms
+             where you need to focus </div>
+         </div>
+       </div>
+       <div class="col-sm-4">
+         <div class="avision_passes">
+           <div class="avision_passes_img"><img src="https://estore.avision24x7.com/frnt_assest/img/pass_ic6.png"
+               class="img-responsive" alt="" style=""></div>
+           <h5 class="avision_passes_head">New TCS Theme</h5>
+           <div class="avision_passes_details">
+             All Mock Tests are powered by the new TCS Theme </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+ <!----------------------------------Plan Display Section------------------------------------->
+ <section class="why-take-test-section" style="background: #fff !important;">
+   <div class="auto-container">
+     <div class="sec-title text-center">
+       <h3>It takes less than a minute to access all the tests</h3>
+     </div>
+     <div class="row clearfix">
+
+       <div class="col-lg-4 col-sm-8 mx-auto col-12">
+         <div class="why-test-scries-inner">
+           <img src="https://estore.avision24x7.com/frnt_assest/img/subscribe_icon.png">
+           <h3 style="color: #2b3858;
+           font-size: 17px;
+           font-weight: 600;">Subscribe Avision Prime</h3>
+           <p>Select Avision Prime to subscribe for your exam preparation</p>
+         </div>
+       </div>
+
+       <div class="col-lg-4 col-sm-8 mx-auto col-12">
+         <div class="why-test-scries-inner">
+           <img src="https://estore.avision24x7.com/frnt_assest/img/unlocked_icon.png">
+           <h3 style="color: #2b3858;
+           font-size: 17px;
+           font-weight: 600;">Unlocked all the tests</h3>
+           <p>Its done and you have subscribe to all test series and exams covered in the Avision Prime.</p>
+         </div>
+       </div>
+
+       <div class="col-lg-4 col-sm-8 mx-auto col-12">
+         <div class="why-test-scries-inner">
+           <img src="https://estore.avision24x7.com/frnt_assest/img/unlimited_test_icon.png">
+           <h3 style="color: #2b3858;
+           font-size: 17px;
+           font-weight: 600;">Access to unlimited test and exams</h3>
+           <p>Now take any number of tests till your subscription validity date.</p>
+         </div>
+       </div>
+     </div>
+   </div>
+
+ </section>
+
+
+ <section class="test-series-covered-section">
+   <div class="auto-container">
+     <div class="sec-title text-center">
+       <h3>100+ Test Series Covered</h3>
+     </div>
+     <div class="row mx-auto">
+       <div class="cus-test-tab col-lg-10 col-12 mx-auto">
+         <button class="btn btn-default filter-button active" data-filter="all"
+           (click)="getAllCourseData()">All</button>
+         <ng-container *ngFor="let courseDetails of courseDetails; index as i">
+           <button class="btn btn-default filter-button" id="{{courseDetails.courses_id}}" data-filter="all"
+             (click)="getSubCategory($event)">{{courseDetails.courses_name}}</button>
+         </ng-container>
+
+
+       </div>
+       <br />
+
+       <!-- banking tab -->
+       <ng-container *ngIf="subCategoryAllData">
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 filter bank"
+           *ngFor="let subCategoryData of subCategoryAllData ">
+           <div class="sec-title tab-sec-title">
+             <h4>{{subCategoryData.course_name}}</h4>
+           </div>
+           <div class="test-series-tab-inner">
+             <ul>
+               <li *ngFor="let subCategory of subCategoryData['subCatDetails']">
+                 <a href="javascript:void(0)">
+                   <img src="{{subCategory.course_changed_icon}}" width="50px">
+                   <span>{{subCategory.sub_category_name}}</span>
+                 </a>
+               </li>
+             </ul>
+           </div>
+         </div>
+
+       </ng-container>
+
+       <ng-container *ngIf="subCategoryName">
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 filter bank">
+           <ng-container *ngFor="let subCategoryData of subCategoryName index as i">
+             <div *ngIf="i===0" class="sec-title tab-sec-title">
+               <h4>{{subCategoryData.courses_name}}</h4>
+             </div>
+           </ng-container>
+
+           <div class="test-series-tab-inner">
+             <ul>
+               <li *ngFor="let subCategoryData of subCategoryName">
+                 <a href="javascript:void(0)">
+                   <img src="{{subCategoryData.course_changed_icon}}" width="50px">
+                   <span>{{subCategoryData.sub_category_name}}</span>
+                 </a>
+               </li>
+             </ul>
+           </div>
+         </div>
+
+       </ng-container>
+
+     </div>
+     <!--row-->
+   </div>
+ </section>
+
+
+ <!-- faq section -->
+ <section class="faq-section" id="faq">
+   <div class="auto-container">
+     <!--Accordian Boxed-->
+     <div class="accordian-boxed">
+       <h3>Frequently Asked Questions</h3>
+
+       <!--Accordian Box-->
+       <ul class="accordion-box">
+
+         <!--Block-->
+         <li class="accordion block active-block">
+           <div class="acc-btn active">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>What is Avision Prime?
+           </div>
+           <div class="acc-content current">
+             <div class="content">
+               <div class="text">Avision Prime is a special plan that unlocks all the tests viz; SSC, Banking,Railways,
+                 Teaching ,Defence &amp; other Government Job Exams . With Avision Prime,you can take unlimited tests.
+                 So, this plan will help you to plan for all Exams without losing your focus and solve your concern to
+                 buy different test series for different Exams.</div>
+             </div>
+           </div>
+         </li>
+
+         <!--Block-->
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>When will my Plan expire?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">It depends on which Plan you’ve purchased. Validity of the Plan is mentioned on the
+                 Prime membership and you can also check it in your personalised dashboard or on Plan.</div>
+             </div>
+           </div>
+         </li>
+         <!--Block-->
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Will I be able to access my
+             unattempted tests & Reports of attempted tests after my Plan expires?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">No, You should attempt all your tests before your Plan expires. After your Plan
+                 expires, you will have to renew it to access unattempted and new tests.</div>
+             </div>
+           </div>
+         </li>
+
+         <!--Block-->
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>How many tests and exams do
+             I get when I buy the Avision Prime Plan?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">With AvisionPrime Plan, all the tests in SSC, BANKING, Railways & Other Government
+                 Exams on Avision are unlocked. There is no limit on the tests you can attempt after you buy the Plan.
+                 As long as your Plan is valid, you can take as many tests as you can.</div>
+             </div>
+           </div>
+         </li>
+
+         <!--Block-->
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>What happens if I renew the
+             Plan before the expiry date?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">If you renew the Plan before the expiry date, the duration of Plan simply gets added to
+                 the remaining days in your currently active Plan. For example, if you renew your Yearly Plan 5 days
+                 before the expiry date, your renewed Plan will now be valid for a total of 370 days.</div>
+             </div>
+           </div>
+         </li>
+
+         <!--Block-->
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>How can I renew my Avision
+             Prime Plan?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">You can renew the Avision Prime Plan before the expiry, just like you purchased it. You
+                 will be notified through email & SMS when your expiry date will approach. Once the renewal process has
+                 been completed, validity of your Plan will be extended accordingly</div>
+             </div>
+           </div>
+         </li>
+         <!--Block-->
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Can I attempt a test
+             multiple times?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">A test can be attempted only once. However, you can refer to the solutions and analysis
+                 of the attempted tests as many times as you want.
+               </div>
+             </div>
+           </div>
+         </li>
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>How many days validity I
+             get with a Plan?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">We assume each month to have 30 days. Therefore, 1 month Plan has the validity of 30
+                 days. For 1 Year Plan validity is of 365 days.
+               </div>
+             </div>
+           </div>
+         </li>
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>I do not have online
+             payment activated, can I use any other mode for payment?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">You can use your Debit card, ATM card, Credit card, Netbanking account or payment
+                 wallets like Paytm to pay for the package. If you do not have any of the above payment methods, send us
+                 an email at support@avision.co.inand we will suggest an alternative method.
+               </div>
+             </div>
+           </div>
+         </li>
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>I do not have online
+             payment activated, can I use any other mode for payment?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">You can use your Debit card, ATM card, Credit card, Netbanking account or payment
+                 wallets like Paytm to pay for the package. If you do not have any of the above payment methods, send us
+                 an email at support@avision.co.inand we will suggest an alternative method.
+               </div>
+             </div>
+           </div>
+         </li>
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Will I get the refund if I
+             want to stop using it before the Plan expiry?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">Refund can be initiated only if requested within 48 hours of purchase of the Plan.
+                 Amount will be refunded if you have taken only Free Tests, and have not attempted any test(s) covered
+                 under Plan.
+               </div>
+             </div>
+           </div>
+         </li>
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>How can I apply for the
+             refund?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">To apply for a refund, you need to write an email to us at support@avision.co.inwithin
+                 48 hours of purchase, mentioning in detail the reason for requesting a refund.
+               </div>
+             </div>
+           </div>
+         </li>
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Till when can I access the
+             solutions and analysis of my attempted tests?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">To access solutions and analysis, you should have a valid Plan and test shouldn't have
+                 expired. Attempted Tests will be available for review till 15 days after Test Expiry date.
+               </div>
+             </div>
+           </div>
+         </li>
+         <li class="accordion block">
+           <div class="acc-btn">
+             <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>If I renew the Plan, can I
+             get to reattempt the tests that I have already taken?
+           </div>
+           <div class="acc-content">
+             <div class="content">
+               <div class="text">No, attempted tests cannot be re-attempted. Although, you can reattempt all incorrect
+                 and skipped questions using the reattempt feature available for Tests. To access Attempted Tests, you
+                 must have a valid Plan.
+               </div>
+             </div>
+           </div>
+         </li>
+       </ul>
+
+     </div>
+   </div>
+ </section>
+
+ <!-- end faq section -->
+
+
+ <section class="partners-section"
+   style="background:url('assets/images/back_3.png');background-repeat:no-repeat;background-size:cover;">
+   <div class="auto-container">
+     <div class="row clearfix">
+
+       <!--Title Column-->
+       <div class="title-column col-md-8 col-sm-8 col-12">
+         <div class="inner-column">
+           <h2>Start Your Exam Preparation Now!</h2>
+           <div class="text">Practice, Analyze and Improve.</div>
+           <a [routerLink]="['liveclass']" class="theme-btn btn-style-one">Explore Courses</a>
+         </div>
+       </div>
+
+       <!--Partners Column-->
+       <div class="partners-column col-md-4 col-sm-4 col-12">
+         <div class="partner-block">
+           <div class="inner-box">
+             <img src="assets/images/explore-courses.png">
+           </div>
+         </div>
+
+       </div>
+
+     </div>
+   </div>
+ </section>

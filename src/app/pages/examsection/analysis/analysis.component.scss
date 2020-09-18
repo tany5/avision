@@ -1,0 +1,119 @@
+:host{
+  background:#ddd;
+}
+.app-toolbar-bottom {
+  width:100%;
+  position: fixed;
+  top: 0;
+  bottom: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  width:100%;
+  position: fixed;
+  
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,.3);
+  overflow: hidden;
+  margin-right: 120px;
+}
+
+:focus {outline:0 !important;}
+.float-right-button {
+  margin-right: 90px !important;
+  margin-left: 10px !important;
+}
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  & > [class^="col-"],
+  & > [class*=" col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+h3{
+  font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+}
+
+mat-card {
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.5), 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+
+  margin: 3rem 0px;
+}
+
+.icon-span {
+  vertical-align: sub;
+}
+
+.icon-span mat-icon, .icon-span i{
+  color:#fff;
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+  padding-top: 12px;
+}
+.span-red mat-icon{
+  background-color: #e4174f;
+}
+.span-purple i{
+  background-color: #8942e5;
+}
+.span-sky mat-icon{
+  background-color: #0ad0f4;
+}
+
+.span-green mat-icon{
+  background-color: green;
+}
+.span-blue mat-icon{
+  background-color: #6c62f9;
+}
+.text-span p span{
+  font-size: 14px;
+  font-weight: 600;
+  color: #86a1ae;
+}
+.text-span p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+
+.text-span {
+  padding-top:3px;
+}
+.text-span p{
+  line-height: 0.6rem;
+}
+.topper-list .card {
+  padding:20px 10px;  
+}
+.topper-list .card p {
+  padding-top:4px;
+  vertical-align: middle;
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.bg-success .mat-progress-bar-fill::after {
+  background-color: green !important;
+}
+
+
+  

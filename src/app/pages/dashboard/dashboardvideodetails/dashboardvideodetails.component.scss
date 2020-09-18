@@ -1,0 +1,378 @@
+.vid_cor_count_div ul{
+    display:table;
+    
+    }
+    .vid_cor_count_div ul li{
+    display:table-cell;
+    vertical-align: middle;
+    border:1px solid #ddd;
+    padding:5px;
+    }
+    .vid_cor_count_div ul li:first-child{
+    font-size:40px;
+    padding:10px 15px;
+    background: #f3f3f3;
+    }
+    .vid_cor_count_div ul li i{
+    color: #207dff;
+    }
+    .vid_cor_count_div ul li:last-child{
+    padding-left:20px;
+    width:100%;
+    }
+    .vid_cor_count_div ul li b{
+    display:block;
+    line-height:20px;
+    color:#000;
+    }
+    .vid_cor_count_div ul li span{
+    display:block;
+    line-height:20px;
+    font-size:14px;
+    }
+    .vid_courses_right_details{
+    background:#fff;
+    border:1px solid #ddd;
+    padding:15px;
+    }
+    .vid_detail_img{
+    margin-bottom:15px;
+    }
+    .vid_detail_price{
+    text-align:center;
+    
+    }
+    .vid_detail_price h5{
+    font-size:25px;
+    color:#000;
+    font-weight:600;
+    margin:10px 0 40px;
+    }
+    .vid_main_price{
+    color:#aaa;
+    text-decoration:line-through;
+    font-size:20px;
+    font-weight: 300;
+    }
+    .vid_offer_per{
+    font-weight: 300;
+        font-size: 13px;
+        color: #13be09;
+    }
+    .vid_btn_buynow{
+    display: block;
+        margin: 12px auto;
+        width: 100%;
+        padding: 10px;
+        background: #207dff;
+        color: #fff;
+    }
+    .vid_btn_buynow:hover{
+    background:#0c60d6;
+    color:#fff;
+    }
+    .video_courses_details_inner .sticky{
+    position:sticky;
+    top:90px;
+    }
+    .vid_chapter_main{
+    display:block;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:5px;
+    padding:10px;
+    cursor:pointer;
+    margin:15px 0;
+    }
+    .vid_chapter_main ul {
+    display:table;
+    }
+    .vid_chapter_main ul li:first-child{
+    border-right:1px solid #ddd;
+    padding-right:5px;
+    }
+    .vid_chapter_main ul li{
+    display:table-cell;
+    vertical-align:middle;
+    }
+    .vid_chapter_main ul li h4{
+    color:#207dff;
+    font-size:18px;
+    padding-left:15px;
+    line-height:23px;
+    }
+    .vid_chapter_main ul li h4 span{
+    display:block;
+    font-size:12px;
+    color:#999;
+    }
+    .vid_subchapter_heading{
+    position:relative;
+    margin-bottom:30px;
+    }
+    .vid_subchapter_heading h3{
+    font-size: 20px;
+        color: #000;
+    }
+    .vid_subchapter_main{
+    display:block;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:5px;
+    padding:10px;
+    cursor:pointer;
+    margin:10px 0;
+    }
+    .vid_subchapter_main ul {
+    display:table;
+    }
+    
+    .vid_subchapter_main ul li{
+    display:table-cell;
+    vertical-align:middle;
+    }
+    .vid_subchapter_main ul li:first-child{
+    border-right:1px solid #ddd;
+    padding-right:5px;
+    width:70px;
+    height:70px;
+    position:relative;
+    text-align:center;
+    color:#fff;
+    }
+    .vid_subchapter_main ul li:first-child span{
+    position:relative;
+    color:#fff;
+    z-index:2;
+    font-size:18px;
+    font-weight:600;
+    }
+    .vid_subchapter_main ul li:first-child span:after{
+    content:'';
+    position:absolute;
+    width:50px;
+    height:50px;
+    background:#31d8a6;
+    border-radius:50%;
+    top: 50%;
+        transform: translate(-50%, -50%);
+        left: 50%;
+    z-index:-1;
+    }
+    .vid_subchapter_main ul li h4{
+    color:#207dff;
+    font-size:18px;
+    padding-left:15px;
+    line-height:23px;
+    }
+    .vid_subchapter_main ul li h4 span{
+    display:block;
+    font-size:12px;
+    color:#999;
+    }
+    .vid_cus_row .col-md-12:nth-child(even) .vid_subchapter_main ul li:first-child span:after{
+    background:#ff926e;
+    }
+    .vid_cus_row .col-md-12:nth-child(odd) .vid_subchapter_main ul li:first-child span:after{
+    background:#31d8a6;
+    }
+    .vid_section_back{
+    position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .vid_subchapter_heading_two{
+    position:relative;
+    margin-bottom:30px;
+    }
+    .vid_subchapter_heading_two h3{
+    font-size: 14px;
+        color: #b1b1b1;
+        font-weight: 300;
+    }
+    .vid_subchapter_heading_two h3 span{
+    color: #000;
+        font-size: 16px;
+        display: block;
+    }
+    .vid_subchapter_videos{
+    display:block;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:5px;
+    padding:10px;
+    cursor:pointer;
+    margin:10px 0;
+    }
+    .vid_subchapter_videos ul {
+    display:table;
+    width:100%;
+    }
+    
+    .vid_subchapter_videos ul li{
+    display:table-cell;
+    vertical-align:middle;
+    }
+    .vid_subchapter_videos ul li:first-child{
+    border-right:1px solid #ddd;
+    padding-right:5px;
+    width: 30px;
+        text-align: center;
+    color:#8a3c3c;
+    }
+    .vid_subchapter_videos ul li h4{
+    font-size: 19px;
+        padding-left: 25px;
+        color: #000;
+    }
+    .vid_subchapter_videos ul li:last-child{
+    width: 100px;
+    }
+    .lock_video{
+    position:relative;
+    }
+    .lock_video:before{
+    content:'';
+    position:absolute;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.2);
+    z-index:1;
+    }
+    .lock_video:after{
+    content: "\f023";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+    /*--adjust as necessary--*/
+        color: #fff;
+        font-size: 23px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0 auto;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+    }
+    .vid_modal .close{
+    position:absolute;
+    right:15px;
+    top:15px;
+    }
+    
+    @media screen and (max-width:992px) and (min-width: 768px){
+    .vid_cor_count_div ul{
+    display:block;
+    }
+    .vid_cor_count_div ul li{
+    display:block;
+    text-align:center;
+    width:100%;
+    }
+    }
+    @media screen and (max-width:767px){
+    .video_courses_details_inner .sticky{
+    position:initial;
+    top:0;
+    }
+    .sec-title{
+    float:left;
+    text-align: center;
+    width: 100%;
+    }
+    .vid_cor_count_div{
+    margin:10px 0;
+    }
+    .vid_detail_price{
+    position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 99999;
+        left: 0;
+        right: 0;
+        text-align: left;
+        padding: 10px;
+        display: table;
+    }
+    .vid_detail_price h5{
+    display: table-cell;
+        margin: 0;
+    }
+    .vid_btn_buynow{
+    display: table-cell;
+        width: auto;
+    }
+    .video_courses_details_inner{
+    position:static !important;
+    }
+    }
+    /*=======================================*/
+    /*=============== View Courses ==============*/
+    /*=======================================*/
+
+
+
+    .sticky-top {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 100px;
+        z-index: 90;
+    }
+
+    
+    
+    .courses_instructors {
+        min-height: 30vh;
+    }
+    .student-review-star {
+        float: right !important;
+    }
+    
+    .refar-back {
+        width: 100%;
+        float: left;
+        background: #ff976d;
+        padding: 50px 15px 200px;
+    }
+    
+    @media screen and (max-width: 600px) {
+        // .courses_instructors {
+        //     height: 45vh;
+        // }
+    
+        .student-review-star {
+            float: left !important;
+            top: 60px;
+        }
+    }
+
+    .btn_view_course {
+        background: #f10aca;
+        border: 1px solid #f10aca;
+        font-weight: 600;
+    }
+    .btn_view_course:hover {
+        background: #f10aca!important;
+        border: 1px solid #f10aca!important;
+        font-weight: 600;
+    }
+
+    /************************************/
+/**********liveclass 20-06-2020 css **********/
+/************************************/
+.cus-page-title-two {padding:80px 0;}
+.cus-page-title-two h1{font-size:22px;text-align:left;color:#fff;}
+.cus-page-title-two p{color:#fff;}
+.liveclasses-tag{font-size:12px;display: inline-block;background: #fb1212;color: #fff;padding: 2px 5px;border-radius: 3px;margin-bottom: 7px;}
+.liveclasses-tag i{font-size:10px;}
+.cus-mg-top{margin-top:-140px;}
+.what_get li{display: table-cell;vertical-align: top;padding: 10px 8px;}
+.what_get li h4{font-size: 16px;font-weight: 600;margin-bottom: 6px;color: #636363;}
+.what_get li p{font-size: 14px;margin-bottom: 6px;color: #636363;}
+.btn-link:hover{text-decoration: none!important;}
+.courses_instructors_details img{border-radius: 0px !important}
+.courses_instructors1{margin: 15px 0;background: #fff;border: 1px solid #ddd;padding: 10px 15px;box-shadow: 0 0 3px #ddd;}

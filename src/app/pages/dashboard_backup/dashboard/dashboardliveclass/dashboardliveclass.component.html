@@ -1,0 +1,231 @@
+<!--Page Title-->
+<section class="page-title cus-page-title"
+  style="background-image:url(assets/images/background/pattern-4.png);  margin-top: -30px;">
+  <div class="container">
+    <h1>Live Classes</h1>
+    <!-- <p>SBI PO 2019 Exam is a wonderful opportunity for you to turn your dreams into reality! Get all information about onlinesbi po - syllabus, preparation guide, last date to apply, exam dates, admit card, latest exam pattern and results here. Kick start your preparation now!</p> -->
+  </div>
+  <!--Page Info-->
+  <div class="page-info">
+    <div class="container">
+      <div class="inner-container">
+        <ul class="bread-crumb">
+          <li><a [routerLink]="['/dashboard']">Home</a></li>
+          <li>Live Classes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--End Page Info-->
+</section>
+<!--End Page Title-->
+
+
+<section id="banking-courses" class="blog-page-section populer-course-section all-courses-section">
+  <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+    <div class="auto-container">
+      <div class="sec-title">
+        <h3>Live Classes</h3>
+      </div>
+      <div class="row" *ngIf="!liveCLassLoader">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 ">
+          <ngx-skeleton-loader [theme]="{
+                  'border-radius': '5px',
+                  height: '250px',
+                  border: '1px solid white'
+                  }"></ngx-skeleton-loader>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 ">
+          <ngx-skeleton-loader [theme]="{
+                  'border-radius': '5px',
+                  height: '250px',
+                  border: '1px solid white'
+                  }"></ngx-skeleton-loader>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12 ">
+          <ngx-skeleton-loader [theme]="{
+                  'border-radius': '5px',
+                  height: '250px',
+                  border: '1px solid white'
+                  }"></ngx-skeleton-loader>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <ngx-skeleton-loader [theme]="{
+                  'border-radius': '5px',
+                  height: '250px',
+                  border: '1px solid white'
+                  }"></ngx-skeleton-loader>
+        </div>
+      </div>
+      <div class="row" *ngIf="liveCLassLoader">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12" *ngFor="let liveClassData of liveClassData">
+          <div class="card">
+            <div class="video_courses_img">
+              <img src="{{liveClassData.image}}">
+              <div class="video_overlay">
+                <img src="assets/images/icon-videos.png" width="70px">
+              </div>
+            </div>
+            <div class="cus-courses-price">
+              <span><i class="fas fa-rupee-sign"></i> {{liveClassData.product_offer_price}}</span>
+            </div>
+            <div class="card-body">
+              <div class="lower-content">
+                <div class="upper">
+                  <h3><a href="#">{{liveClassData.live_class_title}}</a></h3>
+                  <p class="courses_tags"></p>
+                  <hr />
+                  <div class="post-limit">Start Date: {{liveClassData.start_date}}</div>
+                </div>
+                <a (click)="gotoLiveClassComponent(liveClassData.product_id)"
+                  class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--row-->
+    </div>
+  </div>
+</section>
+
+
+<!--Testimonial Section-->
+<section class="testimonial-section" style="background-image:url(assets/images/background/2.png)">
+  <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+    <div class="container">
+      <div class="row">
+        <div class="title-column col-md-5 col-sm-12 col-12">
+          <div class="inner-column">
+            <h2>What <br> Says Our Students</h2>
+          </div>
+        </div>
+      </div>
+      <owl-carousel-o [options]="customOptions3">
+        <ng-template carouselSlide *ngFor="let timonialDetails of timonialDetails">
+          <div class="slide">
+            <div class="testimonial-block">
+              <div class="inner-box">
+
+                <div class="text">
+                  <div class="quote-icon">
+                    <span class="icon flaticon-straight-quotes"></span>
+                  </div>
+                  <p>{{timonialDetails.content}}</p>
+                </div>
+                <div class="author-info">
+                  <div class="author-inner">
+                    <div class="image"><img src="assets/images/resource/{{timonialDetails.image}}" alt="" /></div>
+                    <h3>{{timonialDetails.user_name}}</h3>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>
+<!--End Testimonial Section-->
+
+
+<section class="faq-section">
+  <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+    <div class="auto-container">
+      <!--Accordian Boxed-->
+      <div class="accordian-boxed">
+        <h3>Frequently Asked Questions</h3>
+
+        <!--Accordian Box-->
+        <ul class="accordion-box" id="faq_box">
+
+          <!--Block-->
+          <li class="accordion block active-block">
+            <div class="acc-btn active">
+              <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>In what languages mock
+              tests
+              are available?
+            </div>
+            <div class="acc-content current">
+              <div class="content">
+                <div class="text">Tests are provided either in English or in both English and Hindi. For a particular
+                  test, you may check the languages it is available in while purchasing the package.</div>
+              </div>
+            </div>
+          </li>
+
+          <!--Block-->
+          <li class="accordion block">
+            <div class="acc-btn">
+              <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>I have completed a mock
+              test. When will I get my score?
+            </div>
+            <div class="acc-content">
+              <div class="content">
+                <div class="text">On submission of your mock test, your score and All-India rank would be immediately
+                  generated. The All India ranking is dynamic in nature and it would change as more users attempt that
+                  mock test.</div>
+              </div>
+            </div>
+          </li>
+
+
+          <!--Block-->
+          <li class="accordion block">
+            <div class="acc-btn">
+              <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>What happens if I get
+              disconnected during a test?
+            </div>
+            <div class="acc-content">
+              <div class="content">
+                <div class="text">If you get disconnected while attempting a test, all your data till the disconnection
+                  will get saved and you will be able to resume from the same state later. You are advised to close the
+                  test window in this case and resume when you have connectivity again.</div>
+              </div>
+            </div>
+          </li>
+
+          <!--Block-->
+          <li class="accordion block">
+            <div class="acc-btn">
+              <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Can I attempt a test more
+              than once?
+            </div>
+            <div class="acc-content">
+              <div class="content">
+                <div class="text">A test can be attempted only once. However, you can review the solutions and analysis
+                  of
+                  the attempted tests as many times as you want.</div>
+              </div>
+            </div>
+          </li>
+
+          <!--Block-->
+          <li class="accordion block">
+            <div class="acc-btn">
+              <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>I do not have online
+              payment
+              activated. Can i use any other mode of payment ?
+            </div>
+            <div class="acc-content">
+              <div class="content">
+                <div class="text">You can use your Debit card, ATM card, Credit card, Netbanking account or payment
+                  wallets like Paytm/PayZapp/Freecharge/Ola Money to pay for the PLAN. If you do not have any of the
+                  above
+                  payment methods, send us an email at support@AVISION.CO.IN and we will suggest an alternative method.
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</section>

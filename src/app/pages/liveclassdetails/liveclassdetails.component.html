@@ -1,0 +1,304 @@
+<!--Page Title-->
+<section class="page-title cus-page-title" style="background-image:url(assets/images/background/pattern-4.png);">
+    <div class="auto-container">
+        <h1>Live Course Details</h1>
+        <!-- <p>SBI PO 2019 Exam is a wonderful opportunity for you to turn your dreams into reality! Get all information about onlinesbi po - syllabus, preparation guide, last date to apply, exam dates, admit card, latest exam pattern and results here. Kick start your preparation now!</p> -->
+    </div>
+
+</section>
+<!--End Page Title-->
+
+<!-- view courses header -->
+<section class="view-courses-header">
+    <div class="auto-container">
+        <ul class="cus-bread-crumb">
+            <li><a [routerLink]="['/']">Home</a></li>
+            <li>Video Details</li>
+        </ul>
+    </div>
+</section>
+<!-- end view courses header -->
+
+<section class="courses-main-detail-section video_courses_details_inner">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <div class="col-sm-5 col-md-4  d-block d-sm-none" *ngIf="!liveClassLoader">
+                <ngx-skeleton-loader [theme]="{ 
+                    'border-radius': '5px',
+                    height: '40vh',
+                    'width': '100%',                    
+                    border: '1px solid white'
+                    }"></ngx-skeleton-loader>
+
+            </div>
+            <div class="col-sm-5 col-md-4  d-block d-sm-none" *ngIf="liveClassLoader">
+                <div class="vid_courses_right_details">
+                    <div class="vid_detail_img">
+                        <img src="{{image}}" class="img-responsive">
+                    </div>
+                    <div class="vid_detail_price">
+                        <div class="courses_detail_price_back">
+                            <h2 class="main_price"><i aria-hidden="true" class="fa fa-inr"></i> {{product_offer_price}}
+                                <span><i aria-hidden="true" class="fa fa-inr"></i>{{product_price}} </span>
+                                <div class="vid_offer_per">{{(product_price - product_offer_price )*100 / product_price | number: "2.0-0"}}% off</div>
+                            </h2>
+                            <ul class="courses_detail_price_btns" id="{{prodId}}">
+                                <li><a class="btn btn-outline-primary" [routerLink]="['liveclass-dashboard',encryptProdId]" *ngIf="showurl">Take Free Demo</a>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal" class="btn btn-outline-primary" *ngIf="!showurl">Take Free Demo</a>
+                                </li>
+                            </ul>
+                            <hr>
+                            <p>Limited Seats Only!!</p>
+                        </div>
+
+                        <div class="free_subscription text-center">
+                            <p>Get 3 months <span>Avision Plan</span> Subscription worth Rs. 299 for <span>FREE</span> with this course!!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7 col-md-8" *ngIf="!liveClassLoader">
+                <ngx-skeleton-loader [theme]="{ 
+                        'border-radius': '5px',
+                        height: '40vh',
+                        'width': '100%',                    
+                        border: '1px solid white'
+                        }"></ngx-skeleton-loader>
+            </div>
+            <div class="col-sm-7 col-md-8" *ngIf="liveClassLoader">
+                <div class="sec-title">
+                    <h3>{{productName}}</h3>
+                    <ul class="update_couses_detail">
+                        <li>Starts on {{start_date}} </li>
+                        <li>Duration: {{validity}} Days</li>
+                        <li>Language: English &amp; Hindi</li>
+                    </ul>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <div class="live_classes_count">
+                            <ul>
+                                <li>{{live_class}}+ <span>Live Class</span></li>
+                                <li>{{mock_test}}+ <span>Mock Test</span></li>
+                                <li>{{pdf_notes}}+ <span>PDF Notes</span></li>
+                                <li>{{practice_question}}+ <span>Practice Questions</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="courses-main-detail">
+                    <h4>Description</h4>
+                    <div [innerHTML]="description"></div>
+                </div>
+                <hr>
+
+                <div class="what_need">
+                    <h4>What You Need For This Course?</h4>
+                    <ul>
+                        <li>Access to Smart Phone / Computer</li>
+                        <li>Good Internet Speed (Wifi/3G/4G)</li>
+                        <li>Good Quality Earphones / Speakers</li>
+                        <li>Basic Understanding of English &amp; Hindi</li>
+                        <li>Dedication &amp; Confidence to clear any exam</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-5 col-md-4 h-100 sticky-top d-none d-sm-block" *ngIf="!liveClassLoader">
+                <ngx-skeleton-loader [theme]="{ 
+                    'border-radius': '5px',
+                    height: '60vh',
+                    'width': '100%',                    
+                    border: '1px solid white'
+                    }"></ngx-skeleton-loader>
+            </div>
+
+            <div class="col-sm-5 col-md-4 h-100 sticky-top d-none d-sm-block" *ngIf="liveClassLoader">
+                <div class="vid_courses_right_details">
+                    <div class="vid_detail_img">
+                        <img src="{{image}}" class="img-responsive">
+                    </div>
+                    <div class="vid_detail_price">
+                        <div class="courses_detail_price_back">
+                            <h2 class="main_price"><i aria-hidden="true" class="fa fa-inr"></i> {{product_offer_price}}
+                                <span><i aria-hidden="true" class="fa fa-inr"></i>{{product_price}} </span>
+                                <div class="vid_offer_per">{{(product_price - product_offer_price )*100 / product_price | number: "2.0-0"}}% off</div>
+                            </h2>
+                            <ul class="courses_detail_price_btns" id="{{prodId}}">
+                                <li><a class="btn btn-outline-primary" [routerLink]="['liveclass-dashboard',encryptProdId]" *ngIf="showurl">Take Free Demo</a>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal" class="btn btn-outline-primary" *ngIf="!showurl">Take Free Demo</a>
+                                </li>
+                            </ul>
+                            <hr>
+                            <p>Limited Seats Only!!</p>
+                        </div>
+
+                        <div class="free_subscription text-center">
+                            <p>Get 3 months <span>Avision Plan</span> Subscription worth Rs. 299 for <span>FREE</span> with this course!!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!--Testimonial Section-->
+<section class="live_class_teacher">
+    <div class="container">
+        <div class="row">
+            <div class="title-column col-md-5 col-sm-12 col-12">
+                <div class="inner-column">
+                    <h2>Know Your Teachers</h2>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="teacherLoader">
+            <owl-carousel-o [options]="customOptions" *ngIf="teacherDetails.length > 4">
+                <ng-template carouselSlide *ngFor="let timonialDetails of teacherDetails">
+                    <div class="slide">
+                        <div class="courses_instructors">
+                            <div class="instructor-carousel">
+                                <div class="courses_instructors_details text-center">
+                                    <img style="width: 85px; height: 85px;" src="{{timonialDetails.teacher_image}}">
+                                    <h4>{{timonialDetails.teacher_name}}</h4>
+                                    <p>{{timonialDetails.teacher_designation}}</p>
+                                    <hr>
+                                    <p style="font-weight: 600;min-height: 97px;">{{timonialDetails.teacher_experience}} Years Of Experience<br/>{{timonialDetails.teacher_mentored}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+        <div class="row" *ngIf="!teacherLoader">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <ngx-skeleton-loader [theme]="{ 
+                'border-radius': '5px',
+                height: '30vh',
+                'width': '100%',                    
+                border: '1px solid white'
+                }"></ngx-skeleton-loader>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <ngx-skeleton-loader [theme]="{ 
+                'border-radius': '5px',
+                height: '30vh',
+                'width': '100%',                    
+                border: '1px solid white'
+                }"></ngx-skeleton-loader>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <ngx-skeleton-loader [theme]="{ 
+                'border-radius': '5px',
+                height: '30vh',
+                'width': '100%',                    
+                border: '1px solid white'
+                }"></ngx-skeleton-loader>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <ngx-skeleton-loader [theme]="{ 
+                'border-radius': '5px',
+                height: '30vh',
+                'width': '100%',                    
+                border: '1px solid white'
+                }"></ngx-skeleton-loader>
+            </div>
+        </div>
+
+
+        <div *ngIf="teacherLoader">
+            <div class="row" *ngIf="teacherDetails?.length < 5">
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-10 mx-auto" *ngFor="let timonialDetails of teacherDetails">
+                    <div class="courses_instructors">
+                        <div class="instructor-carousel">
+                            <div class="courses_instructors_details text-center">
+                                <img style="width: 85px; height: 85px;" src="{{timonialDetails.teacher_image}}">
+                                <h4>{{timonialDetails.teacher_name}}</h4>
+                                <p>{{timonialDetails.teacher_designation}}</p>
+                                <hr>
+                                <p style="font-weight: 600;min-height: 97px;">{{timonialDetails.teacher_experience}} Years Of Experience<br/>{{timonialDetails.teacher_mentored}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+<section class="student-review-section">
+    <div class="container">
+        <div class="row">
+            <div class="title-column col-md-5 col-sm-12 col-12">
+                <div class="inner-column">
+                    <h2>Student Reviews</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="!testimonialLoader">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                <ngx-skeleton-loader [theme]="{ 
+                'border-radius': '5px',
+                height: '30vh',
+                'width': '100%',                    
+                border: '1px solid white'
+                }"></ngx-skeleton-loader>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                <ngx-skeleton-loader [theme]="{ 
+                'border-radius': '5px',
+                height: '30vh',
+                'width': '100%',                    
+                border: '1px solid white'
+                }"></ngx-skeleton-loader>
+            </div>
+        </div>
+        <div class="row" *ngIf="testimonialLoader">
+            <div class="col-lg-12 col-12">
+                <owl-carousel-o [options]="customOptions2">
+                    <ng-template carouselSlide *ngFor="let timonialDetails of timonialDetails">
+                        <div class="student-review">
+                            <!-- slide-->
+                            <div class="student-review-block">
+                                <div class="student-review-inner-block">
+                                    <div class="review-student-details col-lg-12 col-12">
+
+
+                                        <ul class="review-students">
+                                            <li><img src="assets/images/resource/{{timonialDetails.image}}"></li>
+                                            <li>
+                                                <h3>{{timonialDetails.user_name}}</h3>
+                                            </li>
+                                        </ul>
+
+                                        <ul class="student-review-star">
+                                            <li><i class="fa fa-star" aria-hidden="true" *ngFor="let i of createRange(timonialDetails.rating)"></i></li>
+                                        </ul>
+
+
+                                    </div>
+                                    <div class="student-review-content">
+                                        <p>"{{timonialDetails.content}}"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </owl-carousel-o>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- student review section end -->

@@ -1,0 +1,93 @@
+<div id="contents">
+  <div class="auto-container">
+    <div class="take_demo_main_div">
+      <div class="row clearfix take_demo_back">
+        <div class="col-sm-4 col-md-3">
+          <ul class="nav nav-tabs live_class_study_tab" *ngIf="!subjectLoader">
+            <ngx-skeleton-loader                   
+                [theme]="{ 
+                'border-radius': '5px',
+                height: '250px',                    
+                border: '1px solid white'
+                }">
+              </ngx-skeleton-loader>
+          </ul>
+          <ul class="nav nav-tabs live_class_study_tab" *ngIf="subjectLoader">
+            <ng-container *ngFor="let subjectList of subjectList index as i">
+              <li *ngIf="i==0" class="active col-12" (click)="getSubjectVideo(subjectList.subject_id)">
+                <a class="active" data-toggle="tab">{{subjectList.subject_name}}
+                  <span>{{subjectList.live_vdo_count}} Live videos</span></a>
+              </li>
+              <li class="col-12" *ngIf="i >0" (click)="getSubjectVideo(subjectList.subject_id)">
+                <a  data-toggle="tab">{{subjectList.subject_name}}
+                  <span>{{subjectList.live_vdo_count}} Live videos</span></a>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+        <div class="col-sm-8 col-md-9" *ngIf="!chapterLoader">
+          <ngx-skeleton-loader                   
+          [theme]="{ 
+          'border-radius': '5px',
+          height: '70vh',                    
+          border: '1px solid white'
+          }">
+        </ngx-skeleton-loader>
+        </div>
+
+        <div class="col-sm-8 col-md-9" *ngIf="chapterLoader">
+          <div id="accordion">
+            <div class="card" *ngFor="let videoList of videoList index as count">
+              <div class="card-header" id="headingOne" class="btn btn-link" data-toggle="collapse" [attr.data-target]="'#collapse'+videoList.chapter_id" aria-expanded="true"
+              aria-controls="collapseOne">
+                <h5 class="mb-0">
+                  
+                   <h5 class="text-left subject_header panel-title">{{(count)+1}}. {{videoList.chapter_name}}</h5> 
+                  
+                </h5>
+              </div>
+
+              <div *ngIf="count==0" id="collapse{{videoList.chapter_id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body" *ngFor="let video of videoList.videos">
+                  <div  class="row clearfix">
+                    <div  class="col-sm-12 col-md-8 col-12 col-12">
+                      <h5  class="take_demo_text">{{video.vdo_title}} <span
+                           class="live_class">Live Class</span></h5>                      
+                      <p ><i  aria-hidden="true" class="fa fa-calendar"></i>
+                        {{video.vdo_date}} | {{video.time}} {{video.province}}</p>
+                    </div>
+                    <div  class="col-sm-12 col-md-4 col-12 text-center">
+                      <a  class="btn btn-info" target="_blank"
+                        href="http://estore.avision24x7.com/student_dashboard/live_class_auth_cpanel/{{prodId}}-{{video.video_id}}">View
+                        Class</a></div>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="count >0" id="collapse{{videoList.chapter_id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body" *ngFor="let video of videoList.videos">
+                  <div  class="row clearfix">
+                    <div  class="col-sm-12 col-md-8 col-12 col-12">
+                      <h5  class="take_demo_text">{{video.vdo_title}} <span
+                           class="live_class">Live Class</span></h5>                      
+                      <p ><i  aria-hidden="true" class="fa fa-calendar"></i>
+                        {{video.vdo_date}} | {{video.time}} {{video.province}}</p>
+                    </div>
+                    <div  class="col-sm-12 col-md-4 col-12 text-center">
+                      <a  class="btn btn-info" target="_blank"
+                        href="http://estore.avision24x7.com/student_dashboard/live_class_auth_cpanel/{{prodId}}-{{video.video_id}}">View
+                        Class</a></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

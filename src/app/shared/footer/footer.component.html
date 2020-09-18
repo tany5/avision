@@ -1,0 +1,125 @@
+<footer class="main-footer">
+    <div class="auto-container">
+        <div class="footer-top">
+            <div class="widgets-section">
+                <div class="row clearfix">
+                <!--Column-->
+                    <div class="column col-md-12 col-sm-12 col-12">
+                        <div class="footer-widget links-widget">
+                            <div class="footer-title">
+                                <h2>Exams</h2>
+                            </div>
+                            <div class="widget-content">
+                                <div class="row clearfix">
+                                    <div class="widget-column col-md-3 col-sm-3 col-12" *ngFor="let footerData of footerData">
+                                        <ul class="footer-list">
+                                            <li><a href="courseinfo/{{footerData.sub_cat_slug}}" class="footer-list">{{footerData.sub_category_name}}</a></li>
+                                           
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <hr>
+
+            	<!--Widgets Section-->
+                <div class="widgets-section">
+                    <div class="row clearfix">
+                        <!--Column-->
+                        <div class="column col-md-4 col-sm-6 col-xs-12">
+                            <div class="footer-widget office-widget">
+                                <div class="footer-title">
+                                    <img src="assets/images/logo.png" width="170px;">
+                                </div>
+                                <div class="widget-content">
+                                    <div class="">
+                                        
+                                        <div class="office-info">
+                                            <ul>
+                                                <li><strong>Address:</strong></li>
+                                                <li>241/31, G.T. Road, 2nd Floor, Liluah, Howrah - 711204, West Bengal, India</li>
+                                                <li><strong>Email:</strong></li>
+                                                <li><a href="mailto:avisioninstitute@gmail.com">avisioninstitute@gmail.com</a></li>
+                                            </ul>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Column-->
+                        <div class="column col-md-4 col-sm-6 col-xs-12">
+                            <div class="footer-widget links-widget">
+                                <div class="footer-title">
+                                    <h2>Useful Links</h2>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="row clearfix">
+                                        <div class="widget-column col-md-6 col-sm-6 col-xs-12">
+                                            <ul class="footer-list">
+                                                <li><a [routerLink]="['/about/about']">About Us</a></li>
+                                                <li><a [routerLink]="['/contact/contact']">Contact Us</a></li>
+                                                <li><a href="privacy-policy.html">Privacy</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="widget-column col-md-6 col-sm-6 col-xs-12">
+                                            <ul class="footer-list">
+                                                <li><a href="https://www.avision24x7.com/" target="_blank">Blog</a></li>
+                                                <li ><a [routerLink]="['/centers/centers']">Centers</a></li>
+                                                <li><a href="#">Terms</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--Column-->
+                        <div class="column col-md-4 col-sm-6 col-xs-12">
+                            <div class="footer-widget subscribe-widget">
+                                <div class="footer-title">
+                                    <h2>Follow us on</h2>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="social-icon-one">
+                                        <li><a href="https://www.facebook.com/avisioninstitute/" target="_blank"><span class="fa fa-facebook-f"></span></a></li>
+                                        <li><a href="https://twitter.com/avisionindia" target="_blank"><span class="fa fa-twitter"></span></a></li>
+                                        <li><a href="https://www.linkedin.com/in/a-vision-b20a25155/" target="_blank"><span class="fa fa-linkedin"></span></a></li>
+                                        <!-- <li><a href="#"><span class="fa fa-rss"></span></a></li>
+                                        <li><a href="#"><span class="fa fa-google-plus"></span></a></li> -->
+                                        <li><a href="https://www.youtube.com/channel/UCy6dzUkzhX8AEApPVSLReTw" target="_blank"><span class="fa fa-youtube"></span></a></li>
+                                    </ul>
+                                    <br/>
+                                    
+                                </div>
+                                <div class="footer-title">
+                                    <h2>Our Apps</h2>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="footer-apps">
+                                        <li><a href="https://play.google.com/store/apps/details?id=com.visiabletech.avision&hl=en" target="_blank"><img src="assets/images/google-play.png"></a></li>
+                                        <!-- <li><a href="#"><img src="assets/images/app-store.png"></a></li> -->
+                                    </ul>
+                                    <br/>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</footer>        
+
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" id="go_top"><span class="icon fa fa-angle-double-up"></span></div>
+
+
+
+
+
+       

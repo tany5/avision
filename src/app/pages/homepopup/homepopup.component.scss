@@ -1,0 +1,22 @@
+.popup_banner{position: relative;}
+.popup_banner img{
+    height: 60vh;
+    margin-right: auto;
+    margin-left: auto;
+}
+.popup_banner .close{
+    position: absolute;
+    top: -21px;
+    right: -21px;
+    color: red;
+    opacity:1;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+
+}
+::ng-deep .mat-dialog-container{
+    padding: 0;
+    overflow: unset;
+}
+

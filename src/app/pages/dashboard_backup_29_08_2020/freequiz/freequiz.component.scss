@@ -1,0 +1,38 @@
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.example-radio-button {
+    margin: 5px;
+}
+
+.freequiz {
+    padding: 90px 90px;
+}
+
+.boxes {
+    height: 20vh;
+    width: 44vw;
+    background-color: blue;
+}
+
+.main-panel {
+    height: 100px;
+    overflow: scroll;
+    flex: none;
+}
+
+.form-control {
+    box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+
+.form-control::placeholder {
+    font-family: FontAwesome;
+}
+
+.test-title-text h4 {
+    font-weight: 500;
+    min-height: 80px;
+}

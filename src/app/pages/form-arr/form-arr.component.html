@@ -1,0 +1,76 @@
+<form [formGroup]="angForm" (ngSubmit)="onFormSubmit()">
+    <div formArrayName="names">
+        <div *ngFor="let name of names.controls; index as idx">
+            <input [formControlName]="idx" placeholder="Enter a Name">
+            <input type="checkbox" [formControlName]="idx" [value]="idx+1">
+            <label *ngIf="name.invalid" [ngClass]="'error'"> Name is required. </label>
+        </div>
+        <div *ngFor="let check of checkBox.controls; index as idy">
+            <input type="checkbox" [formControlName]="idy" [value]="idy+1">
+        </div>
+    </div>
+    <input type="submit" value="send" class="btn btn-success" />
+</form>
+
+<form [formGroup]="addressForm" class="container mt-3" (ngSubmit)="logValue()">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <button type="button" class="btn btn-primary mb-2" (click)="addAddress()">Add Address</button>
+            <section class="container border mb-4 p-3" formArrayName="addresses" *ngFor="let address of addressControls; let i = index;">
+                <div [formGroupName]="i">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4>Address {{i + 1}}</h4>
+                        </div>
+                        <div class="col-6 text-right">
+                            <button type="button" class="btn btn-danger btn-sm" (click)="removeAddress(i)">Remove</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" class="form-control" formControlName="address" placeholder="St. Thomas Apartment" />
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Street</label>
+                                <input type="text" class="form-control" formControlName="street" placeholder="South Street" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input (click)="selectCity(i)" type="radio" class="form-control" id="city{{i}}" name="city" formControlName="city" [value]="selValue" />
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Country</label>
+                                <select class="form-control" formControlName="country" placeholder="India">
+                        <option value="india">India</option>
+                        <option value="usa">USA</option>
+                        <option value="england">England</option>
+                      </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <div class="text-right">
+                <input type="submit" class="btn btn-success" value="Submit" />
+            </div>
+            <div class="text-center">
+                <button (click)="clearAll()" mat-raised-button color="primary">Primary</button>
+            </div>
+
+        </div>
+    </div>
+
+</form>

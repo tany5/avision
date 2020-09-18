@@ -1,0 +1,596 @@
+<mat-toolbar class="app-toolbar-bottom">
+  <img src="assets/images/logo.png">
+  <span style="padding-left: 10px;">{{quiz_name}}</span>
+  <span class="example-spacer"></span>
+  <span flex></span>
+  <button mat-raised-button color="primary" [routerLink]="['/testseries']" *ngIf="regStat">Back</button>
+  <button mat-raised-button color="primary" [routerLink]="['/dashboard']" *ngIf="!regStat">Dashboard</button>
+  <button mat-raised-button color="warn" (click)="GoToSol()" *ngIf="!regStat">Solution</button>
+  <button mat-icon-button [matMenuTriggerFor]="menu2" class="float-right-button">
+    {{user_name}} <mat-icon class="down_icon">keyboard_arrow_down</mat-icon>
+  </button>
+
+  <mat-menu #menu2="matMenu">
+
+    <button mat-menu-item [routerLink]="['profile']">
+      <mat-icon>account_circle</mat-icon>
+      Profile
+    </button>
+
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      Sign out
+    </button>
+
+    
+
+  </mat-menu>
+</mat-toolbar>
+
+<section class="analysis-section">
+  <div class="container">
+    <h3>Overall Performance Summary</h3>
+    <mat-card>
+      <div class="row">
+        <div class="col-md">
+          <div class="performance">
+            <div class="row no-gutters">
+              <div class="col-4">
+                <span class="icon-span span-red">
+                  <mat-icon>star_rate</mat-icon>
+                </span>
+              </div>
+              <div class="col-8">
+                <span class="text-span">
+                  <p>{{rank_count}}/ <span>{{total_given_exam}}</span></p>
+                  <p><span>Rank</span></p>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!--performance-->
+        </div>
+        <!--col-->
+
+        <div class="col-md">
+          <div class="performance">
+            <div class="row no-gutters">
+
+              <div class="col-4">
+                <span class="icon-span span-purple">
+                  <i class="fa fa-trophy" aria-hidden="true"></i>
+                </span>
+              </div>
+              <div class="col-8">
+                <span class="text-span">
+                  <p>{{total_score}}/ <span>{{test_full_marks}}</span></p>
+                  <p><span>Score</span></p>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!--performance-->
+        </div>
+        <!--col-->
+        <div class="col-md">
+          <div class="performance">
+            <div class="row no-gutters">
+              <div class="col-4">
+                <span class="icon-span span-sky">
+                  <mat-icon>playlist_add_check</mat-icon>
+                </span>
+              </div>
+              <div class="col-8">
+                <span class="text-span">
+                  <p>{{total_attempted}}/ <span>{{total_qs}}</span></p>
+                  <p><span>Attempted</span></p>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!--performance-->
+        </div>
+        <!--col-->
+
+        <div class="col-md">
+          <div class="performance">
+            <div class="row no-gutters">
+              <div class="col-4">
+                <span class="icon-span span-">
+                  <mat-icon>golf_course</mat-icon>
+                </span>
+              </div>
+              <div class="col-8">
+                <span class="text-span">
+                  <p>{{accuracy}}%</p>
+                  <p><span>Accuracy</span></p>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!--performance-->
+        </div>
+        <!--col-->
+
+        <div class="col-md">
+          <div class="performance">
+            <div class="row no-gutters">
+              <div class="col-4">
+                <span class="icon-span span-blue">
+                  <mat-icon>supervised_user_circle</mat-icon>
+                </span>
+              </div>
+              <div class="col-8">
+                <span class="text-span">
+                  <p>{{precentile}}%</p>
+                  <p><span>Precentile</span></p>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!--performance-->
+        </div>
+        <!--col-->
+
+      </div>
+    </mat-card>
+
+    <div class="container">
+      <h3>Overall Analysis</h3>
+      <mat-card *ngIf="chartReady ">
+        <div style="display: block">
+          <canvas *ngIf="chartReady " baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+            [legend]="barChartLegend" [chartType]="barChartType" [colors]="chartColors">
+          </canvas>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h3>Section Analysis</h3>
+    <mat-card>
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="All">
+          <div class="row">
+            <div class="col-12" *ngIf="chartReady">
+
+              <canvas baseChart [datasets]="barChartDataAll" [labels]="barChartLabels2" [options]="barChartOptions"
+                [chartType]="barChartType2">
+              </canvas>
+
+            </div>
+          </div>
+        </mat-tab>
+        <ng-container *ngFor="let section of sectionScore index as i">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <span (click)="getAnalyticalDetails(i, 0)">{{section['section_name']}}</span>
+            </ng-template>
+            <div class="row">
+
+              <div class="col-12" *ngIf="chartReady">
+                <div class="tab-content" id="v-pills-tabContent">
+
+                  <div class="tab-pane fade show active" id="v-pills-mark" role="tabpanel"
+                    aria-labelledby="v-pills-mark-tab">
+                    <canvas baseChart [datasets]="barChartData2" [labels]="barChartLabels2" [options]="barChartOptions"
+                      [legend]="barChartLegend" [chartType]="barChartType2">
+                    </canvas>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </mat-tab>
+        </ng-container>
+
+      </mat-tab-group>
+    </mat-card>
+  </div>
+
+  <div class="container">
+    <h3>Compare With Topper</h3>
+    <mat-card>
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="All">
+          <div class="table-responsive" *ngIf="allArrayLoaded">
+            <table class="table table-bordered cus_compare_table">
+              <thead>
+                <tr>
+                  <th>Compare</th>
+                  <th>Score</th>
+                  <th>Accuracy</th>
+                  <th>Correct</th>
+                  <th>Wrong</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>You</td>
+                  <td>{{topperArray.score}}/{{topperArray.total_marks}}
+                    
+                    
+                    <mat-progress-bar
+                    class="example-margin"
+                    [appProgressBarColor]="color"
+                    [mode]="mode"
+                    [value]="topperArray.score"
+                    [bufferValue]="bufferValue">
+                  </mat-progress-bar>
+                    
+                  </td>
+                  <td>
+                    {{topperArray.accuracy}}% 
+                    
+                    <mat-progress-bar
+                    class="example-margin"
+                    [appProgressBarColor]="orange"
+                    [mode]="mode"
+                    [value]="topperArray.accuracy"
+                    [bufferValue]="bufferValue">
+                  </mat-progress-bar>
+                  </td>
+                  <td>
+                    
+                      {{topperArray.total_correct_percent}}%
+                      
+                      <mat-progress-bar
+                      class="example-margin"
+                      [appProgressBarColor]="green"
+                      [mode]="mode"
+                      [value]="topperArray.total_correct_percent"
+                      [bufferValue]="bufferValue">
+                      
+                    </mat-progress-bar>
+                    
+                  </td>
+                  <td>
+                    {{topperArray.total_wrong_percent}}%
+                      <mat-progress-bar
+                      class="example-margin"
+                      color="warn"
+                      [mode]="mode"
+                      [value]="topperArray.total_wrong_percent"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Topper</td>
+                  <td>{{topperArray.score}}/{{topperArray.total_marks}} 
+                    <mat-progress-bar
+                    class="example-margin"
+                    color="primary"
+                    [mode]="mode"
+                    [value]="topperArray.score"
+                    [bufferValue]="bufferValue">
+                  </mat-progress-bar>                    
+                  </td>
+                  <td>
+                    {{topperArray.accuracy}}% 
+                    
+                    <mat-progress-bar
+                    class="example-margin"
+                    [appProgressBarColor]="orange"
+                    [mode]="mode"
+                    [value]="topperArray.accuracy"
+                    [bufferValue]="bufferValue">
+                  </mat-progress-bar>
+                  </td>
+                  <td>
+                    
+                      {{topperArray.total_correct_percent}}%
+                      <mat-progress-bar
+                      class="example-margin "
+                      [appProgressBarColor]="green"
+                      [mode]="mode"
+                      [value]="topperArray.total_correct_percent"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                    
+                  </td>
+                  <td>
+                    {{topperArray.total_wrong_percent}}%
+                      <mat-progress-bar
+                      class="example-margin "
+                      color="warn"
+                      [mode]="mode"
+                      [value]="topperArray.total_wrong_percent"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Average</td>
+                  <td>{{avarageArray.score}}/{{avarageArray.total_marks}} 
+                    <mat-progress-bar
+                    class="example-margin"
+                    color="primary"
+                    [mode]="mode"
+                    [value]="topperArray.score"
+                    [bufferValue]="bufferValue">
+                  </mat-progress-bar>
+                    
+                  </td>
+                  <td>
+                    {{avarageArray.accuracy}}% 
+                    
+                    <mat-progress-bar
+                    class="example-margin"
+                    [appProgressBarColor]="orange"
+                    [mode]="mode"
+                    [value]="avarageArray.accuracy"
+                    [bufferValue]="bufferValue">
+                  </mat-progress-bar>
+                  </td>
+                  <td>
+                    
+                      {{avarageArray.total_correct_percent}}%
+                      <mat-progress-bar
+                      class="example-margin "
+                      [appProgressBarColor]="green"
+                      [mode]="mode"
+                      [value]="avarageArray.total_correct_percent"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                    
+                  </td>
+                  <td>
+                    {{avarageArray.total_wrong_percent}}%
+                      <mat-progress-bar
+                      class="example-margin "
+                      color="warn"
+                      [mode]="mode"
+                      [value]="avarageArray.total_wrong_percent"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </mat-tab>
+        <ng-container *ngFor="let section of sectionScore index as i">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <span (click)="getAnalyticalDetailsById(section['section_type_id'])">{{section['section_name']}}</span>
+            </ng-template>
+            <div class="table-responsive" *ngIf="compare_result">
+              <table class="table table-bordered cus_compare_table">
+                <thead>
+                  <tr>
+                    <th>Compare</th>
+                    <th>Score</th>
+                    <th>Accuracy</th>
+                    <th>Correct</th>
+                    <th>Wrong</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>You</td>
+                    <td>{{yourArrayBySection.score}}/{{yourArrayBySection.total_marks}}
+                      
+                      <mat-progress-bar
+                      class="example-margin "
+                      color="primary"
+                      [mode]="mode"
+                      [value]="yourArrayBySection.score"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                      
+                    </td>
+                    <td>{{yourArrayBySection.accuracy}}%
+
+                      <mat-progress-bar
+                      class="example-margin "
+                      [appProgressBarColor]="orange"
+                      [mode]="mode"
+                      [value]="yourArrayBySection.accuracy"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                     
+                    </td>
+                    <td>{{yourArrayBySection.total_correct_percent}}%
+                      <mat-progress-bar
+                      class="example-margin "
+                      [appProgressBarColor]="green"
+                      [mode]="mode"
+                      [value]="yourArrayBySection.total_correct_percent"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                    </td>
+                    <td>
+                      {{yourArrayBySection.total_wrong_percent}}%
+                      <mat-progress-bar
+                      class="example-margin "
+                      color="warn"
+                      [mode]="mode"
+                      [value]="yourArrayBySection.total_wrong_percent"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Topper</td>
+                    <td>{{topperArrayBySection.score}}/{{topperArrayBySection.total_marks}}                      
+                      <mat-progress-bar
+                      class="example-margin "
+                      color="primary"
+                      [mode]="mode"
+                      [value]="topperArrayBySection.score"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>                      
+                    </td>
+                    <td>{{topperArrayBySection.accuracy}}%
+
+                      <mat-progress-bar
+                      class="example-margin "
+                      [appProgressBarColor]="orange"
+                      [mode]="mode"
+                      [value]="topperArrayBySection.accuracy"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                     
+                    </td>
+                    <td>{{topperArrayBySection.total_correct_percent}}%
+                      <mat-progress-bar
+                      class="example-margin "
+                      [appProgressBarColor]="green"
+                      [mode]="mode"
+                      [value]="topperArrayBySection.total_correct_percent"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                    </td>
+                    <td>
+                      {{topperArrayBySection.total_wrong_percent}}%
+                      <mat-progress-bar
+                      class="example-margin "
+                      color="warn"
+                      [mode]="mode"
+                      [value]="topperArrayBySection.total_wrong_percent"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Average</td>
+                    <td>{{avarageArrayBySection.score}}/{{avarageArrayBySection.total_marks}}                      
+                      <mat-progress-bar
+                      class="example-margin "
+                      color="primary"
+                      [mode]="mode"
+                      [value]="avarageArrayBySection.score"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>                      
+                    </td>
+                    <td>{{avarageArrayBySection.accuracy}}%
+
+                      <mat-progress-bar
+                      class="example-margin "
+                      [appProgressBarColor]="orange"
+                      [mode]="mode"
+                      [value]="avarageArrayBySection.accuracy"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                     
+                    </td>
+                    <td>{{avarageArrayBySection.total_correct_percent}}%
+                      <mat-progress-bar
+                      class="example-margin "
+                      [appProgressBarColor]="green"
+                      [mode]="mode"
+                      [value]="avarageArrayBySection.total_correct_percent"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                    </td>
+                    <td>
+                      {{avarageArrayBySection.total_wrong_percent}}%
+                      <mat-progress-bar
+                      class="example-margin "
+                      color="warn"
+                      [mode]="mode"
+                      [value]="avarageArrayBySection.total_wrong_percent"
+                      [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </mat-tab>
+        </ng-container>
+      </mat-tab-group>
+    </mat-card>
+  </div>
+
+  <div class="container" style="display: none;">
+    <h3>Top Ranks</h3>
+    <mat-card class="topper-list">
+      <div class="row">
+        <div class="col-12 col-md-6 card ">
+          <div class="row ">
+            <div class="col-2">
+              <span class="icon-span span-red">
+                <mat-icon>person</mat-icon>
+              </span>
+            </div>
+
+            <div class="col-6">
+              <p class="user_name">Tanmay Dey</p>
+            </div>
+
+            <div class="col-4">
+              <p class="user_marks">21.75/100</p>
+            </div>
+
+          </div>
+        </div>
+        <!--col-->
+
+        <div class="col-12 col-md-6 card">
+          <div class="row">
+            <div class="col-2">
+              <span class="icon-span span-red">
+                <mat-icon>person</mat-icon>
+              </span>
+            </div>
+
+            <div class="col-6">
+              <p class="user_name">Tanmay Dey</p>
+            </div>
+
+            <div class="col-4">
+              <p class="user_marks">21.75/100</p>
+            </div>
+
+          </div>
+        </div>
+        <!--col-->
+
+        <div class="col-12 col-md-6 card">
+          <div class="row">
+            <div class="col-2">
+              <span class="icon-span span-red">
+                <mat-icon>person</mat-icon>
+              </span>
+            </div>
+
+            <div class="col-6">
+              <p class="user_name">Tanmay Dey</p>
+            </div>
+
+            <div class="col-4">
+              <p class="user_marks">21.75/100</p>
+            </div>
+
+          </div>
+        </div>
+        <!--col-->
+
+        <div class="col-12 col-md-6 card">
+          <div class="row">
+            <div class="col-2">
+              <span class="icon-span span-red">
+                <mat-icon>person</mat-icon>
+              </span>
+            </div>
+
+            <div class="col-6">
+              <p class="user_name">Tanmay Dey</p>
+            </div>
+
+            <div class="col-4">
+              <p class="user_marks">21.75/100</p>
+            </div>
+
+          </div>
+        </div>
+        <!--col-->
+      </div>
+    </mat-card>
+  </div>
+</section>

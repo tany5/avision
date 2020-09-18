@@ -1,0 +1,155 @@
+<section class="test-series-main-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <h4 class="small-title">All Test <span>({{totalTestCount}})</span></h4>
+
+                <ul class="nav nav-tabs cus-test-series-tab">
+                    <li class="active"><a data-toggle="tab" href="#tab_prelims">Full Test
+              ({{fullTest.length}})</a></li>
+                    <li><a data-toggle="tab" href="#tab_section">Sectional Test ({{sesctionTest.length}})</a></li>
+                    <li><a data-toggle="tab" href="#tab_prev">Previous Year Test ({{prevTest.length}})</a></li>
+                </ul>
+
+            </div>
+            <div class="col-sm-12">
+                <div class="tab-content" id="nav-tabContent">
+                    <div id="tab_prelims" class="tab-pane fade show active">
+                        <div class="row clearfix" *ngIf="!fullTestLoader">
+                            <ngx-skeleton-loader [theme]="{ 
+                    'border-radius': '5px',
+                    height: '60vh',                    
+                    border: '1px solid white'}">
+                            </ngx-skeleton-loader>
+
+                        </div>
+                        <div class="row clearfix" *ngIf="fullTestLoader">
+                            <!-- free test -->
+                            <div class="col-sm-6 col-12" *ngFor="let fullTest of fullTest;index as i">
+                                <div class="cus_test_inner_back">
+                                    <h4>{{fullTest.quiz_name}}</h4>
+                                    <ul>
+                                        <li><i class="fa fa-question-circle-o" aria-hidden="true"></i> {{fullTest.no_of_qs}} Questions</li>
+                                        <li><i class="fa fa-file-text-o" aria-hidden="true"></i> {{fullTest.no_of_qs * fullTest.correct_mark }} Marks</li>
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{fullTest.duration}} Mins</li>
+                                    </ul>
+                                    <a (click)="goForTest(fullTest.quiz_id)" class="btn btn_lock_test" *ngIf="i==0"> Start Test</a>
+                                    <a (click)="goForTest(fullTest.quiz_id)" class="btn btn_lock_test" *ngIf="i>0 && test_buy_stat==1"> Start Test</a>
+                                    <a (click)="goForLogin()" class="btn btn_lock_test" *ngIf="i>0 && test_buy_stat==0"><i class="fa fa-lock" aria-hidden="true"></i> Unlock Now</a>
+                                </div>
+                            </div>
+                            <!-- end free test -->
+                        </div>
+                    </div>
+
+
+                    <div id="tab_section" class="tab-pane fade">
+                        <div class="row clearfix">
+                            <!-- free test -->
+                            <div class="col-sm-6 col-12" *ngFor="let fullTest of sesctionTest;index as i">
+                                <div class="cus_test_inner_back">
+                                    <h4>{{fullTest.quiz_name}}</h4>
+                                    <ul>
+                                        <li><i class="fa fa-question-circle-o" aria-hidden="true"></i> {{fullTest.no_of_qs}} Questions</li>
+                                        <li><i class="fa fa-file-text-o" aria-hidden="true"></i> {{fullTest.no_of_qs * fullTest.correct_mark }} Marks</li>
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{fullTest.duration}} Mins</li>
+                                    </ul>
+                                    <a (click)="goForTest(fullTest.quiz_id)" class="btn btn_lock_test" *ngIf="i==0"> Start Test</a>
+                                    <a (click)="goForTest(fullTest.quiz_id)" class="btn btn_lock_test" *ngIf="i>0 && test_buy_stat==1"> Start Test</a>
+                                    <a href="javascript:void(0)" class="btn btn_lock_test" *ngIf="i>0 && test_buy_stat==0"><i class="fa fa-lock" aria-hidden="true"></i> Unlock Now</a>
+                                </div>
+                            </div>
+                            <!-- end free test -->
+                        </div>
+                    </div>
+
+
+                    <div id="tab_prev" class="tab-pane fade">
+                        <div class="row clearfix">
+                            <!-- free test -->
+                            <div class="col-sm-6 col-12" *ngFor="let fullTest of prevTest;index as i">
+                                <div class="cus_test_inner_back">
+                                    <h4>{{fullTest.quiz_name}}</h4>
+                                    <ul>
+                                        <li><i class="fa fa-question-circle-o" aria-hidden="true"></i> {{fullTest.no_of_qs}} Questions</li>
+                                        <li><i class="fa fa-file-text-o" aria-hidden="true"></i> {{fullTest.no_of_qs * fullTest.correct_mark }} Marks</li>
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{fullTest.duration}} Mins</li>
+                                    </ul>
+                                    <a (click)="goForTest(fullTest.quiz_id)" class="btn btn_lock_test" *ngIf="i==0"> Start Test</a>
+                                    <a (click)="goForTest(fullTest.quiz_id)" class="btn btn_lock_test" *ngIf="i>0 && test_buy_stat==1"> Start Test</a>
+                                    <a href="javascript:void(0)" class="btn btn_lock_test" *ngIf="i>0 && test_buy_stat==0"><i class="fa fa-lock" aria-hidden="true"></i> Unlock Now</a>
+                                </div>
+                            </div>
+                            <!-- end free test -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="why-take-test-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h1>Why Choose Avision Test Series?</h1>
+        </div>
+        <div class="row clearfix">
+
+            <div class="col-lg-4 col-sm-8 mx-auto col-12">
+                <div class="why-test-scries-inner">
+                    <img src="assets/images/facilities/icon-6.png">
+                    <h3>E-LEARNING</h3>
+                    <p>Students are provided with interactive and ultra modern e learning tools.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-8 mx-auto col-12">
+                <div class="why-test-scries-inner">
+                    <img src="assets/images/facilities/icon-1.png">
+                    <h3>Mock Test</h3>
+                    <p>Our mock test helps you attain the real time test experience</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-8 mx-auto col-12">
+                <div class="why-test-scries-inner">
+                    <img src="assets/images/facilities/icon-5.png">
+                    <h3>LIBRARY</h3>
+                    <p>Wish any book relevant to competitive exams, you will find it find it in our library.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="partners-section" style="background:url('assets/images/back_3.png');background-repeat:no-repeat;background-size:cover;">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!--Title Column-->
+            <div class="title-column col-md-8 col-sm-8 col-12">
+                <div class="inner-column">
+                    <h2>Start Your Exam Preparation Now!</h2>
+                    <div class="text">Practice, Analyze and Improve.</div>
+                    <a [routerLink]="['/liveclass']" class="theme-btn btn-style-one">Explore Courses</a>
+                </div>
+            </div>
+
+            <!--Partners Column-->
+            <div class="partners-column col-md-4 col-sm-4 col-12">
+                <div class="partner-block">
+                    <div class="inner-box">
+                        <img src="assets/images/explore-courses.png">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

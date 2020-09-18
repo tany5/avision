@@ -1,0 +1,147 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<!--Page Title-->
+<section class="page-title cus-page-title" style="background-image:url(assets/images/background/pattern-4.png); margin-top:-30px;">
+    <div class="container">
+        <h1>Previous Year</h1>
+        <!-- <p>SBI PO 2019 Exam is a wonderful opportunity for you to turn your dreams into reality! Get all information about onlinesbi po - syllabus, preparation guide, last date to apply, exam dates, admit card, latest exam pattern and results here. Kick start your preparation now!</p> -->
+    </div>
+    <!--Page Info-->
+    <!-- <div class="page-info">
+        <div class="container">
+            <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a [routerLink]="['dashboard']">Home</a></li>
+                        <li>Previous Year</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!--End Page Info-->
+</section>
+<section class="freequiz">
+    <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+        <div class="container-fluid">
+            <div class="row">
+                <h1>Previous Year</h1>
+                <p>Banking Quiz for SBI Clerk, SBI PO, RBI, IBPS PO/Clerk/RRB/SO & other Banking & insurance exams 2020. Practice free online banking questions from GK, Current Affairs, English, Quant, Reasoning, & Computer section with multiple choice answers.</p>
+            </div>
+        </div>
+        <div class="container-fluid" *ngIf="previousYearQuizList" style="margin: 30px 0px;">
+
+            <h1>Recentry Attempted</h1>
+            <div class="row">
+                <div class="col-sm-8 col-md-4 col-lg-3" *ngFor="let previousYear of previousYearQuizList">
+                    <mat-card style="margin-bottom: 20px;">
+                        <div class="cus-test-series-slide">
+                            <div class="test-series-back">
+                                <div class="test-icon text-center">
+                                    <mat-icon>pending_actions</mat-icon>
+                                </div>
+                                <div class="test-title-text text-center">
+                                    <h4>{{previousYear.quiz_name}}</h4>
+                                    <hr>
+
+                                </div>
+                                <ng-container *ngIf="previousYear.status == 1">
+                                    <a (click)="goToExamPanelPrevious(previousYear.quiz_id, previousYear.quiz_name,previousYear.student_taken_tests_id  )" class="btn btn-block btn-primary" style="color: #fff">Resume Tests</a>
+                                </ng-container>
+
+                                <ng-container *ngIf="previousYear.status == 2">
+                                    <a (click)="goToAnalytics(previousYear.quiz_id)" class="btn btn-block btn-success" style="color: #fff">See Result</a>
+                                </ng-container>
+
+                            </div>
+                        </div>
+
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-4 col-lg-4">
+                    <div class="col-12">
+
+                        <h3>
+                            <mat-icon>school_outline</mat-icon> EXAM CATEGORY
+                        </h3>
+
+                    </div>
+                    <div class="col-12">
+                        <mat-form-field appearance="outline">
+                            <mat-select [formControl]="courses" [(ngModel)]="selectedTabId" (selectionChange)="mainSubcourse(selectedTabId)">
+                                <mat-option *ngFor="let course of coursesList" value="{{course.courses_id}}">{{course.courses_name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <label id="example-radio-group-label">
+                        <h3>Select EXAM</h3>
+                    </label>
+                    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="subCourseId">
+
+                        <mat-radio-button class="example-radio-button" *ngFor="let subCourse of subCourseList index as i" [value]="subCourse.sub_courses_id" (change)="getSubCourseId(subCourse.sub_courses_id)" [checked]="i==0">
+                            {{subCourse.sub_courses_name}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <!--col-sm-4 col-lg-4-->
+
+                <div class="col-md-8 col-lg-8" style="border: 1px solid #ddd;">
+
+
+                    <ng-container *ngIf="quiz_details.length == 0" style="min-height: 40vh;">
+                        <div class="container d-flex h-100">
+                            <div class="row justify-content-center align-self-center" style="width: 100%;">
+                                <h1 class="text-center">
+                                    <mat-icon style="vertical-align:middle;">sentiment_very_dissatisfied</mat-icon>
+                                    Sorry No Quiz Found...
+                                </h1>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="quiz_details.length > 0">
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="col-12 col-sm-6">
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching by course name or exam name....">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12" *ngFor="let quiz of quiz_details | filter: searchText">
+                                <div class="cus-test-series-slide">
+                                    <div class="test-series-back">
+                                        <div class="test-icon text-center">
+                                            <mat-icon>pending_actions</mat-icon>
+                                        </div>
+                                        <div class="test-title-text text-center">
+                                            <h4>{{quiz.quiz_name}}</h4>
+                                            <hr>
+                                            <ul>
+                                                <li>{{quiz.no_of_qs}} Total Question</li>
+                                                <li>{{quiz.duration}} mins Time</li>
+                                            </ul>
+                                            <hr>
+                                        </div>
+                                        <a (click)="goToExamPanel(quiz.quiz_id, quiz.quiz_name )" class="btn btn-block btn-primary" style="color: #fff">Take Test</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </ng-container>
+                </div>
+                <!--col-->
+            </div>
+        </div>
+        <!--row-->
+    </div>
+</section>

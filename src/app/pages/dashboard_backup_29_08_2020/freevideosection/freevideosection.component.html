@@ -1,0 +1,186 @@
+<section class="video-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-lg-11 col-xl-10 col-12 padding-0">
+                <div class="row">
+                    <div class="col-12 col-md-9">
+                        <mat-card>
+                            <iframe *ngIf="getvideoId" [src]="videoUrl" allowfullscreen frameborder="0" style="overflow:hidden;height:450px;width:100%"></iframe>
+                            <mat-card-content>
+
+                                <h1 [innerHTML]="videoTitle">
+                                </h1>
+
+
+                                <div class="row view-section">
+                                    <div class="col-5">
+
+                                        <div class="row no-gutters">
+                                            <div class="col-3 col-sm-2 col-lg-1 view_icon">
+                                                <mat-icon>visibility</mat-icon>
+                                            </div>
+                                            <div class="col-9 col-sm-10 col-lg-11">
+                                                <span class="main_count" style="padding-left: 5px;">{{viewCount}} Views</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-gutters">
+                                            <div class="col-3 col-sm-2 col-lg-1 view_icon">
+                                                <mat-icon>thumb_up</mat-icon>
+                                            </div>
+                                            <div class="col-9 col-sm-10 col-lg-11">
+                                                <span class="main_count" style="padding-left: 5px;">{{likeCount}} Likes</span>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <div class="col-7 text-right share-section">
+                                        <span>Share: </span>
+                                        <a target="_blank" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                        <a target="_blank" class="whatsapp"><i class='fa fa-whatsapp'></i></a>
+                                        <a target="_blank" class="google">
+                                            <mat-icon>mail_outline</mat-icon>
+                                        </a>
+                                        <a target="_blank" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <mat-divider></mat-divider>
+                                <div class="row details-section">
+                                    <div class="col-12">
+                                        <p [innerHTML]="videoDesc"></p>
+                                    </div>
+
+                                    <div class="col-12" style="display: none;">
+                                        <div class="row teacher-section no-gutters">
+                                            <div class="col-2">
+                                                <img src="https://cdn.testbook.com/users/_1587043419">
+                                            </div>
+                                            <div class="col-10 teacher-sub">
+                                                <p class="teacher_name">Dr. Pushpak Pandav </p>
+                                                <p class="teacher_exp">GA/GS Expert | 7+ Years Experience | RBI, MPSC & UPSC </p>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            </mat-card-content>
+
+                        </mat-card>
+                    </div>
+                    <!--col-md-9-->
+                    <div class="col-12 col-md-3">
+                        <div class="sticky-top">
+                            <mat-card>
+                                <mat-card-content>
+                                    <div class class="row video-list-section" *ngFor="let video of searchVideoLists index as i" (click)="videoDetails(video.id.videoId)">
+                                        <div class="col-6">
+                                            <img class="img-fluid" src="{{video.snippet['thumbnails']['medium']['url']}}">
+                                        </div>
+                                        <!--col-->
+                                        <div class="col-6 sidebar-v-content">
+                                            <p class="list-item-title" [innerHTML]="htmlgeneration(video.snippet.title)">
+
+                                            </p>
+                                            <div class="row no-gutters view-details">
+                                                <div class="col-3">
+                                                    <p>
+                                                        <mat-icon>calendar_today</mat-icon>
+                                                    </p>
+                                                </div>
+                                                <div class="col-9">
+                                                    <p>{{ video.snippet['publishedAt'] | date:'MMMM d, y' }}</p>
+                                                </div>
+                                            </div>
+                                            <!--row-->
+                                        </div>
+                                    </div>
+                                    <!--row-->
+
+
+
+
+
+
+                                    <div class="row">
+                                        <div class="col-12 exp-all text-left" [routerLink]="['/dashboard/videos']">
+                                            <div class="row no-gutters">
+                                                <div class="col-2">
+                                                    <span><mat-icon>keyboard_backspace</mat-icon></span>
+                                                </div>
+
+                                                <div class="col-10">
+                                                    <span>Explore All Videos</span>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        <!--sticky-->
+                    </div>
+                </div>
+                <!--row-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="video-section-list">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-lg-10 col-xl-10 col-12 padding-0">
+                <h1>Latest Videos</h1>
+                <div class="row">
+                    <div class="col-sm-6 col-8 col-lg-3 mx-auto" *ngFor="let video of latestVideo">
+                        <mat-card>
+                            <img class="img-fluid" src="{{video.snippet['thumbnails']['medium']['url']}}">
+                            <mat-card-content>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="card-title" [innerHTML]="video.snippet.title">
+
+                                        </p>
+                                        <p class="video-title">{{searchTerm}} Videos</p>
+                                    </div>
+                                </div>
+                                <!--row-->
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <mat-divider></mat-divider>
+                                    </div>
+                                </div>
+
+
+                                <div class="row no-gutters view_details">
+                                    <div class="col-2 col-sm-1">
+                                        <p>
+                                            <mat-icon>calendar_today</mat-icon>
+                                        </p>
+                                    </div>
+                                    <div class="col-10 col-sm-11">
+                                        <p>{{ video.snippet['publishedAt'] | date:'fullDate' }}</p>
+                                    </div>
+                                </div>
+                                <!--row-->
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                    <!--col-->
+
+                </div>
+                <!--row-->
+            </div>
+        </div>
+        <!--row-->
+    </div>
+</section>

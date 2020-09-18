@@ -1,0 +1,144 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span class="logo" #logo></span>
+    <button mat-icon-button class="open_sidenav" (click)="toggleSidebar()">
+      <mat-icon> menu</mat-icon>
+    </button>
+    <div fxFlex>
+      <ul fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px" class="header-menu">
+        <li class="d-xl-none">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>settings</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="after">
+
+            <div class="row no-gutters">
+              <section class="section-profile">
+                <h3>Profile</h3>
+                <div class="col-12 progress_div">
+                  <div class="row">
+
+
+
+                    <div class="col-10">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                          style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <mat-icon>edit</mat-icon>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+
+              <section class="section-profile">
+                <h3>Student Corner</h3>
+                <div class="col-12 student_corner_div">
+                  <div class="row">
+                    <div class="col-12 student_corner_section">
+                      <mat-list>
+                        <mat-list-item>
+                          <mat-icon matListIcon>menu_book</mat-icon>
+                          Daily GK & Current Affairs
+                        </mat-list-item>
+
+                        <mat-list-item>
+                          <mat-icon matListIcon>notifications_active</mat-icon>
+                          Exam Notification
+                        </mat-list-item>
+
+                        <mat-list-item>
+                          <mat-icon matListIcon>assignment</mat-icon>
+                          Our Small Quiz
+                        </mat-list-item>
+
+                        <mat-list-item>
+                          <mat-icon matListIcon>movie</mat-icon>
+                          Our Videos
+                        </mat-list-item>
+
+                      </mat-list>
+
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section-profile">
+                <h3>Your History</h3>
+                <div class="col-12 student_corner_div">
+                  <div class="row">
+                    <div class="col-12 student_corner_section">
+                      <mat-list>
+                        <mat-list-item>
+                          <mat-icon matListIcon>history_toggle_off</mat-icon>
+                          Order History
+                        </mat-list-item>
+                      </mat-list>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+
+              <section class="section-profile">
+                <h3>Student Corner</h3>
+                <div class="col-12 student_corner_div">
+                  <div class="row">
+                    <div class="col-12 student_corner_section">
+                      <mat-list>
+                        <mat-list-item>
+                          <img src="assets/images/ibps-banner.jpg">
+                          IBPS RRB PO Prelinks
+                        </mat-list-item>
+
+                        <mat-list-item>
+                          <img src="assets/images/ibps-banner.jpg">
+                          IBPS RRB PO Prelinks
+                        </mat-list-item>
+
+                        <mat-list-item>
+                          <img src="assets/images/ibps-banner.jpg">
+                          IBPS RRB PO Prelinks
+                        </mat-list-item>
+
+                        <mat-list-item>
+                          <img src="assets/images/ibps-banner.jpg">
+                          IBPS RRB PO Prelinks
+                        </mat-list-item>
+
+                      </mat-list>
+
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          </mat-menu>
+        </li>
+
+        <li>
+          <span [matMenuTriggerFor]="menu2">
+            {{userName}} <mat-icon class="down_icon">keyboard_arrow_down</mat-icon>
+          </span>
+          <mat-menu #menu2="matMenu">
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>exit_to_app</mat-icon>
+              Sign out
+            </button>
+
+            <button mat-menu-item [routerLink]="['profile']">
+              <mat-icon>account_circle</mat-icon>
+              Profile
+            </button>
+
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

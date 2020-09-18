@@ -1,0 +1,26 @@
+mat-toolbar {
+  width:100%;
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,.3); 
+  overflow: hidden;
+  margin-right: 120px;
+}
+
+:focus {outline:0 !important;}
+
+.header-menu {
+  padding-top: 10px;
+  font-size: 14px;
+  margin-right: 40px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.float-right-button {
+  margin-right: 60px !important;
+}

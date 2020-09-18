@@ -1,0 +1,184 @@
+<section class="schollar-section" style="max-width:450px; max-height:500px">
+    <div class="close" (click)="schollarpopupClose()">
+        <mat-icon>clear</mat-icon>
+    </div>
+    <mat-card>
+
+        <div class="container-fluid" *ngIf="continueEmail">
+            <!-- <div class="close" (click)="schollarpopupClose()">
+                <mat-icon>highlight_off</mat-icon>
+            </div> -->
+            <div class="col-12 col-md-12 col-lg-12 mx-auto">
+                <div class="row login-section">
+                    <div class="col-12 text-center">
+                        <h3 class="text-center">Continue With Email</h3>
+                    </div>
+
+                    <div class="col-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email / Phonenumber</mat-label>
+                            <input matInput placeholder="youremail@example.com" [formControl]="email" required>
+                            <mat-error *ngIf="email.invalid">You must enter Email Or Phone Number</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+
+                            <mat-error *ngIf="password.invalid">You must enter your passowrd</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 register-section">
+                        <button mat-raised-button class="btn-block btn-success" (click)="login()">Login</button>
+                        <p>New User? <span (click)="showRegister()">Register Now</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" *ngIf="showPhoneNumberDiv">
+            <div class="row">
+                <div class="col-12">
+                    <img class="logo" src="assets/images/avision_icon.png">
+                </div>
+                <div class="col-12">
+                    <h3>Register For Scholarship Exam</h3>
+                    <p>Get scholarship and start your exam preparation with us</p>
+                </div>
+
+                <div class="col-12 col-md-12 col-lg-12 mx-auto">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter Your 10 Digit Phone Number</mat-label>
+                        <input matInput type="number" placeholder="Ex. 7980429185" type="number" class="example-right-align" #phone_number>
+                    </mat-form-field>
+
+
+                </div>
+            </div>
+            <!--row-->
+
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-12 col-md-12 col-lg-12 mx-auto" id="recaptcha-container1">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12 mx-auto">
+                    <button class="btn btn-success btn-block" (click)="onSubmit(phone_number)"> {{button_text}}</button>
+                    <p style="padding-top: 20px;">Already Registered User? <span (click)="showlogin()" style="color:blue">Login Now</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid otp-section" *ngIf="showOtp">
+            <div class="col-12 col-md-12 col-lg-12 mx-auto">
+                <div class="row otp-text-section">
+                    <div class="col-9 text-left">
+                        <h3>Enter OTP</h3>
+                        <p>Please Enter OTP Sent To</p>
+                        <p>+91 {{phoneNumberString}} </p>
+                    </div>
+                    <div class="col-3">
+                        <img src="assets/images/group-img.webp" class="img-fluid">
+                    </div>
+                </div>
+                <!--row-->
+                <div class="row main-otp-section">
+                    <div class="container">
+                        <div class="col-12">
+                            <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:6}"></ng-otp-input>
+
+                        </div>
+                        <div class="row" style="padding-top: 30px;">
+                            <div class="col-12 col-md-10 mx-auto">
+                                <button mat-raised-button class="btn-block btn-success" (click)="verifyLoginCode()">Submit
+                  OTP</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="container" *ngIf="showUpdateEmail">
+            <div class="col-12 col-md-12 col-lg-12 mx-auto">
+                <div class="row login-section">
+                    <div class="col-12 text-center">
+                        <h3 class="text-center">Complete Registration</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput placeholder="youremail@example.com" [formControl]="fullName" required>
+                        <mat-error *ngIf="fullName.invalid">You must enter Your Name</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email / Phonenumber</mat-label>
+                        <input matInput placeholder="youremail@example.com" [formControl]="requiredEmail" required>
+                        <mat-error *ngIf="requiredEmail.invalid">You must enter Email</mat-error>
+                    </mat-form-field>
+
+
+                    <div class="col-12 register-section">
+                        <button mat-raised-button class="btn-block btn-success" (click)="register()">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="container-fluid" *ngIf="showUpdateEmail">
+            <div class="col-12 col-md-12 col-lg-12 mx-auto">
+                <div class="row login-section">
+                    <div class="col-12 text-center">
+                        <h3 class="text-center">Register With Email And Password</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Full Name</mat-label>
+                            <input matInput placeholder="youremail@example.com" [formControl]="fullName" required>
+                            <mat-error *ngIf="fullName.invalid">You must enter Your Name</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="youremail@example.com" [formControl]="email" required autocomplete="off">
+                            <mat-error *ngIf="email.invalid">You must enter Email Or Phone Number</mat-error>
+                        </mat-form-field>
+                    </div>
+
+
+
+                    <div class="col-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+
+                            <mat-error *ngIf="password.invalid">You must enter your passowrd</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-12 register-section">
+                        <button mat-raised-button class="btn-block btn-success" (click)="new_register()">Register</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</section>

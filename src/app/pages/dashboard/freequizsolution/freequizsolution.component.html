@@ -1,0 +1,305 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<section class="freequiz">
+    <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-12 col-sm-12 col-md-11 col-lg-8">
+                    <h1>{{title}}</h1>
+                    <mat-card class="report-card" *ngIf="showMark">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 d-flex align-items-center justify-content-center">
+                                    <img src="assets/images/achivment.png" class="img-fluid">
+                                </div>
+                                <div class="col-12 text-center">
+                                    <h3>REPORT CARD</h3>
+                                </div>
+                            </div>
+                            <div class="row text-center score-section">
+                                <div class="col-12 col-sm-4">
+                                    <h4>SCORE</h4>
+                                    <span>
+                                        {{totalMarks}}
+                                    </span>
+                                    <h6>Out of {{total}}</h6>
+                                </div>
+
+                                <div class="col-12 col-sm-4">
+                                    <h4>CORRECT</h4>
+                                    <span>
+                                        {{totalMarks}}
+                                    </span>
+                                    <h6>Out of {{total}}</h6>
+                                </div>
+
+
+                                <div class="col-12 col-sm-4">
+                                    <h4>WRONG</h4>
+                                    <span>
+                                        {{totalWrong}}
+                                    </span>
+                                    <h6>Out of {{total}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card>
+                    <mat-accordion class="example-headers-align" multi *ngFor="let quizQuestionAnswer of quizQuestionAnswer index as i">
+                        <mat-expansion-panel id="{{quizQuestionAnswer.question_details.question_id}}" [expanded]=" opendTrue" (opened)="setStep(i)" hideToggle>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <h3>Question {{i+1}}</h3>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p class="main-question" id="question_{{quizQuestionAnswer.question_details.question_id}}" [innerHTML]="quizQuestionAnswer.question_details.question"></p>
+                            <div class="row" id="row_toggle_enable_{{quizQuestionAnswer.question_details.question_id}}">
+
+
+                                <ng-container *ngFor="let answer of quizQuestionAnswer.answers_list index as j">
+                                    <ng-container *ngIf="quizQuestionAnswer.student_ans[0]">
+
+                                        <ng-container *ngIf=" quizQuestionAnswer.student_ans[0].answer_id == answer.answer_id && quizQuestionAnswer.student_ans[0].answer_status == '0'">
+
+                                            <div class="answer_list col-12 red" id="answer_given_{{answer.answer_id}}">
+                                                <label class="container-fluid">
+                                                <div class="row">
+                                                <div class="col-1">
+                                                    <span class="charecter_span">{{charArray[j]}}</span>
+                                                </div>
+                                                <div class="col-10">
+                                                    <span id="{{answer.answer_id}}" [innerHTML]="answer.answer"></span>
+                                                </div>
+                                                <div class="col-1">
+                                                    <mat-icon>clear</mat-icon>
+                                                </div>
+                                                </div>
+                                            </label>
+                                            </div>
+
+                                        </ng-container>
+                                        <ng-container *ngIf="quizQuestionAnswer.student_ans[0].answer_id == answer.answer_id && quizQuestionAnswer.student_ans[0].answer_status == '1'">
+                                            <div class="answer_list col-12 checkedClass" id="answer_given_{{answer.answer_id}}" [ngClass]="{
+                                                'checkedClass': answer.answer_status == '1',
+                                                'uncheckedClass': answer.answer_status == '0'                                   
+                                                }">
+                                                <label class="container-fluid">
+                                                    <div class="row">
+                                                    <div class="col-1">
+                                                        <span class="charecter_span">{{charArray[j]}}</span>
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <span id="{{answer.answer_id}}" [innerHTML]="answer.answer"></span>
+                                                    </div>
+                                                    <div class="col-1">
+                                                        <mat-icon>done</mat-icon>
+                                                    </div>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </ng-container>
+
+
+                                        <ng-container *ngIf="quizQuestionAnswer.student_ans[0].answer_id != answer.answer_id">
+                                            <div class="answer_list col-12 checkedClass" id="answer_given_{{answer.answer_id}}" [ngClass]="{
+                                                'checkedClass': answer.answer_status == '1',
+                                                'uncheckedClass': answer.answer_status == '0'                                   
+                                                }">
+                                                <label class="container-fluid">
+                                                    <div class="row">
+                                                    <div class="col-1">
+                                                        <span class="charecter_span">{{charArray[j]}}</span>
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <span id="{{answer.answer_id}}" [innerHTML]="answer.answer"></span>
+                                                    </div>
+                                                    <div class="col-1" *ngIf=" answer.answer_status == 1">
+                                                        <mat-icon>done</mat-icon>
+                                                    </div>
+                                                   
+                                                    
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </ng-container>
+
+                                    </ng-container>
+
+
+                                    <ng-container *ngIf=" !quizQuestionAnswer.student_ans[0]">
+
+                                        <div class="answer_list col-12 checkedClass" id="answer_given_{{answer.answer_id}}" [ngClass]="{
+                                            'checkedClass': answer.answer_status == '1',
+                                            'uncheckedClass': answer.answer_status == '0'                                   
+                                            }">
+                                            <label class="container-fluid">
+                                                <div class="row">
+                                                <div class="col-1">
+                                                    <span class="charecter_span">{{charArray[j]}}</span>
+                                                </div>
+                                                <div class="col-10">
+                                                    <span id="{{answer.answer_id}}" [innerHTML]="answer.answer"></span>
+                                                </div>
+                                                <div class="col-1" *ngIf=" answer.answer_status == 1">
+                                                    <mat-icon>done</mat-icon>
+                                                </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </ng-container>
+
+                                </ng-container>
+                            </div>
+
+                            <div class="ans_desc" class="ans_desc">
+
+                                <h3>Answer Solution</h3>
+                                <ng-container *ngIf=" quizQuestionAnswer.student_ans[0]">
+                                    <ng-container *ngIf="quizQuestionAnswer.student_ans[0].answer_status == '0'">
+                                        <div class="container-fluid">
+                                            <div class="row show-wrong">
+                                                <div class="col-2 col-sm-1">
+                                                    <span class="charecter_span"><mat-icon>clear</mat-icon></span>
+                                                </div>
+                                                <div class="col-10 col-sm-11">
+                                                    <p>Oops! Wrong answer!</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </ng-container>
+
+                                    <ng-container *ngIf="quizQuestionAnswer.student_ans[0].answer_status == '1'">
+                                        <div class="container-fluid">
+                                            <div class="row show-correct">
+                                                <div class="col-2 col-sm-1">
+                                                    <span class="charecter_span"><mat-icon>done</mat-icon></span>
+                                                </div>
+                                                <div class="col-10 col-sm-11">
+                                                    <p>Correct Answer</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </ng-container>
+                                </ng-container>
+
+                                <ng-container *ngIf=" !quizQuestionAnswer.student_ans[0]">
+                                    <div class="container-fluid">
+                                        <div class="row skipped">
+                                            <div class="col-2 col-sm-1">
+                                                <span class="charecter_span"><mat-icon>done</mat-icon></span>
+                                            </div>
+                                            <div class="col-10 col-sm-11">
+                                                <p>Skipped</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+
+                                <p [innerHTML]="quizQuestionAnswer.question_details.sol_desc"></p>
+                            </div>
+
+
+                        </mat-expansion-panel>
+
+                    </mat-accordion>
+                </div>
+
+                <div class="col-md-12 col-lg-4 fixed-top-analysis">
+                    <mat-accordion class="example-headers-left ">
+                        <mat-expansion-panel [expanded]="true" hideToggle *ngIf="showMark">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12 text-left">
+                                                <h3>QUESTION ANALYSIS</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div class="row row-cols-5 question-analysis">
+                                <div class="col" *ngFor="let question of quizQuestionAnswer index as i">
+                                    <ng-container *ngIf="question.question_details.question_status == 1">
+                                        <span class="justify-center answerd" id="answer_{{question.question_details.question_id}}" (click)="scrollToQuestion(question.question_details.question_id, i)">{{i+1}}</span>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="question.question_details.question_status == 0">
+                                        <span class="justify-center" id="answer_{{question.question_details.question_id}}" (click)="scrollToQuestion(question.question_details.question_id, i)">{{i+1}}</span>
+                                    </ng-container>
+
+                                </div>
+                            </div>
+
+                            <div class="show-question-status">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-6 text-left">
+                                            <mat-icon class="not-answerd-icon">fiber_manual_record</mat-icon>
+                                            Unanswered
+                                        </div>
+                                        <div class="col-6 text-right">
+                                            <mat-icon class="answerd-icon">fiber_manual_record</mat-icon>
+                                            Answered
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </mat-expansion-panel>
+                    </mat-accordion>
+
+                    <mat-accordion class="example-headers-left">
+                        <mat-expansion-panel [expanded]="true" hideToggle *ngIf="showMark">
+                            <mat-expansion-panel-header>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-12 text-left">
+                                            <h3>MY PERFORMANCE</h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </mat-expansion-panel-header>
+                            <div class="report-card" *ngIf="showMark">
+                                <div class="container-fluid">
+                                    <div class="row text-center score-section">
+                                        <div class="col-12 col-sm-4">
+                                            <h4>SCORE</h4>
+                                            <span>
+                                                {{totalMarks}}
+                                            </span>
+                                            <h6>Out of {{total}}</h6>
+                                        </div>
+
+                                        <div class="col-12 col-sm-4">
+                                            <h4>CORRECT</h4>
+                                            <span>
+                                                {{totalMarks}}
+                                            </span>
+                                            <h6>Out of {{total}}</h6>
+                                        </div>
+
+
+                                        <div class="col-12 col-sm-4">
+                                            <h4>WRONG</h4>
+                                            <span>
+                                                {{totalWrong}}
+                                            </span>
+                                            <h6>Out of {{total}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

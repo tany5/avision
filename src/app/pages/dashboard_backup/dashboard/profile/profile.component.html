@@ -1,0 +1,495 @@
+<div class="container">
+  <div class="col-xl-9 col-lg-10 col-12 profile">
+    <h1>Settings</h1>
+    <mat-tab-group animationDuration="0ms">
+      <mat-tab label="Profile">
+        <div class="container">
+          <div class="col-12 col-xl-7 col-md- mx-auto">
+            <span class="float-right" (click)="toggleShow()">
+              <button mat-icon-button color="primary" matTooltip="Edit Your Profile Detials">
+                <mat-icon>edit_board</mat-icon>
+                Edit Profile
+              </button>
+            </span>
+            <div class="row">
+              <div class="col-4 col-sm-6 mx-auto" style="padding: 40px 0px;">
+                <p> Profile Picture </p>
+              </div>
+
+              <div class="col-8 col-sm-6 mx-auto">
+                <div class="row">
+                  <div class="col-6">
+                    <form [formGroup]="form">
+                      <input type="file" name="image" accept=".png, .jpg, .jpeg" #fileInput
+                        (change)="uploadFile($event)" style="opacity:0;">
+                      <img *ngIf="!userImage" class="circle-img" [style.backgroundImage]="'url('+ imageUrl +')'"
+                        style="background-size:cover;background-repeat:no-repeat;width:80px;height:60px; border-radius:50%">
+                        <img  class="circle-img" [style.backgroundImage]="'url('+userImage +')'"
+                        style="background-size:cover;background-repeat:no-repeat;width:80px;height:60px; border-radius:50%">
+
+                    </form>
+                  </div>
+
+                  <div class="col-6" style="padding-top: 30px;">
+                    <span (click)="fileInput.click()" accept="image/*" multiple="1">
+                      <p>Chnage</p>
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <ng-container *ngIf="!show">
+
+              <div class="row">
+                <div class="col-6 col-sm-6 mx-auto">
+                  <p>Full Name</p>
+                </div>
+
+                <div class="col-6 col-sm-6 mx-auto">
+                  <p>{{name}}</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6 col-sm-6 mx-auto">
+                  <p> Date of Birth</p>
+                </div>
+
+                <div class="col-6 col-sm-6 mx-auto">
+                  <p> {{dob}} </p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6 col-sm-6 mx-auto">
+                  <p>Category</p>
+                </div>
+
+                <div class="col-6 col-sm-6 mx-auto">
+                  <p>{{category}}</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6 col-sm-6 mx-auto">
+                  <p>Location</p>
+                </div>
+
+                <div class="col-6 col-sm-6 mx-auto">
+                  <p>{{pin}} </p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6 col-sm-6 mx-auto">
+                  <p> Default Language </p>
+                </div>
+
+                <div class="col-6 col-sm-6 mx-auto">
+                  <p> {{language}} </p>
+                </div>
+              </div>
+
+            </ng-container>
+
+
+            <ng-container *ngIf="show">
+              <form method="post" (ngSubmit)="updateDetails()" [formGroup]="registerForm">
+                <div class="row">
+                  <div class="col-6 col-sm-6 mx-auto">
+                    <mat-label>Full Name</mat-label>
+                  </div>
+
+                  <div class="col-6 col-sm-6 mx-auto">
+
+                    <mat-form-field appearance="legacy">
+                      <mat-label>Full Name</mat-label>
+                      <input #focus formControlName="name" type="text" matInput name="name" required [(ngModel)]="name">
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 col-sm-6 mx-auto">
+                    <p>Date of Birth</p>
+                  </div>
+
+                  <div class="col-6 col-sm-6 mx-auto">
+                    <mat-form-field appearance="legacy">
+                      <mat-label>Choose a date</mat-label>
+                      <input matInput [matDatepicker]="picker" formControlName="dob" required [(ngModel)]="dob">
+                      <mat-datepicker-toggle matSuffix [for]="picker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 col-sm-6 mx-auto">
+                    <p>Category</p>
+                  </div>
+
+                  <div class="col-6 col-sm-6 mx-auto">
+                    <mat-form-field>
+                      <mat-label>Select an option</mat-label>
+                      <mat-select required [(ngModel)]="category" formControlName="category">
+                        <mat-option>None</mat-option>
+                        <mat-option value="General">General </mat-option>
+                        <mat-option value="OBC">OBC</mat-option>
+                        <mat-option value="SC">SC</mat-option>
+                        <mat-option value="ST">ST</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 col-sm-6 mx-auto">
+                    <p>Location</p>
+                  </div>
+
+                  <div class="col-6 col-sm-6 mx-auto">
+                    <mat-form-field appearance="legacy">
+                      <mat-label>Pin Code</mat-label>
+                      <input matInput required [(ngModel)]="pin" formControlName="pin">
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 col-sm-6 mx-auto">
+                    <p>Default Language</p>
+                  </div>
+
+                  <div class="col-6 col-sm-6 mx-auto">
+                    <mat-form-field>
+                      <mat-label>Select an option</mat-label>
+                      <mat-select [(value)]="selected" required [(ngModel)]="language" formControlName="language">
+                        <mat-option>None</mat-option>
+                        <mat-option value="Hindi">Hindi</mat-option>
+                        <mat-option value="English">English</mat-option>
+
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6 col-sm-6 mx-auto">
+                  </div>
+                  <div class="col-6">
+                    <input type="submit" class="btn btn-primary btn-block mx-auto" value="Save">
+                  </div>
+                </div>
+
+              </form>
+            </ng-container>
+
+
+          </div>
+        </div>
+
+      </mat-tab>
+
+
+      <!--profile-->
+      <!--exam-->
+      <mat-tab label="Your Exams">
+        <div class="container">
+          <div class="exams_list" *ngFor="let examDetails of examDetails">
+            <h1>{{examDetails.courses_name}}</h1>
+            <div class="row">
+
+              <div class="col-6 col-xl-3" *ngFor="let sub_category of examDetails['sub_category']">
+                <mat-card>
+                  {{sub_category.sub_category_name}}
+                  <span class="float-right">
+                    <mat-icon (click)="deleteExamDetails(sub_category.suggested_id)">delete</mat-icon>
+                  </span>
+                </mat-card>
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+        <button mat-raised-button color="primary" class="float-right mt-10" (click)="open2(content2)" style="margin-top:90px;">Add Examas</button>
+      </mat-tab>
+
+
+      <!--account-->
+      <mat-tab label="Account">
+        <div class="container">
+          <div class="col-12 col-xl-7 col-md- mx-auto profile">
+
+            <div class="row">
+              <div class="col-3 col-sm-6 col-md-3 mx-auto">
+                <p>Email</p>
+              </div>
+
+              <div class="col-9 col-sm-6 col-md-9 mx-auto">
+                <p>{{this.email}}</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-3 col-sm-3 mx-auto">
+                <p>Phone</p>
+              </div>
+
+              <div class="col-6 col-sm-6 mx-auto">
+                <ng-container *ngIf="!showPhone">
+                  <p>{{this.phone}}</p>
+                </ng-container>
+                <ng-container *ngIf="showPhone">
+                  <mat-form-field appearance="legacy">
+                    <mat-label>Phone</mat-label>
+                    <input matInput required [(ngModel)]="phone">
+                  </mat-form-field>
+
+                  <button class="btn btn-success mx-auto" (click)="updatePhone(phone)">Update</button>
+                </ng-container>
+
+
+              </div>
+
+              <div class="col-3 col-sm-3 mx-auto">
+                <span (click)="changePhone()">Change</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-4 col-sm-3 mx-auto">
+                <p>Password</p>
+              </div>
+
+              <div class="col-5 col-sm-6 mx-auto">
+                <p>**************</p>
+
+              </div>
+              <div class="col-3 col-sm-3 mx-auto">
+
+                <button class="btn btn-sm btn-outline-primary" (click)="open(content)">Update</button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </mat-tab>
+      <mat-tab label="Pass">Content 3</mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Update Password</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <br>
+    <form [formGroup]="updatePasswordForm" (ngSubmit)="updatePassword()">
+      <mat-form-field appearance="legacy">
+        <mat-label>Current password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="prev_password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>New password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="new_password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Confirm password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirm_password"
+          [ngClass]="{ 'is-invalid': f.confirm_password.errors }">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <div *ngIf="f.confirm_password.errors" class="invalid-feedback">
+          <div *ngIf="f.confirm_password.errors.mustMatch">Passwords must match</div>
+        </div>
+      </mat-form-field>
+      <br>
+      <button type="submit" class="btn btn-primary btn-block">Save</button>
+
+    </form>
+  </div>
+</ng-template>
+
+
+
+<ng-template #content2 let-modal>
+
+
+
+  <div class="modal-body exam_content">
+    <button type="button" class="close float-right" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div class="container" *ngIf="!showExamContainer">
+      <h3>Select Exam Category</h3>
+      <ng-container *ngIf="!courseDetailsLoader">
+        <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '60px',
+        'width': '100%',
+        border: '1px solid white'
+        }">
+        </ngx-skeleton-loader>
+
+
+        <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '60px',
+        'width': '100%',
+        border: '1px solid white'
+        }">
+        </ngx-skeleton-loader>
+
+        <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '60px',
+        'width': '100%',
+        border: '1px solid white'
+        }">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '60px',
+        'width': '100%',
+        border: '1px solid white'
+        }">
+        </ngx-skeleton-loader>
+
+        <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '60px',
+        'width': '100%',
+        border: '1px solid white'
+        }">
+        </ngx-skeleton-loader>
+
+        <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '60px',
+        'width': '100%',
+        border: '1px solid white'
+        }">
+        </ngx-skeleton-loader>
+      </ng-container>
+      <ng-container *ngIf="courseDetailsLoader">
+
+        <mat-card (click)="showExamDetails(courseDetails.courses_id)" class="exam_card"
+          *ngFor="let courseDetails of courseDetails">
+          <div class="row">
+            <div class="col-10">
+              <h3><img src="{{courseDetails.courses_icon}}" style="width: 20px;"> {{courseDetails.courses_name}} Exams
+              </h3>
+
+            </div>
+            <div class="col-1">
+              <span class="float-right my-auto pt-20">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </span>
+            </div>
+          </div>
+        </mat-card>
+      </ng-container>
+    </div>
+
+    <div class="container" *ngIf="showExamContainer">
+      <ng-container *ngIf=!subCategoryLoader>
+        <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '60px',
+        'width': '100%',
+        border: '1px solid white'
+        }">
+        </ngx-skeleton-loader>
+
+
+        <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '60px',
+        'width': '100%',
+        border: '1px solid white'
+        }">
+        </ngx-skeleton-loader>
+
+        <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '60px',
+        'width': '100%',
+        border: '1px solid white'
+        }">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '60px',
+        'width': '100%',
+        border: '1px solid white'
+        }">
+        </ngx-skeleton-loader>
+
+        <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '60px',
+        'width': '100%',
+        border: '1px solid white'
+        }">
+        </ngx-skeleton-loader>
+
+        <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '60px',
+        'width': '100%',
+        border: '1px solid white'
+        }">
+        </ngx-skeleton-loader>
+      </ng-container>
+      <ng-container *ngIf=subCategoryLoader>
+        <mat-icon (click)="hideExamDetails()">keyboard_backspace</mat-icon>
+        <h3>All {{courseName}} Exams</h3>
+        <div class="exam_details_container">
+          <div class="row">
+            <div class="col-12">
+
+              <mat-card *ngFor="let subCategoryName of subCategoryName">
+                {{subCategoryName.sub_category_name}}
+                <mat-checkbox
+                  (change)="checkCheckBoxvalue(subCategoryName.courses_id, subCategoryName.sub_category_id)"
+                  class="floar-right" [labelPosition]="labelPosition">
+                </mat-checkbox>
+              </mat-card>
+              <br>
+              <button class="btn btn-success btn-block btn-sm" (click)="updateExamDetails()">Add Exams</button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+
+
+  </div>
+</ng-template>

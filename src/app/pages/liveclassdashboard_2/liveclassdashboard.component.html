@@ -1,0 +1,18 @@
+<section class="liveclass-two-header">
+    <div class="auto-container">
+        <h3>{{product_name}}<a (click)="onLogout()" href="javascript:void(0)" class="btn btn-success pull-right"><span><i class="fa fa-sign-out"></i></span>Logout</a></h3>
+    </div>
+</section>
+<!-- live class details section -->
+<section class="live-class-details-two-section-tab">
+    <div class="auto-container">
+        <ul class="nav nav-tabs cus-liveclass-tab">
+            <li><a class="active" data-toggle="tab" routerLink="preview" class="preview">Preview</a></li>
+            <li><a data-toggle="tab" routerLink="study-plan" class="study-plan">Study Plan</a></li>
+            <li><a data-toggle="tab" routerLink="course-curriculum">Course Curriculum</a></li>
+            <li><a data-toggle="tab" routerLink="ask-doubts"> Ask Doubts</a></li>            
+            <li><a data-toggle="tab" routerLink="mock-tests">Mock tests</a></li>
+        </ul>
+    </div>
+</section>
+<router-outlet></router-outlet>

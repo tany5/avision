@@ -1,0 +1,451 @@
+<header class="main-header header-style-one">
+
+    <!-- Header Top -->
+    <div class="header-top">
+        <div class="auto-container">
+            <div class="top-outer clearfix">
+
+                <!--Top Left-->
+                <div class="top-left">
+                    <ul class="links clearfix">
+                        <!--Language-->
+                        <!--Language-->
+                        <li class="language dropdown">
+                            <a class="change_color" [routerLink]="['/franchise/franchise']" target="_blank">
+                                <span class="blink icon flaticon-briefcase"></span> Franchise
+                            </a>
+                        </li>
+                        <li><a href="https://www.avision24x7.com/" target="_blank">Current Affairs</a></li>
+                        <li><a [routerLink]="['/about']">About Us</a></li>
+                        <li><a [routerLink]="['/centers']">Centers</a></li>
+                        <li><a [routerLink]="['/contact']">Contact</a></li>
+                        <li><a [routerLink]="['/referearn']">Refer & Earn</a></li>
+
+                    </ul>
+                </div>
+
+                <!--Top Right-->
+                <div class="top-right clearfix">
+                    <ul class="clearfix">
+                        <li><a [routerLink]="['/freeliveclass']"><i class="fa fa-youtube-play"></i> Free Classes</a></li>
+                        <li><a href="javascript:void(0)" class="log-in-button" data-toggle="modal" data-target="#loginModal"><span
+                  class="icon flaticon-user"></span>Login</a></li>
+                        <li><a href="javascript:void(0)" class="sign-up-button" data-toggle="modal" data-target="#loginModal"><span
+                  class="icon flaticon-upload"></span>Sign up</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Header Top End -->
+
+    <div class="droopmenu-navbar">
+        <div class="droopmenu-inner">
+            <div class="droopmenu-header">
+                <a routerLink="/" class="droopmenu-brand"><img src="assets/images/logo.png"></a>
+                <a href="#" class="droopmenu-toggle"></a>
+            </div>
+            <!-- droopmenu-header -->
+            <div class="droopmenu-nav nav-outer clearfix">
+                <ul class="droopmenu">
+                    <!-- <li><a href="#">Home</a></li> -->
+
+                    <li><a href="javascript:void(0)">Exam </a>
+                        <ul class="droopmenu-grid droopmenu-grid-6">
+                            <li class="droopmenu-tabs droopmenu-tabs-vertical">
+
+                                <!-- TAB ONE -->
+                                <div class="droopmenu-tabsection">
+                                    <a class="droopmenu-tabheader"><img src="assets/images/icon_bank.png" width="25px" /> Banking</a>
+                                    <div class="droopmenu-tabcontent">
+                                        <div class="droopmenu-row">
+                                            <ul class="droopmenu-col droopmenu-col6">
+                                                <li>
+                                                    <a href="exam-details.html">
+                                                        <h4>Bank PO</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let podata of menuPODetails"><a href="courseinfo/{{podata.sub_cat_slug}}">{{podata.sub_category_name}}</a>
+                                                </li>
+
+
+                                                <li>
+                                                    <a href="exam-details.html">
+                                                        <h4>Bank SO</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let sodata of menuSODetails"><a href="courseinfo/{{sodata.sub_cat_slug}}">{{sodata.sub_category_name}}</a>
+                                                </li>
+
+                                            </ul>
+                                            <ul class="droopmenu-col droopmenu-col6">
+                                                <li>
+                                                    <a href="exam-details.html">
+                                                        <h4>Bank Clerk</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let clerkdata of menuClerkDetails"><a href="courseinfo/{{clerkdata.sub_cat_slug}}">{{clerkdata.sub_category_name}}</a>
+                                                </li>
+
+
+                                                <li>
+                                                    <a href="exam-details.html">
+                                                        <h4>RBI</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let rrbdata of menuRrbDetails"><a href="courseinfo/{{rrbdata.sub_cat_slug}}">{{rrbdata.sub_category_name}}</a>
+                                                </li>
+
+                                            </ul>
+                                            <ul class="droopmenu-col droopmenu-col6">
+                                                <li>
+                                                    <a href="javascript:void(0)">
+                                                        <h4>Bank RRB</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let rrbdata of menuRRb"><a href="courseinfo/{{rrbdata.sub_cat_slug}}">{{rrbdata.sub_category_name}}</a>
+                                                </li>
+                                            </ul>
+                                            <ul class="droopmenu-col droopmenu-col6">
+                                                <li>
+                                                    <a href="javascript:void(0)">
+                                                        <h4>Bank Others</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let rrbdata of bankOther"><a href="courseinfo/{{rrbdata.sub_cat_slug}}">{{rrbdata.sub_category_name}}</a>
+                                                </li>
+                                            </ul>
+
+
+                                        </div>
+                                        <!-- droopmenu-row -->
+                                    </div>
+                                    <!-- droopmenu-tabcontent -->
+                                </div>
+                                <!-- droopmenu-tabsection -->
+
+                                <!-- TAB TWO -->
+                                <div class="droopmenu-tabsection">
+                                    <a class="droopmenu-tabheader"><img src="assets/images/icon_ssc.png" width="25px" /> SSC</a>
+                                    <div class="droopmenu-tabcontent">
+                                        <div class="droopmenu-row">
+                                            <ul class="droopmenu-col droopmenu-col6">
+                                                <li>
+                                                    <a href="exam-details.html">
+                                                        <h4>SSC</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let sscdata of menuSscDetails"><a href="courseinfo/{{sscdata.sub_cat_slug}}">{{sscdata.sub_category_name}}</a>
+                                                </li>
+                                            </ul>
+                                            <ul class="droopmenu-col droopmenu-col6">
+                                                <li>
+                                                    <a href="exam-details.html">
+                                                        <h4>Food Corporation of India</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let fcidata of menuFciDetails"><a href="courseinfo/{{fcidata.sub_cat_slug}}">{{fcidata.sub_category_name}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- droopmenu-row -->
+                                    </div>
+                                    <!-- droopmenu-tabcontent -->
+                                </div>
+                                <!-- droopmenu-tabsection -->
+
+                                <!-- TAB THREE -->
+                                <div class="droopmenu-tabsection">
+                                    <a class="droopmenu-tabheader"><img src="assets/images/icon_rail.png" width="25px" /> Railways</a>
+                                    <div class="droopmenu-tabcontent">
+                                        <div class="droopmenu-row">
+                                            <ul class="droopmenu-col droopmenu-col6">
+                                                <li>
+                                                    <a href="exam-details.html">
+                                                        <h4>Railways</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let raildata of menuRailwaysDetails"><a href="courseinfo/{{raildata.sub_cat_slug}}">{{raildata.sub_category_name}}</a>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                        <!-- droopmenu-row -->
+                                    </div>
+                                    <!-- droopmenu-tabcontent -->
+                                </div>
+                                <!-- droopmenu-section -->
+
+                                <!-- TAB FOUR -->
+                                <div class="droopmenu-tabsection">
+                                    <a class="droopmenu-tabheader"><img src="assets/images/icon_insurance.png" width="25px" /> Insurance
+                                    </a>
+                                    <div class="droopmenu-tabcontent">
+                                        <div class="droopmenu-row">
+                                            <ul class="droopmenu-col droopmenu-col6">
+                                                <li>
+                                                    <a href="exam-details.html">
+                                                        <h4>Insurance</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let insurancedata of menuInsuranceDetail"><a href="courseinfo/{{insurancedata.sub_cat_slug}}">{{insurancedata.sub_category_name}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- droopmenu-row -->
+                                    </div>
+                                    <!-- droopmenu-tabcontent -->
+                                </div>
+                                <!-- droopmenu-section -->
+
+                                <!-- TAB FIVE -->
+                                <div class="droopmenu-tabsection">
+                                    <a class="droopmenu-tabheader"><img src="assets/images/icon_teaching.png" width="25px" /> Teaching</a>
+                                    <div class="droopmenu-tabcontent">
+                                        <div class="droopmenu-row">
+                                            <ul class="droopmenu-col droopmenu-col6">
+                                                <li>
+                                                    <a href="exam-details.html">
+                                                        <h4>TET</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let tetdata of menuTetDetails"><a href="courseinfo/{{tetdata.sub_cat_slug}}">{{tetdata.sub_category_name}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- droopmenu-row -->
+                                    </div>
+                                    <!-- droopmenu-tabcontent -->
+                                </div>
+                                <!-- droopmenu-tabsection -->
+
+                                <!-- TAB SIX -->
+                                <div class="droopmenu-tabsection">
+                                    <a class="droopmenu-tabheader"><img src="assets/images/icon_eng.png" width="25px" /> Defence</a>
+                                    <div class="droopmenu-tabcontent">
+                                        <div class="droopmenu-row">
+                                            <ul class="droopmenu-col droopmenu-col6">
+                                                <li>
+                                                    <a href="exam-details.html">
+                                                        <h4>Defence</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let defencedata of menuDefenceDetails"><a href="courseinfo/{{defencedata.sub_cat_slug}}">{{defencedata.sub_category_name}}</a>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                        <!-- droopmenu-row -->
+                                    </div>
+                                    <!-- droopmenu-tabcontent -->
+                                </div>
+                                <!-- droopmenu-tabsection -->
+
+
+                                <div class="droopmenu-tabsection">
+                                    <a class="droopmenu-tabheader"><img src="assets/images/icon_state.png" width="25px" /> State Exam</a>
+                                    <div class="droopmenu-tabcontent">
+                                        <div class="droopmenu-row">
+                                            <ul class="droopmenu-col droopmenu-col6">
+                                                <li>
+                                                    <a href="exam-details.html">
+                                                        <h4>West Bengal</h4>
+                                                    </a>
+                                                </li>
+                                                <li *ngFor="let wbdata of menuWbDetails"><a href="courseinfo/{{wbdata.sub_cat_slug}}">{{wbdata.sub_category_name}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- droopmenu-row -->
+                                    </div>
+                                    <!-- droopmenu-tabcontent -->
+                                </div>
+                                <!-- droopmenu-tabsection -->
+                            </li>
+                            <!-- droopmenu-tabs vertical -->
+                        </ul>
+                        <!-- droopmenu-grid -->
+                    </li>
+
+                    <!-- <li><a href="#">Practice</a></li> -->
+                    <!--<li><a href="pass.html">Offers</a></li>-->
+                    <li>
+                        <a class="not-dropdown" [routerLink]="['/liveclass']"><img src="assets/images/Live2.png" class="img-responsive" alt="live logo" style="height: 40px;margin-top: -3px;" /></a>
+                    </li>
+                    <li><a class="not-dropdown" [routerLink]="['/testseries']" routerLinkActive="active">Test
+            Series</a></li>
+                    <li><a class="not-dropdown" [routerLink]="['/courses']">Online Courses</a></li>
+                    <li><a class="not-dropdown" [routerLink]="['/pass']">Prime</a></li>
+                    <li><a class="not-dropdown" href="javascript:void(0)">Free Prep</a>
+                        <ul class="droopmenu-grid droopmenu-grid-3">
+                            <li><a class="not-dropdown" href="javascript:void(0)">Previous Year</a></li>
+                            <li><a class="not-dropdown" href="javascript:void(0)" (click)="gotofreequiz()">Free Quiz</a></li>
+                            <li><a class="not-dropdown" href="https://avision.co.in/article">Latest Article</a></li>
+                        </ul>
+                    </li>
+                    <li><a (click)="practice()" class="not-dropdown" href="jacascript:void(0)">Practice</a></li>
+                    <!-- <li><a href="#">Courses Pass</a></li> -->
+
+
+                </ul>
+            </div>
+            <!-- droopmenu-nav -->
+
+        </div>
+        <!-- droopmenu-inner -->
+    </div>
+    <!-- droopmenu-navbar  -->
+
+</header>
+
+<!-- login Popup  d-none d-md-block -->
+<!-- Modal -->
+<div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-body" style="padding:0 15px;">
+                <div class="row">
+                    <div class="col-md-6 col-12 d-none d-md-block" style="padding:0;">
+                        <img src="assets/images/login_side_img.png" style="height: 100%;">
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-12">
+                        <div id="login" class="text-center">
+                            <div class="login-title">
+                                <h2>SIGN IN TO YOUR ACCOUNT</h2>
+                                <p>Your account is your portal to all things</p>
+                                <hr/>
+                                <div *ngIf="login" class="login-success">
+                                    <p>You are successfullt logged in.</p>
+                                    <p>please go to live class to check in database. </p>
+                                </div>
+                                <div *ngIf="unlogin" class="login-failure">
+                                    <p>Login Unsuccessfull.</p>
+                                    <p>Authentication Failed. </p>
+                                </div>
+
+                                <form [formGroup]="login_form" (ngSubmit)="onloginSubmit(login_form)">
+                                    <div class="input-group form-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                        <input type="text" class="form-control" formControlName="login_email" [ngClass]="{ 'is-invalid': submitted && f1.login_email.errors }" name="email" placeholder="Phone No / Email Id" required>
+                                    </div>
+                                    <div *ngIf="submitted && f1.login_email.errors" class="invalid-feedback">
+                                        <div *ngIf="f1.login_email.errors.required">Usernamne is required</div>
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input type="password" class="form-control" formControlName="login_password" [ngClass]="{ 'is-invalid': submitted && f1.login_password.errors }" name="password" placeholder="Password" required>
+                                        <div *ngIf="submitted && f1.login_password.errors" class="invalid-feedback">
+                                            <div *ngIf="f1.login_password.errors.required">Password is required</div>
+                                        </div>
+                                        <input type="hidden" id="video_course" value="0" />
+                                        <input type="hidden" id="product_id" value="0" />
+                                        <input type="hidden" id="live_class" value="0" />
+                                        <input type="hidden" id="free_videos" value="0" />
+                                        <input type="hidden" id="test_mod_series" value="0" />
+                                        <input type="hidden" id="free_quiz" value="0" />
+                                        <input type="hidden" id="practice" value="0" />
+
+                                    </div>
+                                    <button type="submit" class="btn btn-primary cus-login-btn">Log In</button>
+                                </form>
+                                <a href="javascript:void(0)" class="modal_forget_pass">Forgot Password ?</a>
+                                <p class="login_modal_text"><b>By signing up, you agree to our <a href="javascript:void(0)">Terms of Use</a> and <a href="javascript:void(0)">Privacy Policy</a>.</b></p>
+
+                                <hr/>
+
+                                <!-- <div class="row">
+              <div class="col-sm-6">
+                <a href="#" class="facebook_login_btn"><img src="assets/images/facebook-icon.png" width="15px"/> <span>Log in with facebook</span></a>
+              </div>
+              <div class="col-sm-6">
+                <a href="#" class="google_login_btn"><img src="assets/images/google-icon.png" width="15px"/> <span>Log in with google</span></a>
+              </div>
+            </div> -->
+                                <p class="login_modal_text_two">Don't have an account? <a href="javascript:void(0);" id="sign_up_bt">Sign Up</a></p>
+
+                            </div>
+                        </div>
+                        <div id="signup" class="text-center">
+                            <div class="login-title">
+                                <h2>CREATE YOUR ACCOUNT</h2>
+                                <p>Your account is your portal to all things</p>
+                                <hr/>
+                            </div>
+                            <div *ngIf="registered" class="success-login">
+                                <p>Registration Successfull.</p>
+                                <p>Thank you For Register With us</p>
+                            </div>
+                            <div *ngIf="unregistered" class="login-failure">
+                                <p>Registration Unsuccessfull.</p>
+                                <p>Some thing went wrong. </p>
+                            </div>
+                            <form [formGroup]="reg_form" (ngSubmit)="onRegSubmit(reg_form)">
+
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input id="text" type="text" class="form-control" formControlName="user_name" [ngClass]="{ 'is-invalid': submitted && f.user_name.errors }" name="name" placeholder="Full Name">
+                                </div>
+                                <div *ngIf="submitted && f.user_name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.user_name.errors.required">Usernamne is required</div>
+                                </div>
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    <input id="email" type="text" class="form-control" formControlName="user_email" [ngClass]="{ 'is-invalid': submitted && f.user_email.errors }" name="email" placeholder="Email Id">
+                                </div>
+                                <div *ngIf="submitted && f.user_email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.user_email.errors.required">UserEmail is required</div>
+                                </div>
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                    <input type="text" class="form-control" formControlName="user_phone" [ngClass]="{ 'is-invalid': submitted && f.user_phone.errors }" name="user_phone" minlength="10" maxlength="10" id="user_id" placeholder="Contact No.">
+                                </div>
+                                <div *ngIf="submitted && f.user_phone.errors" class="invalid-feedback">
+                                    <div *ngIf="f.user_phone.errors.required">UserPhone is required</div>
+                                    <div *ngIf="f.user_phone.errors.minlength">UserPhone is minium of 10 digit</div>
+                                    <div *ngIf="f.user_phone.errors.maxlength">UserPhone is maximum of 10 digit</div>
+                                </div>
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input type="password" class="form-control" formControlName="user_password" [ngClass]="{ 'is-invalid': submitted && f.user_password.errors }" minlength="6" name="password" id="user_password" placeholder="Password">
+                                </div>
+                                <div *ngIf="submitted && f.user_password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.user_password.errors.required">password is required</div>
+                                    <div *ngIf="f.user_password.errors.minlength">password is of atleast 6 charactors</div>
+                                </div>
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input type="password" class="form-control" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" name="confirmpassword" id="confirm_password" placeholder="Confirm Password">
+                                </div>
+                                <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                    <div *ngIf="f.confirmPassword.errors.required">password is required</div>
+                                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                                </div>
+                                <input type="hidden" id="live_class_page" value="0" />
+                                <input type="hidden" id="live_class_product_id" value="0" />
+
+                                <button type="submit" class="btn btn-primary">Sign Up</button>
+
+                            </form>
+                            <p class="login_modal_text">By signing up, you agree to our <a href="javascript:void(0)">Terms of Use</a> and <a href="javascript:void(0)">Privacy Policy</a>.</p>
+                            <p class="login_modal_text_two">Already have an account? <a href="javascript:void(0);" id="sign_in_bt">Sign in</a></p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- end login Popup -->

@@ -1,0 +1,304 @@
+.drawer {
+    position: fixed;
+    height: 100vh;
+    width: 270px;
+    top: 64px;
+    border-right: 1px solid #ccc;
+}
+
+.drawer .header {
+    position: absolute;
+    right: 0;
+    justify-content: space-between;
+}
+
+.drawer .contents {
+    padding: 16px;
+}
+
+.main {
+    background-color: #fff;
+}
+
+.main.header {
+    position: fixed;
+    top: 64px;
+    width: 100%;
+    z-index: 2;
+    border-bottom: 1px solid #ccc;
+}
+
+.main.contents {
+    /*min-height: 100vh;
+    margin-top: 64px;*/
+    /* height of header */
+    padding: 16px;
+    padding: 16px;
+    position: fixed;
+    /* right: 0; */
+    bottom: 60px;
+    top: 137px;
+    overflow: auto;
+    right: 0;
+    left: 270px;
+}
+
+.main.footer {
+    position: fixed;
+    border-top: 1px solid #ccc;
+    bottom: 0;
+    width: auto !important;
+    right: 0 !important;
+    left: 250px !important;
+}
+
+.mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+ ::ng-deep .mat-expansion-panel-body {
+    padding: 0!important;
+}
+
+mat-nav-list {
+    border-top: 1px solid #000;
+}
+
+ ::ng-deep .mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+}
+
+ ::ng-deep .mat-tab-header {
+    width: unset !important;
+    position: fixed !important;
+    top: 65px;
+    right: 0;
+    left: 290px;
+    padding: 10px;
+}
+
+ ::ng-deep .mat-tab-header-pagination-after {
+    margin-right: 0;
+    height: 33px;
+    width: 40px;
+    border-radius: 50%;
+    top: 0;
+    background: #000;
+    color: #fff;
+    right: -7px;
+}
+
+ ::ng-deep .mat-tab-header-pagination-before {
+    height: 33px !important;
+    width: 40px !important;
+    border-radius: 50% !important;
+    top: 0 !important;
+    background: #000 !important;
+    color: #fff !important;
+    left: -7px;
+}
+
+ ::ng-deep .mat-tab-header-pagination {
+    min-width: 0px !important;
+}
+
+ ::ng-deep .mat-elevation-z4 {
+    box-shadow: none;
+}
+
+ ::ng-deep .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+    border-color: #fff;
+}
+
+ ::ng-deep .mat-tab-header-pagination-chevron {
+    border-color: #fff;
+    color: #fff;
+}
+
+ ::ng-deep .mat-tab-label {
+    height: 36px !important;
+    min-width: 39px !important;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    padding: 0 !important;
+}
+
+ ::ng-deep mat-tab-group.mat-primary .mat-ink-bar {
+    background: none !important;
+}
+
+@media (max-width: 992px) and (min-width: 768px) {
+     ::ng-deep .mat-tab-header-pagination-before {
+        height: 32px !important;
+        width: 96px !important;
+    }
+     ::ng-deep .mat-tab-header-pagination-after {
+        height: 32px !important;
+        width: 96px !important;
+    }
+}
+
+::ng-deep .mat-list-item-content:hover {
+    background: #ddd;
+    border-left: 8px solid #02aeef;
+}
+
+.chapter-active {
+    background: #ddd;
+    border-left: 8px solid #02aeef;
+}
+
+::ng-deep .mat-card {
+    padding: 7px 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    color: #504242;
+}
+
+.row.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    &>[class^="col-"],
+    &>[class*=" col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+::ng-deep .is-visited {
+    background: #000 !important;
+    color: #fff !important;
+    width: 39px;
+    height: inherit;
+    border-radius: 50%;
+    margin: 0px !important;
+    padding: 0px !important;
+    border: none !important;
+}
+
+::ng-deep .is-correct {
+    border: 1px solid #0ece6d;
+}
+
+::ng-deep .is-correct::after {
+    content: 'correct';
+    background: #0ece6d;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    border-radius: .25rem 0 .25rem 0;
+    padding: 0 24px 8px 12px;
+    font-size: .875rem;
+    color: #fff;
+    height: 21px;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: all .3s cubic-bezier(.165, .84, .44, 1);
+    -o-transition: all .3s cubic-bezier(.165, .84, .44, 1);
+    transition: all .3s cubic-bezier(.165, .84, .44, 1);
+}
+
+::ng-deep .is-given-correct {
+    border: 1px solid green;
+}
+
+::ng-deep .is-wrong {
+    border: 1px solid red;
+}
+
+::ng-deep .is-wrong::after {
+    content: 'wrong';
+    background: #e4174f;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    border-radius: .25rem 0 .25rem 0;
+    padding: 0 24px 8px 12px;
+    font-size: .875rem;
+    color: #fff;
+    height: 21px;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: all .3s cubic-bezier(.165, .84, .44, 1);
+    -o-transition: all .3s cubic-bezier(.165, .84, .44, 1);
+    transition: all .3s cubic-bezier(.165, .84, .44, 1);
+}
+
+::ng-deep .is-correct-count {
+    background: #0ece6d !important;
+    color: #fff !important;
+    width: 39px;
+    height: inherit;
+    border-radius: 50%;
+    margin: 0px !important;
+    padding: 0px !important;
+    border: none !important;
+}
+
+::ng-deep .is-wrong-count {
+    background: #e4174f !important;
+    color: #fff !important;
+    width: 39px;
+    height: inherit;
+    border-radius: 50%;
+    margin: 0px !important;
+    padding: 0px !important;
+    border: none !important;
+}
+
+::ng-deep .subject_title.mat-expansion-panel-header-title {
+    display: block;
+}
+
+::ng-deep .subject_title.mat-expansion-panel-header-title span {
+    display: block;
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+::ng-deep .subject_title.mat-expansion-panel-header-title .progress {
+    width: 100%;
+    height: 10px;
+    font-size: 10px;
+}
+
+::ng-deep .chapter_title {
+    height: auto !important;
+    padding: 10px !important;
+}
+
+::ng-deep .chapter_title .mat-list-item-content {
+    display: block !important;
+    width: 100%;
+    padding: 5px !important;
+    font-size: 15px;
+}
+
+::ng-deep .chapter_title .mat-list-item-content span {
+    display: block;
+    width: 100%;
+    font-size: 13px;
+}
+
+.progress span {
+    padding: 5px;
+    text-align: center;
+}
+
+::ng-deep .drawer-opened .mat-tab-header {
+    left: 520px !important;
+}
+
+::ng-deep .drawer-opened .main.footer {
+    left: 520px !important;
+}
+
+::ng-deep .drawer-opened .main.contents {
+    left: 520px !important;
+}

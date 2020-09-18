@@ -1,0 +1,378 @@
+ <!-- Page Title-->
+    <section class="page-title cus-page-title" style="background-image:url(images/background/pattern-4.png);">
+        <div class="auto-container">
+            <h1>Pass</h1>
+			
+        </div>
+        
+        <div class="page-info">
+            <div class="auto-container">
+            	<div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a [routerLink]="['/']">Home</a></li>
+                        <li>Pass</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title -->
+
+
+    <!-- pass section -->
+	<section class="pass-section" style="background:url('assets/images/pass_back.png') #fff1d3; background-repeat: no-repeat; background-size: cover;">
+		<div class="auto-container">
+			<div class="sec-title text-center">
+            	<h3>One Pass. All Exams. Unlimited Tests</h3>
+				<p>Banking & Insurance, SSC & Railways and more<br>
+					Buy Pass & unlock all tests</p>
+            </div>
+            <div class="row" *ngIf="!passLoader">
+                <div class="col-lg-8 col-sm-12 mx-auto">				
+					<div class="row clearfix">
+						<div class="col-lg-4 col-md-6 col-sm-9 col-12 mx-auto">
+                            <ngx-skeleton-loader                    
+                            [theme]="{ 
+                            'border-radius': '5px',
+                            height: '30vh',
+                            'width': '100%',                    
+                            border: '1px solid white'
+                            }">
+                            </ngx-skeleton-loader>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-9 col-12 mx-auto">
+                            <ngx-skeleton-loader                    
+                            [theme]="{ 
+                            'border-radius': '5px',
+                            height: '30vh',
+                            'width': '100%',                    
+                            border: '1px solid white'
+                            }">
+                            </ngx-skeleton-loader>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-9 col-12 mx-auto">
+                            <ngx-skeleton-loader                    
+                            [theme]="{ 
+                            'border-radius': '5px',
+                            height: '30vh',
+                            'width': '100%',                    
+                            border: '1px solid white'
+                            }">
+                            </ngx-skeleton-loader>
+                        </div>
+                    </div>
+                </div>        
+               
+            </div>
+			<div class="row clearfix" *ngIf="passLoader">
+                <div class="col-lg-8 col-sm-12 mx-auto">				
+					<div class="row clearfix">
+                        
+						<div class="col-lg-4 col-md-6 col-sm-9 col-12 mx-auto" *ngFor="let passData of passData; index as i">
+							<div class="pass-inner" *ngIf="(i%2)!==0">
+								<span class="plan-topheding">{{passData.plan_name}}</span>
+								<h5></h5>
+								<h2 class="plan-price"><i class="fa fa-inr" aria-hidden="true"></i>{{passData.offer_price}} <span><i class="fa fa-inr" aria-hidden="true"></i>{{passData.price}}</span></h2>
+								<span class="save-price">Save {{(passData.price - passData.offer_price)*100/passData.price | number: "2.0-0"}}%</span>
+								<h4 class="plan-main-heading">Test Series</h4>
+								<p>All Test Series for All Exams Except IBPS SO Mains & UGC NET</p>
+								<a href="#" class="btn btn-proceed">PROCEED</a>
+								
+                            </div>
+                            
+                            <div class="pass-inner pass-inner-two" *ngIf="(i%2)===0">
+								<span class="plan-topheding">{{passData.plan_name}}</span>
+								<h5></h5>
+								<h2 class="plan-price"><i class="fa fa-inr" aria-hidden="true"></i>{{passData.offer_price}} <span><i class="fa fa-inr" aria-hidden="true"></i> {{passData.price}}</span></h2>
+								<span class="save-price">Save {{(passData.price - passData.offer_price)*100/passData.price | number: "2.0-0"}}%</span>
+								<h4 class="plan-main-heading">Test Series</h4>
+								<p>All Test Series for All Exams Except IBPS SO Mains & UGC NET</p>
+								<a href="#" class="btn btn-proceed">PROCEED</a>
+								
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+		</div>		
+	</section>
+   
+   <!-- end pass section -->
+
+   <section class="why-take-test-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h3>Why should you buy Avision Pass?</h3>
+        </div>
+        <div class="row clearfix">
+            
+            <div class="col-lg-4 col-sm-8 mx-auto col-12">
+                <div class="why-test-scries-inner">
+                    <img src="assets/images/facilities/icon-6.png">
+                    <h3>All Exams. All Tests</h3>
+                    <p>Access all Test Series and be ready for all Exams with Avision Pass.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-sm-8 mx-auto col-12">
+                <div class="why-test-scries-inner">
+                    <img src="assets/images/facilities/icon-1.png">
+                    <h3>All Exams. All Tests</h3>
+                    <p>Access all Test Series and be ready for all Exams with Avision Pass.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-sm-8 mx-auto col-12">
+                <div class="why-test-scries-inner">
+                    <img src="assets/images/facilities/icon-5.png">
+                    <h3>All Exams. All Tests</h3>
+                    <p>Access all Test Series and be ready for all Exams with Avision Pass.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="test-series-covered-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h3>50+ Test Series Covered</h3>
+        </div>
+        <div class="row mx-auto">
+            <div class="cus-test-tab col-lg-10 col-12 mx-auto">
+                <button   class="btn btn-default filter-button active" data-filter="all" (click)="getAllCourseData()">All</button>
+                <ng-container *ngFor="let courseDetails of courseDetails; index as i">                   
+                    <button   class="btn btn-default filter-button" id="{{courseDetails.courses_id}}" data-filter="all" (click)="getSubCategory($event)">{{courseDetails.courses_name}}</button>
+                </ng-container>
+            
+                
+            </div>
+            <br/>
+
+            <!-- banking tab -->
+            <ng-container *ngIf="subCategoryAllData">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 filter bank" *ngFor="let subCategoryData of subCategoryAllData ">
+					<div class="sec-title tab-sec-title">
+						<h4>{{subCategoryData.course_name}}</h4>
+					</div>
+					<div class="test-series-tab-inner">
+						<ul>
+							<li *ngFor="let subCategory of subCategoryData['subCatDetails']">
+								<a href="javascript:void(0)">
+									<img src="{{subCategory.course_changed_icon}}" width="50px">
+									<span>{{subCategory.sub_category_name}}</span>
+								</a>
+							</li>	
+						</ul>
+					</div>
+				</div>
+
+            </ng-container>
+
+            <ng-container *ngIf="subCategoryName">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 filter bank">
+                    <ng-container *ngFor="let subCategoryData of subCategoryName index as i">
+                        <div *ngIf="i===0" class="sec-title tab-sec-title">
+                            <h4>{{subCategoryData.courses_name}}</h4>
+                        </div>
+                    </ng-container>
+                    
+					<div class="test-series-tab-inner">
+						<ul>
+							<li *ngFor="let subCategoryData of subCategoryName">
+								<a href="javascript:void(0)">
+									<img src="{{subCategoryData.course_changed_icon}}" width="50px">
+									<span>{{subCategoryData.sub_category_name}}</span>
+								</a>
+							</li>	
+						</ul>
+					</div>
+				</div>
+
+            </ng-container>
+				
+        </div><!--row-->
+    </div>   
+</section>    
+
+
+<!-- faq section -->
+<section class="faq-section" id="faq">
+    <div class="auto-container">
+        <!--Accordian Boxed-->
+        <div class="accordian-boxed">
+            <h3>Frequently Asked Questions</h3>
+            
+            <!--Accordian Box-->
+            <ul class="accordion-box">
+                
+                <!--Block-->
+                <li class="accordion block active-block">
+                    <div class="acc-btn active"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>What is Avision Prime?</div>
+                    <div class="acc-content current">
+                        <div class="content">
+                            <div class="text">Avision Prime is a special plan that unlocks all the tests viz; SSC, Banking,Railways, Teaching ,Defence &amp; other Government Job Exams . With Avision Prime,you can take unlimited tests. So, this plan will help you to plan for all Exams without losing your focus and solve your concern to buy different test series for different Exams.</div>
+                        </div>
+                    </div>
+                </li>
+        
+                <!--Block-->
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>When will my Plan expire?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">It depends on which Plan you’ve purchased. Validity of the Plan is mentioned on the Prime membership and you can also check it in your personalised dashboard or on Plan.</div>
+                        </div>
+                    </div>
+                </li>
+                 <!--Block-->
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Will I be able to access my unattempted tests & Reports of attempted tests after my Plan expires?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">No, You should attempt all your tests before your Plan expires. After your Plan expires, you will have to renew it to access unattempted and new tests.</div>
+                        </div>
+                    </div>
+                </li>
+                
+                 <!--Block-->
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>How many tests and exams do I get when I buy the Avision Prime Plan?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">With AvisionPrime  Plan, all the tests in SSC, BANKING, Railways & Other Government Exams on Avision are unlocked. There is no limit on the tests you can attempt after you buy the Plan. As long as your Plan is valid, you can take as many tests as you can.</div>
+                        </div>
+                    </div>
+                </li>
+                
+                 <!--Block-->
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>What happens if I renew the Plan before the expiry date?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">If you renew the Plan before the expiry date, the duration of Plan simply gets added to the remaining days in your currently active Plan. For example, if you renew your Yearly Plan 5 days before the expiry date, your renewed Plan will now be valid for a total of 370 days.</div>
+                        </div>
+                    </div>
+                </li>
+                
+                 <!--Block-->
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>How can I renew my Avision Prime Plan?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">You can renew the Avision Prime Plan before the expiry, just like you purchased it. You will be notified through email & SMS when your expiry date will approach. Once the renewal process has been completed, validity of your Plan will be extended accordingly</div>
+                        </div>
+                    </div>
+                </li>
+                 <!--Block-->
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Can I attempt a test multiple times?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">A test can be attempted only once. However, you can refer to the solutions and analysis of the attempted tests as many times as you want.
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>How many days validity I get with a Plan?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">We assume each month to have 30 days. Therefore, 1 month Plan has the validity of 30 days. For 1 Year Plan validity is of 365 days.
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>I do not have online payment activated, can I use any other mode for payment?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">You can use your Debit card, ATM card, Credit card, Netbanking account or payment wallets like Paytm to pay for the package. If you do not have any of the above payment methods, send us an email at support@avision.co.inand we will suggest an alternative method.
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>I do not have online payment activated, can I use any other mode for payment?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">You can use your Debit card, ATM card, Credit card, Netbanking account or payment wallets like Paytm to pay for the package. If you do not have any of the above payment methods, send us an email at support@avision.co.inand we will suggest an alternative method.
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Will I get the refund if I want to stop using it before the Plan expiry?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">Refund can be initiated only if requested within 48 hours of purchase of the Plan. Amount will be refunded if you have taken only Free Tests, and have not attempted any test(s) covered under Plan.
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>How can I apply for the refund?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">To apply for a refund, you need to write an email to us at support@avision.co.inwithin 48 hours of purchase, mentioning in detail the reason for requesting a refund.
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Till when can I access the solutions and analysis of my attempted tests?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">To access solutions and analysis, you should have a valid Plan and test shouldn't have expired. Attempted Tests will be available for review till 15 days after Test Expiry date.
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="accordion block">
+                    <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>If I renew the Plan, can I get to reattempt the tests that I have already taken?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">No, attempted tests cannot be re-attempted. Although, you can reattempt all incorrect and skipped questions using the reattempt feature available for Tests. To access Attempted Tests, you must have a valid Plan.
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+</section>
+
+<!-- end faq section -->
+
+
+<section class="partners-section" style="background:url('assets/images/back_3.png');background-repeat:no-repeat;background-size:cover;">
+    <div class="auto-container">
+        <div class="row clearfix">
+            
+            <!--Title Column-->
+            <div class="title-column col-md-8 col-sm-8 col-12">
+                <div class="inner-column">
+                    <h2>Start Your Exam Preparation Now!</h2>
+                    <div class="text">Practice, Analyze and Improve.</div>
+                    <a href="#" class="theme-btn btn-style-one">Explore Courses</a>
+                </div>
+            </div>
+            
+            <!--Partners Column-->
+            <div class="partners-column col-md-4 col-sm-4 col-12">
+                 <div class="partner-block">
+                     <div class="inner-box">
+                         <img src="assets/images/explore-courses.png">
+                     </div>
+                 </div>
+                    
+            </div>
+            
+        </div>
+    </div>
+</section>

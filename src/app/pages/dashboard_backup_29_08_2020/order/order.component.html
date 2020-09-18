@@ -1,0 +1,53 @@
+<section class="courses-main-detail-section video_courses_details_inner">
+    <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+        <div class="container" *ngIf="orderDetilas.length >0">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Order Details</th>
+                        <th>Cost</th>
+                        <th>Amount Paid</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngIf="orderDetilas.length >0">
+
+                        <tr *ngFor="let order of orderDetilas">
+                            <td>
+                                {{order.product_name}}
+                                <br> {{order.created_date}}
+
+                            </td>
+                            <td>{{order.product_price}}</td>
+                            <td>{{order.product_price}}</td>
+                            <td>
+                                <ng-container *ngIf="order.status == '1'">
+                                    <span class="text-success">Completed</span>
+                                </ng-container>
+
+                                <ng-container *ngIf="order.status == '0'">
+
+                                    <span class="text-danger">Failed</span>
+                                </ng-container>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+        <div class="container" *ngIf="orderDetilas.length == 0">
+            <mat-card>
+                <div class="vertical-center">
+                    <div class="container">
+                        <div class="row"><img src="assets/images/empty-page.png" class="mx-auto img-fluid">
+                            <div class="col-12 text-center">
+                                <h4>You dont have any transaction</h4>
+                                <p>Add Items to it now.</p><a mat-raised-button="" color="primary" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary" tabindex="0" aria-disabled="false" [routerLink]="['/']"><span class="mat-button-wrapper">Backto Dashboard</span><div matripple="" class="mat-ripple mat-button-ripple"></div><div class="mat-button-focus-overlay"></div></a></div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</section>

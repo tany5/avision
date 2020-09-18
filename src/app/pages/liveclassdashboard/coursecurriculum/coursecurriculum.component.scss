@@ -1,0 +1,38 @@
+.subject_header {
+    text-align: left;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 6000;
+}
+
+.subject_header:hover,
+.subject_header:active {
+    text-decoration: none;
+}
+
+.card-header::after {
+    content: "\f107";
+    color: #333;
+    top: 20px;
+    right: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    font-family: "FontAwesome"
+}
+
+.card-header[aria-expanded="true"]::after {
+    content: "\f106";
+}
+
+.live_class_study_tab li {
+    display: table-cell;
+    float: none;
+    white-space: nowrap;
+    width: auto !important
+}
+
+.live_class_study_tab li a {
+    padding: 15px 40px !important;
+}

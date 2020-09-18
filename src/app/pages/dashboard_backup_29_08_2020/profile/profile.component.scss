@@ -1,0 +1,59 @@
+:host {
+  font-weight: 500;
+}
+.profile {
+    padding-top: 40px;
+}
+:focus {outline:0 !important;}
+
+.profile .row {
+  margin-top: 20px;
+}
+mat-form-field {
+  width: 100% !important;
+}
+
+.my-auto {
+  padding-top: 10%;
+}
+.exam_content h3 {
+  font-size: 1rem;
+    font-weight: 600;
+}
+.exam_content p {
+  font-size: .75rem;
+}
+
+mat-checkbox {
+  float: right;
+}
+.exam_content {
+  background: #ddd;
+  margin: 20px 0px;
+}
+.exams_list {
+  padding: 20px 0px;
+}
+mat-card.exam_card {
+  padding: 10px 3px 15px 3px !important;
+  margin-top: 10px;
+}
+// mat-card.exam_card mat-icon {
+//   padding-top: 10%;
+// }
+mat-card.exam_card .row {
+  margin-top: 10px;
+}
+span {
+  cursor: pointer;
+  color: #02aeef;
+  text-decoration: underline;
+  font-weight: 600;
+}
+p {
+  font-weight: 600;
+}
+
+mat-label {
+  font-weight: 600;
+}

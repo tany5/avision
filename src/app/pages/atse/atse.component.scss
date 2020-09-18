@@ -1,0 +1,52 @@
+.atse-main {
+    padding: 40px;
+}
+
+.atse-main h3 {
+    font-size: 21px;
+    line-height: 50px;
+    font-weight: 600;
+    color: #ce1b1b;
+}
+
+.atse-main .btn_lock_test {
+    background: #ea3f3f;
+    color: #fff;
+}
+
+.atse-main h3 {
+    color: #ddd;
+    font-weight: 600;
+}
+
+.atse-main h2 {
+    color: #ea3f3f;
+    font-weight: 600;
+    position: relative;
+}
+
+.atse-main h2::after {
+    position: absolute;
+    height: 2px;
+    width: 24px;
+    background: #ea3f3f;
+    content: '';
+    bottom: -7px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.atse-main .mat-card {
+    box-shadow: none !important;
+}
+
+::ng-deep .cdk-overlay-dark-backdrop {
+    background: rgb(0 0 0 / 61%);
+}
+
+.atse_btn a {
+    background: #21dc2f;
+    color: #fff;
+    text-decoration: none;
+}

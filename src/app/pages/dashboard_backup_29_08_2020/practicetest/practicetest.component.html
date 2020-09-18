@@ -1,0 +1,137 @@
+<mat-drawer-container [class.drawer-opened]="drawer.opened" class="example-container" style="margin-top: 60px;">
+    <mat-drawer #drawer class="drawer" mode="side" opened="true">
+
+        <mat-toolbar class="header">
+            <div>Subjects</div>
+            <mat-icon class="close" (click)="drawer.close()" id="sub_close">close</mat-icon>
+        </mat-toolbar>
+        <div class="contents">
+            Drawer
+        </div>
+        <mat-accordion>
+            <ng-container *ngFor="let subject of subject;index as i">
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header (click)="getChapter(subject.subject_id)">
+                        <mat-panel-title class="subject_title">
+                            <span>{{subject.subject_name}}</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" [style.width.%]="(subject.given_chapter_count/subject.total_chapter_count)*100 | number: '1.0-0'" aria-valuenow="0" aria-valuemin="25" aria-valuemax="100"></div>
+                                <span>{{(subject.given_chapter_count/subject.total_chapter_count)*100 | number: "1.0-0"}} %</span>
+                            </div>
+
+                        </mat-panel-title>
+
+
+                    </mat-expansion-panel-header>
+                    <mat-nav-list>
+                        <ng-container *ngFor="let chapter of chapters;index as i">
+                            <a class="chapter_title" (click)="loadQuestion(subject.subject_id,chapter.chapter_id)" mat-list-item href="javascript:void(0)" [ngClass]="{'chapter-active': active && chap_id == chapter.chapter_id}"> {{ chapter.chapter_name }} 
+                                <span>{{chapter.given_question_count}}/{{chapter.count_total_question}} Questions</span>     
+                            </a>
+
+                        </ng-container>
+                    </mat-nav-list>
+                    <mat-divider></mat-divider>
+                </mat-expansion-panel>
+            </ng-container>
+        </mat-accordion>
+    </mat-drawer>
+
+    <mat-toolbar class="main header">
+        <mat-icon *ngIf="!drawer.opened" (click)="drawer.toggle()">
+            menu
+        </mat-icon>
+        <div style="width: 82%;overflow: auto;" id="div_tab" style="display:none">
+            <mat-tab-group *ngIf="test_given_stat" (selectedTabChange)="fetchQuesAns($event)">
+                <ng-container *ngFor="let count of question_ans_check_arr;index as i">
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <span id="qsID_{{count.question_id}}" [ngClass]="{'is-correct-count':count.given_answer_status=='1','is-wrong-count':count.given_answer_status=='0','is-visited': count.given_answer_status=='2'}">{{i+1}}</span>
+                        </ng-template>
+                    </mat-tab>
+                </ng-container>
+
+                <!-- <mat-tab *ngFor="let count of question_ans_check_arr;index as i" id="{{count.question_id}}" [ngClass]="{'is-correct-count':count.answer_status=='1','is-wrong-count':count.answer_status=='0','is-visited': count.answer_status=='2'}">
+                    <ng-template mat-tab-label>
+                        <span>{{i+1}}</span>
+                    </ng-template>
+                </mat-tab> -->
+            </mat-tab-group>
+            <mat-tab-group *ngIf="!test_given_stat">
+
+                <mat-tab (selectedTabChange)="fetchQuesAns(count.question_id)" *ngFor="let count of question_arr;index as i" id="{{count.question_id}}" [ngClass]="{'is-correct-count':count_check,'is-wrong-count':!count_check}">
+                    <ng-template mat-tab-label>
+                        <span>{{i+1}}</span>
+                    </ng-template>
+                </mat-tab>
+
+            </mat-tab-group>
+        </div>
+    </mat-toolbar>
+
+    <div class="main contents">
+        <!-- <div class="container"> -->
+        <div class="row">
+            <div class="col-12 col-md-6" id="question_div" style="display: none;">
+                <mat-card>
+                    <h2>Question: {{position}}</h2>
+                    <p [innerHTML]="question_statement"></p>
+                </mat-card>
+            </div>
+            <div class="col-12 col-md-6" *ngIf="test_given_stat">
+                <mat-card *ngFor="let answer of question_ans_arr;index as i;" [ngClass]="{'is-given-correct': (answer.ans_id == given_ans_id && given_ans_stat=='1'),'is-correct':(answer.ans_stat == '1' && !skipped), 'is-unchecked':answer.given_ans_stat == '2', 'is-wrong': answer.ans_id == given_ans_id && given_ans_stat=='0'}"
+                    (click)="checkAnswer(answer.ans_stat,answer.ans_id, question_id)">
+                    <div class="row no-gutters">
+                        <div class="col-2 col-md-1">
+                            <label>{{i+1}})</label>
+                        </div>
+                        <div class="col-10 col-md-11">
+                            <div [innerHTML]="answer.ans_text"></div>
+                        </div>
+
+                    </div>
+
+                </mat-card>
+            </div>
+            <div class="col-12 col-md-6" *ngIf="!test_given_stat">
+                <mat-card *ngFor="let answer of question_ans_arr;index as i;" (click)="checkAnswer(answer.answer_status,answer.answer_id, question_id)" [ngClass]="{'is-correct': answer.answer_status == 1 && result_answer_stat, 'is-unchecked':answer.answer_status == 0, 'is-wrong': isWrong && answer.answer_status == 0 && answer.answer_id == checked_id}">
+                    <div class="row no-gutters">
+                        <div class="col-2 col-md-1">
+                            <label>{{i+1}})</label>
+                        </div>
+                        <div class="col-10 col-md-11">
+                            <div [innerHTML]="answer.answer_text" data-stat="answer.answer_status"></div>
+                        </div>
+
+                    </div>
+
+                </mat-card>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="display: none" id="solv">
+                <mat-card>
+                    <h2>Solution: </h2>
+                    <p [innerHTML]="solution"></p>
+                </mat-card>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+
+
+    <mat-toolbar class="main footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6 col-md-6">
+                    <a (click)="goPrev(question_id)" href="javascript:void(0)" mat-raised-button color="primary" class="float-left" id="myName">
+                        <mat-icon>arrow_back</mat-icon> Previous</a>
+                </div>
+                <div class="col-6 col-md-6">
+                    <a (click)="goNext(question_id)" href="javascript:void(0)" mat-raised-button color="primary" class="float-right">{{buttonText}} <mat-icon>arrow_forward</mat-icon></a>
+                </div>
+            </div>
+
+        </div>
+    </mat-toolbar>
+</mat-drawer-container>

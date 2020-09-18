@@ -1,0 +1,43 @@
+<div id="mocktests" style="margin: 50px 0 100px">
+    <div class="auto-container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12" *ngIf="!testDetailsLoader">
+                <ngx-skeleton-loader [theme]="{ 
+          'border-radius': '5px',
+          height: '60vh',                    
+          border: '1px solid white'
+          }"></ngx-skeleton-loader>
+            </div>
+            <div class="col-md-12 col-sm-12" *ngIf="testDetailsLoader">
+                <div class="liveclass_mocktest_sec">
+                    <h3>Mock Test</h3>
+                    <div class="liveclass_mocktest_alllist" *ngIf="testImage">
+                        <div class="row vertical-center">
+                            <div class="col-12 text-center">
+                                <img _ngcontent-serverapp-c29="" class="mx-auto img-fluid" src="assets/images/empty-page.png">
+                            </div>
+                            <div class="col-12 text-center srcTxt">
+                                No Tests Available At The Moment
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="liveclass_mocktest_alllist" *ngIf="!testImage">
+                        <ng-container *ngFor="let testDetails of testDetails">
+                            <a href="javascript:void(0);" data-toggle="modal" data-target="#mocktest_Modal" class="liveclass_mocktest_list">
+                                <ul>
+                                    <li><img src="{{testDetails.image}}" width="50px"></li>
+                                    <li>
+                                        <h4>{{testDetails.quiz_name}}</h4>
+                                    </li>
+                                </ul>
+                                <span><i class="fa fa-lock" aria-hidden="true"></i></span>
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

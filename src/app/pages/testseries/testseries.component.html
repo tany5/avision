@@ -1,0 +1,431 @@
+<!--Page Title-->
+<div>
+    <section class="page-title cus-page-title" style="background-image:url(assets/images/background/pattern-4.png);">
+        <div class="auto-container">
+            <h1>Test Series</h1>
+            <!-- <p>SBI PO 2019 Exam is a wonderful opportunity for you to turn your dreams into reality! Get all information about onlinesbi po - syllabus, preparation guide, last date to apply, exam dates, admit card, latest exam pattern and results here. Kick start your preparation now!</p> -->
+        </div>
+        <!--Page Info-->
+        <div class="page-info">
+            <div class="auto-container">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a [routerLink]="['']">Home</a></li>
+                        <li>Test Series</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Page Info-->
+    </section>
+    <!--End Page Title-->
+
+    <section class="test-series-section" style="background:url('assets/images/back_3.png');background-repeat:no-repeat;background-size:cover;">
+        <div class="container">
+            <div class="sec-title">
+                <h3> Trending Test Series</h3>
+            </div>
+            <div class="row" *ngIf="!testSeriesLoader">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+                    <ngx-skeleton-loader [theme]="{ 
+                    'border-radius': '5px',
+                    height: '250px',                    
+                    border: '1px solid white'
+                    }"></ngx-skeleton-loader>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+                    <ngx-skeleton-loader [theme]="{ 
+                    'border-radius': '5px',
+                    height: '250px',                    
+                    border: '1px solid white'
+                    }"></ngx-skeleton-loader>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+                    <ngx-skeleton-loader [theme]="{ 
+                    'border-radius': '5px',
+                    height: '250px',                    
+                    border: '1px solid white'
+                    }"></ngx-skeleton-loader>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+                    <ngx-skeleton-loader [theme]="{ 
+                    'border-radius': '5px',
+                    height: '250px',                    
+                    border: '1px solid white'
+                    }"></ngx-skeleton-loader>
+                </div>
+
+
+            </div>
+
+            <div class="row" *ngIf="testSeriesLoader">
+
+                <!-- singel test series -->
+                <div class="col-md-3 col-sm-6 col-12" *ngFor="let testSeriesData of testSeriesData">
+                    <div class="cus-test-series-slide">
+                        <div class="test-series-back">
+                            <div class="test-icon text-center">
+                                <img src="https://estore.avision24x7.com/{{testSeriesData.sub_category_image}}" width="50px">
+                            </div>
+                            <div class="test-title-text text-center">
+                                <h4>{{testSeriesData.product_name}}</h4>
+                                <p>{{testSeriesData.total_count}} Total Test</p>
+                                <hr>
+                                <ul>
+                                    <li>{{testSeriesData.full_test_count}} Full Test - Prelims</li>
+                                    <li>{{testSeriesData.prev_year_count}} Advanced Test - Prelims</li>
+                                </ul>
+                                <hr>
+                            </div>
+                            <a (click)="testInner(testSeriesData.product_slug)" class="btn btn-block btn-primary" style="color: #fff">Take Test</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--<section class="schoolar_banner_section" *ngIf="!registerStatus && !examdone" id="pdfToconvert">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 p-0">
+                    <div class="pass_banner">
+                        <a><img src="{{page_banner && page_banner[1]?.banner_url}}" alt="pass_banner" /></a>
+                    </div>
+
+                </div>
+                <div class="col-sm-4">
+                    <mat-card>
+                        <div class="row">
+                            <ng-container *ngIf="!start_button">
+                                <div class="col-12">Please Register Yourself.Click the Button Below!!</div>
+                                <div class="col-12">
+                                    <div id="timer">
+
+                                    </div>
+                                </div>
+                                <div class="col-12 banner_icon"><i class="fa fa-hand-o-down animated bounce" aria-hidden="true"></i></div>
+                                <div class="col-12">
+                                    <a (click)="openLogin()" mat-raised-button class="mx-auto btn btn-success mt-3" style="color: #fff;">Register Now</a>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="start_button">
+                                <div class="col-12">Please Click On the Button To Start Your Test!!</div>
+                                <div class="col-12 banner_icon"><i class="fa fa-hand-o-down animated bounce" aria-hidden="true"></i></div>
+                                <div class="col-12">
+                                    <a (click)="startTest()" mat-raised-button class="mx-auto btn btn-success mt-3" style="color: #fff;">Start Test</a>
+                                </div>
+
+                            </ng-container>
+
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+
+        </div>
+    </section>-->
+
+    <!--<section class="pass_banner_section" *ngIf="loginStat" style="padding: 30px 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <h1 style="color: red;font-weight: 600;">AVISION TALENT SEARCH EXAM(ATSE)</h1>
+                    <p>
+                        <mat-icon>done</mat-icon>Real time exam experience to help you score better</p>
+                    <p>
+                        <mat-icon>done</mat-icon>Get rank among thousands of students</p>
+                    <p>
+                        <mat-icon>done</mat-icon>Get rank among thousands of students</p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <mat-card>
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 style="color: #29d23d;font-weight: 600;font-size: 22px;">Thank You For Register With Avision</h3>
+                                <h4 style="color: #000;font-weight: 600;font-size: 16px;">Exam will be conducted on 15th September,2020.Till then Best wishes for you from Avision.</h4>
+                            </div>
+                            <div class="col-12" *ngIf="examStat==3">
+                            <a mat-raised-button color="warn" class="mx-auto" [routerLink]="['/exam/2/resume']">Resume</a>
+                        </div>
+                        <div class="col-12" *ngIf="examStat==2">
+                            <a mat-raised-button color="primary" class="mx-auto" [routerLink]="['/exam/2/analysis']">Result</a>
+                        </div>
+                        <div class="col-12" *ngIf="examStat==0">
+                            <a mat-raised-button color="primary" class="mx-auto" [routerLink]="['/exam/2']">Start Now</a>
+                        </div>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+
+    <section class="test-series-main-section">
+        <div class="auto-container">
+            <div class="row" *ngIf="!courseLoader">
+                <div>
+                    <ngx-skeleton-loader [theme]="{ 
+                    'border-radius': '5px',
+                    height: '50px',
+                    'width': '100%',                    
+                    border: '1px solid white'
+                    }"></ngx-skeleton-loader>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="courseLoader">
+                <div class="col-md-12">
+                    <div class="tabbable-panel">
+                        <div class="tabbable-line">
+                            <ul class="nav nav-tabs">
+                                <li class="">
+                                    <ng-container *ngFor="let course of courseDetails; index as i">
+                                        <a href="#{{course.courses_id}}" id={{course.courses_id}} data-toggle="tab" (click)="getSubCourse($event)" *ngIf="i==0" class="active">{{course.courses_name}} </a>
+                                        <a href="#{{course.courses_id}}" id={{course.courses_id}} data-toggle="tab" (click)="getSubCourse($event)" *ngIf="i>0">{{course.courses_name}} </a>
+                                    </ng-container>
+
+                                </li>
+                            </ul>
+                            <div class="tab-content" style="min-height: 20vh;" *ngIf="!subCourseLoader">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 ">
+                                        <ngx-skeleton-loader [theme]="{ 
+                                'border-radius': '5px',
+                                height: '250px',                    
+                                border: '1px solid white'
+                                }"></ngx-skeleton-loader>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 ">
+                                        <ngx-skeleton-loader [theme]="{ 
+                                'border-radius': '5px',
+                                height: '250px',                    
+                                border: '1px solid white'
+                                }"></ngx-skeleton-loader>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 ">
+                                        <ngx-skeleton-loader [theme]="{ 
+                                'border-radius': '5px',
+                                height: '250px',                    
+                                border: '1px solid white'
+                                }"></ngx-skeleton-loader>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                        <ngx-skeleton-loader [theme]="{ 
+                                'border-radius': '5px',
+                                height: '250px',                    
+                                border: '1px solid white'
+                                }"></ngx-skeleton-loader>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-content" style="min-height: 20vh;" *ngIf="subCourseLoader">
+                                <div class="row">
+                                    <div class="col-12 col-sm-4 col-lg-7"></div>
+                                    <div class="col-12 col-sm-8 col-lg-5" style="margin-bottom: 20px;">
+                                        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching by course name or exam name....">
+                                    </div>
+                                </div>
+                                <!-- bank tabs-->
+                                <div class="tab-pane active">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-6 col-12" *ngFor="let testSeriesData of getTestSeriesSubData | filter: searchText">
+                                            <div class="cus-test-series-slide">
+                                                <div class="test-series-back">
+                                                    <div class="test-icon text-center">
+                                                        <img src="https://estore.avision24x7.com/{{testSeriesData.sub_category_image}}" width="50px">
+                                                    </div>
+                                                    <div class="test-title-text text-center">
+                                                        <h4>{{testSeriesData.product_name}}</h4>
+                                                        <p>{{testSeriesData.total_count}} Total Test</p>
+                                                        <hr>
+                                                        <ul>
+                                                            <li>{{testSeriesData.full_test_count}} Full Test - Prelims</li>
+                                                            <li>{{testSeriesData.prev_year_count}} Advanced Test - Prelims</li>
+                                                        </ul>
+                                                        <hr>
+                                                    </div>
+                                                    <a (click)="testInner(testSeriesData.product_slug)" class="btn btn-block btn-primary" style="color: #fff">Take Test</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="pass_banner_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="pass_banner">
+                        <a [routerLink]="['/pass']"><img src="{{page_banner && page_banner[0]?.banner_url}}" alt="pass_banner" /></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Testimonial Section-->
+    <section class="student-review-section">
+        <div class="container">
+            <div class="row">
+                <div class="title-column col-md-5 col-sm-12 col-12">
+                    <div class="inner-column">
+                        <h2>Student Reviews</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="!testimonialLoader">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <ngx-skeleton-loader [theme]="{ 
+                'border-radius': '5px',
+                height: '30vh',
+                'width': '100%',                    
+                border: '1px solid white'
+                }"></ngx-skeleton-loader>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <ngx-skeleton-loader [theme]="{ 
+                'border-radius': '5px',
+                height: '30vh',
+                'width': '100%',                    
+                border: '1px solid white'
+                }"></ngx-skeleton-loader>
+                </div>
+            </div>
+            <div class="row" *ngIf="testimonialLoader">
+                <div class="col-lg-12 col-12">
+                    <owl-carousel-o [options]="customOptions3">
+                        <ng-template carouselSlide *ngFor="let timonialDetails of timonialDetails">
+                            <div class="student-review">
+                                <!-- slide-->
+                                <div class="student-review-block">
+                                    <div class="student-review-inner-block">
+                                        <div class="review-student-details col-lg-12 col-12">
+
+
+                                            <ul class="review-students">
+                                                <li><img src="assets/images/resource/{{timonialDetails.image}}"></li>
+                                                <li>
+                                                    <h3>{{timonialDetails.user_name}}</h3>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="student-review-star">
+                                                <li><i class="fa fa-star" aria-hidden="true" *ngFor="let i of createRange(timonialDetails.rating)"></i></li>
+                                            </ul>
+
+
+                                        </div>
+                                        <div class="student-review-content">
+                                            <p>"{{timonialDetails.content}}"</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Testimonial Section-->
+
+
+
+    <!-- faq section -->
+    <section class="faq-section">
+        <div class="auto-container">
+            <!--Accordian Boxed-->
+            <div class="accordian-boxed">
+                <h3>Frequently Asked Questions</h3>
+
+                <!--Accordian Box-->
+                <ul class="accordion-box" id="faq_box">
+
+                    <!--Block-->
+                    <li class="accordion block active-block">
+                        <div class="acc-btn active">
+                            <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>In what languages mock tests are available? </div>
+                        <div class="acc-content current">
+                            <div class="content">
+                                <div class="text">Tests are provided either in English or in both English and Hindi. For a particular test, you may check the languages it is available in while purchasing the package.</div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!--Block-->
+                    <li class="accordion block">
+                        <div class="acc-btn">
+                            <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>I have completed a mock test. When will I get my score? </div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <div class="text">On submission of your mock test, your score and All-India rank would be immediately generated. The All India ranking is dynamic in nature and it would change as more users attempt that mock test.</div>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <!--Block-->
+                    <li class="accordion block">
+                        <div class="acc-btn">
+                            <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>What happens if I get disconnected during a test? </div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <div class="text">If you get disconnected while attempting a test, all your data till the disconnection will get saved and you will be able to resume from the same state later. You are advised to close the test window in this case and resume
+                                    when you have connectivity again.</div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!--Block-->
+                    <li class="accordion block">
+                        <div class="acc-btn">
+                            <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Can I attempt a test more than once?</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <div class="text">A test can be attempted only once. However, you can review the solutions and analysis of the attempted tests as many times as you want.</div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!--Block-->
+                    <li class="accordion block">
+                        <div class="acc-btn">
+                            <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>I do not have online payment activated. Can i use any other mode of payment ?</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <div class="text">You can use your Debit card, ATM card, Credit card, Netbanking account or payment wallets like Paytm/PayZapp/Freecharge/Ola Money to pay for the PLAN. If you do not have any of the above payment methods, send us an email
+                                    at support@AVISION.CO.IN and we will suggest an alternative method.</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- end faq section -->

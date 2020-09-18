@@ -1,0 +1,78 @@
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.btn-enroll {
+    background: #207dff;
+    color: #fff;
+    margin: 20px 0;
+    padding: 10px 39px;
+    border-radius: 40px;
+    font-size: 17px;
+}
+
+.btn-enroll:hover {
+    color: #fff;
+    background: #1162d4;
+}
+
+.blog-page-section .owl-nav .owl-next {
+    background: #207dff !important;
+}
+
+.form-control {
+    box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+
+.form-control::placeholder {
+    font-family: FontAwesome;
+}
+
+.pass_banner {
+    padding: 40px;
+}
+
+.pass_banner_section {
+    background: #cfeef3;
+}
+
+.schoolar_banner_section {
+    background: #eff9fd;
+}
+
+.populer-course-section .card-body .upper h3 {
+    margin-bottom: 15px;
+    min-height: auto;
+}
+
+.populer-course-section .card-body .upper ul.courses_tags {
+    min-height: auto;
+}
+
+.populer-course-section .card {
+    padding: 10px 10px 0;
+    transition: all .6s ease;
+    -moz-transition: all .6s ease;
+    -webkit-transition: all .6s ease;
+    background: linear-gradient(0deg, white, #deecff);
+    box-shadow: 0px 0px 4px #0000003b;
+    border: none;
+}
+
+.populer-course-section .card-body {
+    padding: 10px;
+}
+
+.populer-course-section .card-body .upper {
+    min-height: 150px;
+}
+
+.populer-course-section ul.courses_tags li {
+    background: #deece8;
+    color: #2e8e0f;
+    padding: 1px 5px;
+}

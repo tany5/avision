@@ -1,0 +1,77 @@
+.form-control {
+    box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+
+.form-control::placeholder {
+    font-family: FontAwesome;
+}
+
+.pass_banner {
+    padding: 40px 0;
+}
+
+.pass_banner_section {
+    background: #cfeef3;
+}
+
+.schoolar_banner_section {
+    background: #fff;
+}
+
+.pass_banner_section mat-icon {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.pass_banner_section p span {
+    padding-left: 5px;
+}
+
+::ng-deep .schoolar_banner_section .mat-card {
+    box-shadow: none !important;
+    margin-top: 35px;
+    font-size: 23px;
+    line-height: 30px;
+    font-weight: 600;
+    color: #207dff;
+}
+
+.banner_icon i {
+    margin-top: 10px;
+    color: #ff0202;
+    font-size: 28px;
+}
+
+.animated {
+    animation-duration: 2.5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.bounce {
+    animation-name: bounce;
+}
+
+#timer {
+    font-size: 17px;
+    color: #ff0202;
+    font-weight: 400;
+}

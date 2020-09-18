@@ -1,0 +1,121 @@
+<mat-toolbar class="app-toolbar-bottom">
+  <img src="assets/images/logo.png">
+  <span class="example-spacer"></span>
+  <span flex></span>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu2" class="float-right-button">
+    Tanmay Dey <mat-icon class="down_icon">keyboard_arrow_down</mat-icon>
+  </button>
+
+  <mat-menu #menu2="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      Sign out
+    </button>
+
+    <button mat-menu-item [routerLink]="['profile']">
+      <mat-icon>account_circle</mat-icon>
+      Profile
+    </button>
+
+  </mat-menu>
+</mat-toolbar>
+<section class="exam-format">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-10 col-lg-12 mx-auto">
+        <div class="container-fluid">
+          <div class="table-responsive">
+            <table class="table table-bordered text-center">
+              <thead>
+                <tr class="text-center">
+                  <th>Test Name</th>
+                  <th>Total Questions</th>
+                  <th>Total Time</th>
+                  <th>Maximum Marks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{quiz_name}}</td>
+                  <td>{{noofquestion}}</td>
+                  <td>{{duration}} Mins.</td>
+                  <td>{{noofquestion*correctmark}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table table-bordered text-center">
+              <thead>
+                <tr class="text-center">
+                  <th>Section Name</th>
+
+                  <th>Total Time</th>
+                  <th>Marks Per Question</th>
+                  <th>Negative Marks</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let quizDetails of quizDetails">
+                  <td>{{quizDetails.question_type_name}}</td>
+
+                  <td>{{quizDetails.duration}} Min</td>
+                  <td>{{correctmark}}</td>
+                  <td>{{negativemark}}</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <br><br>
+      <div class="col-xl-10 col-lg-12 mx-auto">
+        <h3>General Instructions</h3>
+        <br>
+        <h4>Please read the following instructions very carefully:</h4>
+        <p>1. You have {{duration}} minutes to complete the test.</p>
+        <p>2. The test contains a total of {{noofquestion}} questions.</p>
+        <p>3. You will be awarded {{correctmark}} mark for each correct answer.</p>
+        <p>4. There is - {{negativemark}} for wrong question</p>
+        <p>5. You can change your answer by clicking on some other option.</p>
+        <p>6. You can unmark your answer by clicking on the “Clear” button.</p>
+        <p>7. You can flag a question for reviewing it later by clicking on the “Review” button.</p>
+        <p>8. You can move back and forth between the questions by clicking the buttons “Previous” and “Save &amp; Next”
+          respectively.</p>
+        <p>9. A Number list of all questions appears at the right hand side of the screen. You can access the questions
+          in any order within a section or across sections by clicking on the question number given on the number list.
+        </p>
+        <p>10. You can use rough sheets while taking the test. Do not use calculators, log tables, dictionaries, or any
+          other printed/online reference material during the test.</p>
+        <p>11. Do not click the button “Submit test” before completing the test. A test once submitted cannot be
+          resumed.</p>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-10 col-lg-12 mx-auto">       
+          <mat-checkbox class="example-margin" [(ngModel)]="agree">I have read and understood the instructions. I agree
+            that in case of not adhering to the exam instructions, I will be disqualified.</mat-checkbox>
+          <div class="row">
+            <button mat-raised-button color="primary" [disabled]="!agree" (click)="goToExamPanel()">Start Test</button>
+          </div>        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<mat-toolbar class="app-toolbar-bottom">
+  <button mat-icon-button  aria-label="Example icon button with a menu icon" (click)="backClicked()">
+    <mat-icon>keyboard_backspace</mat-icon>
+    Go To Tests
+  </button>
+  <span class="example-spacer"></span>
+	<span flex></span>
+
+  
+</mat-toolbar>

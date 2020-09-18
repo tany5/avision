@@ -1,0 +1,158 @@
+<!--Page Title-->
+<section class="page-title cus-page-title" style="background-image:url(assets/images/background/pattern-4.png);">
+    <div class="auto-container">
+      <h1>{{sub_category_name}}</h1>
+      <p>{{sub_category_name}} Exam is a wonderful opportunity for you to turn your dreams into reality! Get all information about
+        onlinesbi po - syllabus, preparation guide, last date to apply, exam dates, admit card, latest exam pattern and
+        results here. Kick start your preparation now!</p>
+    </div>
+    <!--Page Info-->
+    <div class="page-info">
+      <div class="auto-container">
+        <div class="inner-container">
+          <ul class="bread-crumb">
+            <li><a [routerLink]="['/']">Home</a></li>
+            <li>Courses</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--End Page Info-->
+  </section>
+  <!--End Page Title-->
+  
+  
+  <section class="exam-detail-tab-section">
+    <div class="auto-container">
+      <div class="cus-tab-menu scrollable-nab-tab">
+        <ul style="margin-bottom: 0px;">
+          <li><a data-toggle="tab" href="#popular-courses" class="active">Courses</a></li>
+          <li><a data-toggle="tab" href="#test_series" >Test Series</a></li>
+          <li><a data-toggle="tab" href="#exam-info">Exam Info</a></li>        
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <div class="full_width">
+    <section class="blog-page-section populer-course-section" col-12 id="popular-courses">
+      <div class="container">
+        <div class="sec-title">
+          <h3> Courses</h3>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6 col-12" *ngFor="let videoCourse of videoCourse">
+            <div class="card">
+              <img class="card-img-top" src="{{videoCourse.product_img}}"
+                alt="Card image cap">
+              <div class="cus-courses-price">
+              </div>
+              <div class="card-body">
+                <div class="lower-content">
+                  <div class="upper">
+                    <h3><a href="#">{{videoCourse.product_name}}</a></h3>
+  
+                    <hr />
+                    <div class="post-limit vid_detail_price">
+  
+                      <span>Limited Seats Only!!</span>
+  
+  
+                    </div>
+                  </div>
+                  <a class="btn btn btn-block btn-primary btn-sm" style="color:#fff">
+                    View Course</a>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+        <!--row-->
+      </div>
+    </section>
+  
+  
+    <section class="test-series-section" id="test_series"
+      style="background:url('assets/images/back_3.png');background-repeat:no-repeat;background-size:cover;">
+      <div class="container">
+        <div class="sec-title">
+          <h3> Trending Test Series</h3>
+        </div>
+  
+        <div class="row">
+  
+          <!-- singel test series -->
+          <div class="col-md-3 col-sm-6 col-12" *ngFor="let testSeriesData of testSeriesData">
+            <div class="cus-test-series-slide">
+              <div class="test-series-back">
+                <div class="test-icon text-center">
+                  <img src="{{testSeriesData.sub_category_image}}" width="50px">
+                </div>
+                <div class="test-title-text text-center">
+                  <h4>{{testSeriesData.product_name}}</h4>
+                  <p>50 Total Test</p>
+                  <hr>
+                  <ul>
+                    <li>9 Full Test - Prelims</li>
+                    <li>21 Advanced Test - Prelims</li>
+                  </ul>
+                  <hr>
+                </div>
+                <a href="javascript:void(0)" class="btn btn-block btn-primary" style="color: #fff">Take Test</a>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+  
+      </div>
+    </section>
+  
+    <section  class="exam-info-deatils" id="exam-info">
+      <div  class="auto-container">
+        <div  class="row clearfix">
+          <div  class="col-md-3">
+            <h1  class="exam-infotab-heading">{{sub_category_name}}</h1>
+  
+              <div class="tabbable-panel d-none d-block d-md-none">
+                  <div class="tabbable-line">
+                      <ul class="nav nav-tabs" >
+                          <li class="">
+                              <a href="#tab{{i}}" data-toggle="tab" *ngFor="let courseDetail of courseDetails index as i">{{courseDetail.page_heading}} </a>
+                          </li>  
+                      </ul>
+                  </div>
+              </div>      
+  
+  
+            <ul  class="nav nav-tabs cus-exam-info-tab  d-none d-md-block">
+              <ng-container *ngFor="let courseDetail of courseDetails index as i">
+                  <li *ngIf="i==0"  class="active"><a  data-toggle="tab" href="#tab{{i}}">{{courseDetail.page_heading}}</a></li> 
+                  <li *ngIf="i > 0"><a  data-toggle="tab" href="#tab{{i}}">{{courseDetail.page_heading}}</a></li> 
+              </ng-container>
+             
+              
+            </ul>
+          </div>
+          <div  class="col-md-9">
+            <div  class="tab-content exam_info_tab_cls">
+              <ng-container *ngFor="let courseDetail of courseDetails index as i">
+                  
+                  <div *ngIf="i==0" class="tab-pane fade active show" id="tab{{i}}">
+                        <h1  class="exam-infotab-heading">{{courseDetail.page_heading}}</h1>
+                     <div [innerHTML]="courseDetail.page_content"></div>                            
+                  </div>
+  
+                  <div *ngIf="i>0" class="tab-pane fade" id="tab{{i}}">
+                      <h1  class="exam-infotab-heading">{{courseDetail.page_heading}}</h1>
+                      <div [innerHTML]="courseDetail.page_content"></div>  
+                  </div>
+              </ng-container>
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

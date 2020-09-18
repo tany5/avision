@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=B612:wght@700&display=swap');
+.practice-section {
+    background: #f6f8f9;
+    height: 60vh;
+    text-align: center;   
+    padding: 120px 0px;
+}
+:host{
+    font-family: 'B612', sans-serif;
+    background: #f6f8f9;
+}
+
+
+.practice-section h3{
+    font-size: 65px;
+    color: #393956;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-family: 'B612', sans-serif;
+    line-height: 7.35rem;
+}
+
+.practice-section p{
+    font-size: 22px;
+    color: #707173;
+    font-family: 'B612', sans-serif;
+}
+
+.icon-span mat-icon {
+    font-size: 100px;
+    color:  #707173;
+    margin-left: -130px;
+}

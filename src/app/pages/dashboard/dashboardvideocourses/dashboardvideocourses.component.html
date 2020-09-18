@@ -1,0 +1,751 @@
+ <!--Page Title-->
+ <section class="page-title cus-page-title"
+   style="background-image:url(assets/images/background/pattern-4.png); margin-top:-30px;">
+   <div class="container">
+     <h1>Video Courses</h1>
+     <!-- <p>SBI PO 2019 Exam is a wonderful opportunity for you to turn your dreams into reality! Get all information about onlinesbi po - syllabus, preparation guide, last date to apply, exam dates, admit card, latest exam pattern and results here. Kick start your preparation now!</p> -->
+   </div>
+   <!--Page Info-->
+   <div class="page-info">
+     <div class="container">
+       <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+         <div class="inner-container">
+           <ul class="bread-crumb">
+             <li><a [routerLink]="['dashboard']">Home</a></li>
+             <li>Video Courses</li>
+           </ul>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!--End Page Info-->
+ </section>
+ <!--End Page Title-->
+
+
+ <section class="exam-detail-tab-section">
+   <div class="auto-container">
+     <div class="cus-tab-menu scrollable-nab-tab">
+       <ul style="margin-bottom: 0px;">
+         <li><a href="#popular-courses" class="active">Popular Courses</a></li>
+         <li *ngIf="bankingVideoCourse.length > 0"><a href="#banking-courses">Banking</a></li>
+         <li><a href="#ssc-courses" *ngIf="sscVideoCourse.length > 0">SSC</a></li>
+         <li><a href="#railway-courses" *ngIf="railwayVideoCourse.length > 0">Railways</a></li>
+         <li><a href="#teaching-courses" *ngIf="teachingVideoCourse.length > 0">Teaching</a></li>
+         <li><a href="#state-exam" *ngIf="stateVideoCourse.length > 0">State Exam</a></li>
+       </ul>
+     </div>
+   </div>
+ </section>
+
+ <div class="full_width">
+   <section class="blog-page-section populer-course-section" col-12 id="popular-courses">
+     <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+       <div class="container">
+         <div class="sec-title">
+           <h3> Popular Courses</h3>
+         </div>
+         <div class="row" *ngIf="!loader">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+
+         </div>
+
+
+         <div class="row" *ngIf="loader">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block" *ngFor="let videoData of videoData">
+             <div class="card">
+               <img class="card-img-top" src="{{videoData.product_img}}" alt="Card image cap">
+               <div class="cus-courses-price">
+               </div>
+               <div class="card-body">
+                 <div class="lower-content">
+                   <div class="upper">
+                     <h3><a href="#">{{videoData.product_name}}</a></h3>
+                     <!-- <p class="courses_tags" style="height: 50px;">
+                        <span style="margin-right: 5px;"><i class="fa fa-tag"></i>  {{videoData.courses_name}}</span>
+                    <ng-container *ngIf="videoData.product_tags.length > 0">   
+                    <ng-container *ngFor="let tags of videoData.product_tags">
+                            <span style="margin-right: 15px;"><i class="fa fa-tag"></i>  {{tags}}</span>
+                    </ng-container>
+                </ng-container> 
+                    
+                </p> -->
+                     <hr />
+                     <div class="post-limit vid_detail_price">
+                       <h5><i aria-hidden="true" class="fa fa-inr"></i>{{videoData.product_offer_price}}
+                         <span class="vid_main_price"><i aria-hidden="true"
+                             class="fa fa-inr"></i>{{videoData.product_price}}</span>
+                         <span
+                           class="vid_offer_per">{{(videoData.product_price - videoData.product_offer_price)*100/videoData.product_price | number: "2.0-0"}}
+                           % off</span>
+                       </h5>
+                     </div>
+                   </div>
+                   <a class="btn btn btn-block btn-primary btn-sm" (click)="gotoLiveClassComponent(videoData.product_slug)">
+                     View Course</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+         </div>
+         <!--row-->
+
+         <owl-carousel-o [options]="customOptions2" class="d-block d-sm-none">
+           <ng-template carouselSlide *ngFor="let videoData of videoData">
+             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+               <div class="card">
+                 <img class="card-img-top" src="{{videoData.product_img}}" alt="Card image cap">
+                 <div class="cus-courses-price">
+                 </div>
+                 <div class="card-body">
+                   <div class="lower-content">
+                     <div class="upper">
+                       <h3><a href="#">{{videoData.product_name}}</a></h3>
+                       <!-- <p class="courses_tags"><span><i class="fa fa-tag"></i> {{videoData.courses_name}}</span></p> -->
+                       <hr />
+                       <div class="post-limit vid_detail_price">
+                         <h5><i aria-hidden="true" class="fa fa-inr"></i>{{videoData.product_offer_price}}
+                           <span class="vid_main_price"><i aria-hidden="true"
+                               class="fa fa-inr"></i>{{videoData.product_price}}</span>
+                           <span
+                             class="vid_offer_per">{{(videoData.product_price - videoData.product_offer_price)*100/videoData.product_price | number: "2.0-0"}}
+                             % off</span>
+                         </h5>
+                       </div>
+                     </div>
+                     <a (click)="gotoLiveClassComponent(videoData.product_slug)"
+                       class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </ng-template>
+
+         </owl-carousel-o>
+       </div>
+     </div>
+   </section>
+
+   <!-- End Popular Courses section -->
+
+
+   <section class="blog-page-section populer-course-section" col-12 id="banking-courses"
+     *ngIf="bankingVideoCourse.length > 0">
+     <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+       <div class="container">
+         <div class="sec-title">
+           <h3>Banking Courses</h3>
+         </div>
+
+         <div class="row" *ngIf="!bankingLoader">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+
+         </div>
+
+         <div class="row" *ngIf="bankingLoader">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block"
+             *ngFor="let bankingVideoCourse of bankingVideoCourse">
+             <div class="card">
+               <img class="card-img-top" src="{{bankingVideoCourse.product_img}}" alt="Card image cap">
+               <div class="cus-courses-price">
+               </div>
+               <div class="card-body">
+                 <div class="lower-content">
+                   <div class="upper">
+                     <h3><a href="#">{{bankingVideoCourse.product_name}}</a></h3>
+                     <p class="courses_tags" style="height: 50px;"><span style="margin-right: 5px;"><i class="fa fa-tag"></i>  {{bankingVideoCourse.courses_name}}</span>
+                      <ng-container *ngIf="bankingVideoCourse.product_tags.length > 0">   
+                              <ng-container *ngFor="let tags of bankingVideoCourse.product_tags">
+                                      <span style="margin-right: 15px;"><i class="fa fa-tag"></i>  {{tags}}</span>
+                              </ng-container>
+                          </ng-container> 
+                          </p>
+                     <hr />
+                     <div class="post-limit vid_detail_price">
+                       <h5><i aria-hidden="true" class="fa fa-inr"></i>{{bankingVideoCourse.product_offer_price}}
+                         <span class="vid_main_price"><i aria-hidden="true"
+                             class="fa fa-inr"></i>{{bankingVideoCourse.product_price}}</span>
+                         <span
+                           class="vid_offer_per">{{(bankingVideoCourse.product_price - bankingVideoCourse.product_offer_price)*100/bankingVideoCourse.product_price | number: "2.0-0"}}
+                           % off</span>
+                       </h5>
+                     </div>
+                   </div>
+                   <a (click)="gotoVideoDetailsPage(bankingVideoCourse.product_slug)"
+                     class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!--row-->
+
+         <owl-carousel-o [options]="customOptions2" class="d-block d-sm-none">
+           <ng-template carouselSlide *ngFor="let bankingVideoCourse of bankingVideoCourse">
+             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+               <div class="card">
+                 <img class="card-img-top" src="{{bankingVideoCourse.product_img}}" alt="Card image cap">
+                 <div class="cus-courses-price">
+                 </div>
+                 <div class="card-body">
+                   <div class="lower-content">
+                     <div class="upper">
+                       <h3><a href="#">{{bankingVideoCourse.product_name}}</a></h3>
+                       <p class="courses_tags"><span><i class="fa fa-tag"></i>
+                           {{bankingVideoCourse.courses_name}}</span>
+                       </p>
+                       <hr />
+                       <div class="post-limit vid_detail_price">
+                         <h5><i aria-hidden="true" class="fa fa-inr"></i>{{bankingVideoCourse.product_offer_price}}
+                           <span class="vid_main_price"><i aria-hidden="true"
+                               class="fa fa-inr"></i>{{bankingVideoCourse.product_price}}</span>
+                           <span
+                             class="vid_offer_per">{{(bankingVideoCourse.product_price - bankingVideoCourse.product_offer_price)*100/bankingVideoCourse.product_price | number: "2.0-0"}}
+                             % off</span>
+                         </h5>
+                       </div>
+                     </div>
+                     <a (click)="gotoVideoDetailsPage(bankingVideoCourse.product_slug)"
+                       class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </ng-template>
+
+         </owl-carousel-o>
+       </div>
+     </div>
+   </section>
+
+   <!-- End Popular Banking section -->
+
+
+   <section class="blog-page-section populer-course-section" col-12 id="ssc-courses" *ngIf="sscVideoCourse.length > 0">
+     <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+       <div class="container">
+         <div class="sec-title">
+           <h3>SSC Courses</h3>
+         </div>
+         <div class="row" *ngIf="!sscLoader">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+
+         </div>
+         <div class="row" *ngIf="sscLoader">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block"
+             *ngFor="let bankingVideoCourse of sscVideoCourse">
+             <div class="card">
+               <img class="card-img-top" src="{{bankingVideoCourse.product_img}}" alt="Card image cap">
+               <div class="cus-courses-price">
+               </div>
+               <div class="card-body">
+                 <div class="lower-content">
+                   <div class="upper">
+                     <h3><a href="#">{{bankingVideoCourse.product_name}}</a></h3>
+                     <p class="courses_tags"><span><i class="fa fa-tag"></i> {{bankingVideoCourse.courses_name}}</span>
+                     </p>
+                     <hr />
+                     <div class="post-limit vid_detail_price">
+                       <h5><i aria-hidden="true" class="fa fa-inr"></i>{{bankingVideoCourse.product_offer_price}}
+                         <span class="vid_main_price"><i aria-hidden="true"
+                             class="fa fa-inr"></i>{{bankingVideoCourse.product_price}}</span>
+                         <span
+                           class="vid_offer_per">{{(bankingVideoCourse.product_price - bankingVideoCourse.product_offer_price)*100/bankingVideoCourse.product_price | number: "2.0-0"}}
+                           % off</span>
+                       </h5>
+                     </div>
+                   </div>
+                   <a (click)="gotoVideoDetailsPage(bankingVideoCourse.product_slug)"
+                     class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!--row-->
+
+         <owl-carousel-o [options]="customOptions2" class="d-block d-sm-none">
+           <ng-template carouselSlide *ngFor="let bankingVideoCourse of sscVideoCourse">
+             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+               <div class="card">
+                 <img class="card-img-top" src="{{bankingVideoCourse.product_img}}" alt="Card image cap">
+                 <div class="cus-courses-price">
+                 </div>
+                 <div class="card-body">
+                   <div class="lower-content">
+                     <div class="upper">
+                       <h3><a href="#">{{bankingVideoCourse.product_name}}</a></h3>
+                       <p class="courses_tags"><span><i class="fa fa-tag"></i>
+                           {{bankingVideoCourse.courses_name}}</span>
+                       </p>
+                       <hr />
+                       <div class="post-limit vid_detail_price">
+                         <h5><i aria-hidden="true" class="fa fa-inr"></i>{{bankingVideoCourse.product_offer_price}}
+                           <span class="vid_main_price"><i aria-hidden="true"
+                               class="fa fa-inr"></i>{{bankingVideoCourse.product_price}}</span>
+                           <span
+                             class="vid_offer_per">{{(bankingVideoCourse.product_price - bankingVideoCourse.product_offer_price)*100/bankingVideoCourse.product_price | number: "2.0-0"}}
+                             % off</span>
+                         </h5>
+                       </div>
+                     </div>
+                     <a (click)="gotoVideoDetailsPage(bankingVideoCourse.product_slug)"
+                       class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </ng-template>
+
+         </owl-carousel-o>
+       </div>
+     </div>
+   </section>
+
+   <!-- End Popular SSC section -->
+
+
+   <section class="blog-page-section populer-course-section" col-12 id="railway-courses"
+     *ngIf="railwayVideoCourse.length > 0">
+     <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+       <div class="container">
+         <div class="sec-title">
+           <h3>Railways Courses</h3>
+         </div>
+
+         <div class="row" *ngIf="!railwayLoader">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+
+         </div>
+         <div class="row" *ngIf="railwayLoader">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block"
+             *ngFor="let bankingVideoCourse of railwayVideoCourse">
+             <div class="card">
+               <img class="card-img-top" src="{{bankingVideoCourse.product_img}}" alt="Card image cap">
+               <div class="cus-courses-price">
+               </div>
+               <div class="card-body">
+                 <div class="lower-content">
+                   <div class="upper">
+                     <h3><a href="#">{{bankingVideoCourse.product_name}}</a></h3>
+                     <p class="courses_tags"><span><i class="fa fa-tag"></i> {{bankingVideoCourse.courses_name}}</span>
+                     </p>
+                     <hr />
+                     <div class="post-limit vid_detail_price">
+                       <h5><i aria-hidden="true" class="fa fa-inr"></i>{{bankingVideoCourse.product_offer_price}}
+                         <span class="vid_main_price"><i aria-hidden="true"
+                             class="fa fa-inr"></i>{{bankingVideoCourse.product_price}}</span>
+                         <span
+                           class="vid_offer_per">{{(bankingVideoCourse.product_price - bankingVideoCourse.product_offer_price)*100/bankingVideoCourse.product_price | number: "2.0-0"}}
+                           % off</span>
+                       </h5>
+                     </div>
+                   </div>
+                   <a (click)="gotoVideoDetailsPage(bankingVideoCourse.product_slug)"
+                     class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!--row-->
+
+         <owl-carousel-o [options]="customOptions2" class="d-block d-sm-none">
+           <ng-template carouselSlide *ngFor="let bankingVideoCourse of railwayVideoCourse">
+             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+               <div class="card">
+                 <img class="card-img-top" src="{{bankingVideoCourse.product_img}}" alt="Card image cap">
+                 <div class="cus-courses-price">
+                 </div>
+                 <div class="card-body">
+                   <div class="lower-content">
+                     <div class="upper">
+                       <h3><a href="#">{{bankingVideoCourse.product_name}}</a></h3>
+                       <p class="courses_tags"><span><i class="fa fa-tag"></i>
+                           {{bankingVideoCourse.courses_name}}</span>
+                       </p>
+                       <hr />
+                       <div class="post-limit vid_detail_price">
+                         <h5><i aria-hidden="true" class="fa fa-inr"></i>{{bankingVideoCourse.product_offer_price}}
+                           <span class="vid_main_price"><i aria-hidden="true"
+                               class="fa fa-inr"></i>{{bankingVideoCourse.product_price}}</span>
+                           <span
+                             class="vid_offer_per">{{(bankingVideoCourse.product_price - bankingVideoCourse.product_offer_price)*100/bankingVideoCourse.product_price | number: "2.0-0"}}
+                             % off</span>
+                         </h5>
+                       </div>
+                     </div>
+                     <a (click)="gotoVideoDetailsPage(bankingVideoCourse.product_slug)"
+                       class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </ng-template>
+
+         </owl-carousel-o>
+       </div>
+     </div>
+   </section>
+
+   <!-- End Popular Banking section -->
+
+
+   <section class="blog-page-section populer-course-section" col-12 id="teaching-courses"
+     *ngIf="teachingVideoCourse.length > 0">
+     <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+       <div class="container">
+         <div class="sec-title">
+           <h3>Teaching Courses</h3>
+         </div>
+         <div class="row" *ngIf="!teachingLoader">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+
+         </div>
+         <div class="row" *ngIf="teachingLoader">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block"
+             *ngFor="let bankingVideoCourse of teachingVideoCourse">
+             <div class="card">
+               <img class="card-img-top" src="{{bankingVideoCourse.product_img}}" alt="Card image cap">
+               <div class="cus-courses-price">
+               </div>
+               <div class="card-body">
+                 <div class="lower-content">
+                   <div class="upper">
+                     <h3><a href="#">{{bankingVideoCourse.product_name}}</a></h3>
+                     <p class="courses_tags"><span><i class="fa fa-tag"></i> {{bankingVideoCourse.courses_name}}</span>
+                     </p>
+                     <hr />
+                     <div class="post-limit vid_detail_price">
+                       <h5><i aria-hidden="true" class="fa fa-inr"></i>{{bankingVideoCourse.product_offer_price}}
+                         <span class="vid_main_price"><i aria-hidden="true"
+                             class="fa fa-inr"></i>{{bankingVideoCourse.product_price}}</span>
+                         <span
+                           class="vid_offer_per">{{(bankingVideoCourse.product_price - bankingVideoCourse.product_offer_price)*100/bankingVideoCourse.product_price | number: "2.0-0"}}
+                           % off</span>
+                       </h5>
+                     </div>
+                   </div>
+                   <a (click)="gotoVideoDetailsPage(bankingVideoCourse.product_slug)"
+                     class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!--row-->
+
+         <owl-carousel-o [options]="customOptions2" class="d-block d-sm-none">
+           <ng-template carouselSlide *ngFor="let bankingVideoCourse of teachingVideoCourse">
+             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+               <div class="card">
+                 <img class="card-img-top" src="{{bankingVideoCourse.product_img}}" alt="Card image cap">
+                 <div class="cus-courses-price">
+                 </div>
+                 <div class="card-body">
+                   <div class="lower-content">
+                     <div class="upper">
+                       <h3><a href="#">{{bankingVideoCourse.product_name}}</a></h3>
+                       <p class="courses_tags"><span><i class="fa fa-tag"></i>
+                           {{bankingVideoCourse.courses_name}}</span>
+                       </p>
+                       <hr />
+                       <div class="post-limit vid_detail_price">
+                         <h5><i aria-hidden="true" class="fa fa-inr"></i>{{bankingVideoCourse.product_offer_price}}
+                           <span class="vid_main_price"><i aria-hidden="true"
+                               class="fa fa-inr"></i>{{bankingVideoCourse.product_price}}</span>
+                           <span
+                             class="vid_offer_per">{{(bankingVideoCourse.product_price - bankingVideoCourse.product_offer_price)*100/bankingVideoCourse.product_price | number: "2.0-0"}}
+                             % off</span>
+                         </h5>
+                       </div>
+                     </div>
+                     <a (click)="gotoVideoDetailsPage(bankingVideoCourse.product_slug)"
+                       class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </ng-template>
+
+         </owl-carousel-o>
+       </div>
+     </div>
+   </section>
+
+   <!-- End Popular Teaching section -->
+
+   <section class="blog-page-section populer-course-section" col-12 id="state-exam" *ngIf="stateVideoCourse.length > 0"
+     .>
+     <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+       <div class="container">
+         <div class="sec-title">
+           <h3>State Courses</h3>
+         </div>
+         <div class="row" *ngIf="!stateLoader">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block">
+             <ngx-skeleton-loader [theme]="{
+              'border-radius': '5px',
+              height: '250px',
+              border: '1px solid white'
+              }"></ngx-skeleton-loader>
+           </div>
+
+
+         </div>
+         <div class="row" *ngIf="stateLoader">
+           <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-none d-sm-block"
+             *ngFor="let bankingVideoCourse of stateVideoCourse">
+             <div class="card">
+               <img class="card-img-top" src="{{bankingVideoCourse.product_img}}" alt="Card image cap">
+               <div class="cus-courses-price">
+               </div>
+               <div class="card-body">
+                 <div class="lower-content">
+                   <div class="upper">
+                     <h3><a href="#">{{bankingVideoCourse.product_name}}</a></h3>
+                     <p class="courses_tags"><span><i class="fa fa-tag"></i> {{bankingVideoCourse.courses_name}}</span>
+                     </p>
+                     <hr />
+                     <div class="post-limit vid_detail_price">
+                       <h5><i aria-hidden="true" class="fa fa-inr"></i>{{bankingVideoCourse.product_offer_price}}
+                         <span class="vid_main_price"><i aria-hidden="true"
+                             class="fa fa-inr"></i>{{bankingVideoCourse.product_price}}</span>
+                         <span
+                           class="vid_offer_per">{{(bankingVideoCourse.product_price - bankingVideoCourse.product_offer_price)*100/bankingVideoCourse.product_price | number: "2.0-0"}}
+                           % off</span>
+                       </h5>
+                     </div>
+                   </div>
+                   <a (click)="gotoVideoDetailsPage(bankingVideoCourse.product_slug)"
+                     class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!--row-->
+
+         <owl-carousel-o [options]="customOptions2" class="d-block d-sm-none">
+           <ng-template carouselSlide *ngFor="let bankingVideoCourse of stateVideoCourse">
+             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+               <div class="card">
+                 <img class="card-img-top" src="{{bankingVideoCourse.product_img}}" alt="Card image cap">
+                 <div class="cus-courses-price">
+                 </div>
+                 <div class="card-body">
+                   <div class="lower-content">
+                     <div class="upper">
+                       <h3><a href="#">{{bankingVideoCourse.product_name}}</a></h3>
+                       <p class="courses_tags"><span><i class="fa fa-tag"></i>
+                           {{bankingVideoCourse.courses_name}}</span>
+                       </p>
+                       <hr />
+                       <div class="post-limit vid_detail_price">
+                         <h5><i aria-hidden="true" class="fa fa-inr"></i>{{bankingVideoCourse.product_offer_price}}
+                           <span class="vid_main_price"><i aria-hidden="true"
+                               class="fa fa-inr"></i>{{bankingVideoCourse.product_price}}</span>
+                           <span
+                             class="vid_offer_per">{{(bankingVideoCourse.product_price - bankingVideoCourse.product_offer_price)*100/bankingVideoCourse.product_price | number: "2.0-0"}}
+                             % off</span>
+                         </h5>
+                       </div>
+                     </div>
+                     <a (click)="gotoVideoDetailsPage(bankingVideoCourse.product_slug)"
+                       class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </ng-template>
+
+         </owl-carousel-o>
+       </div>
+     </div>
+   </section>
+
+   <!-- End Popular State Exam Section -->
+
+
+
+ </div>

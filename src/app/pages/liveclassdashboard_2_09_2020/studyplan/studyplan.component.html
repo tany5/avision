@@ -1,0 +1,256 @@
+<div id="study-plan">
+  <div class="auto-container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4 col-12 sticky cus_livestudyplan-leftbar mt-10 sticky-top">
+        <h4 class="cus_livestudyplan-leftbar_currentdate" *ngIf="videoListLoader">Day {{curDay}} <span>{{curDayString}}</span></h4>
+
+        <ul id="stydy-plan-count_list" class="liveclass-stydy-plan-count" *ngIf="!videoListLoader">
+          <ngx-skeleton-loader                   
+            [theme]="{ 
+            'border-radius': '5px',
+            height: '350px',                    
+            border: '1px solid white'
+            }"
+        ></ngx-skeleton-loader>
+        </ul>
+        <ul id="stydy-plan-count_list" class="liveclass-stydy-plan-count" *ngIf="videoListLoader">
+          <li *ngFor="let videoList of videoList">
+            <a (click)="getVideo(videoList)" *ngIf="videoList == curDay" class="page-link active"
+              href="#accordionCollapse{{videoList}}" id="#accordionCollapse{{videoList}}"><span>{{videoList}}</span>
+            </a>
+            <a (click)="getVideo(videoList)" *ngIf="videoList != curDay" class="page-link"
+              href="#accordionCollapse{{videoList}}" id="#accordionCollapse{{videoList}}"><span>{{videoList}}</span>
+            </a>
+          </li>
+
+
+        </ul>
+      </div>
+      <div class="col-md-9 col-sm-8 col-12" *ngIf="!videoListLoader">
+       <ngx-skeleton-loader                   
+            [theme]="{ 
+            'border-radius': '5px',
+            height: '100vh',                    
+            border: '1px solid white'
+            }"
+        ></ngx-skeleton-loader>
+      </div> 
+       
+      <div class="col-md-9 col-sm-8 col-12" *ngIf="videoListLoader">
+        <div class="liveclass-studyplan-collaps">
+          <div id="accordion">
+            <div class="card" *ngFor="let videoList of videoList index as i">
+              <div (click)="getVideo(videoList)" class="card-header" id="headingOne" data-toggle="collapse"
+                [attr.data-target]="'#accordionCollapse'+videoList" aria-expanded="true">
+                <h5 class="mb-0">
+                  <button class="btn btn-link">
+                   Day {{videoList}} <span class="liveclass-date" ng-show="userType"></span>
+                  </button>
+                </h5>
+              </div>
+              <ng-container *ngIf="videoList == curDay">
+                <div id="accordionCollapse{{videoList}}" class="collapse show" aria-labelledby="headingOne"
+                  data-parent="#accordion">
+                  <div class="card-body">
+                    <ng-container *ngFor="let videoDetails of videoDetails"> 
+                    <h6 class="liveclass-subject-sub-head">{{videoDetails.chapter}}</h6>
+                    <p class="liveclass-subject-sub-pera">{{videoDetails.vdo_title}}</p>
+                    <div class="row">
+                      <div class="col-sm-12"> 
+                        <ng-container *ngIf="buy_now_stat == 1">
+                            <a
+                            href="https://estore.avision24x7.com/student_dashboard/live_class_auth_cpanel/{{prodId}}-{{videoDetails.vdo_id}}"
+                            class="liveclass-div-sec-two" target="_blank">
+                            <div class="row flex-row">
+                              <div class="col-sm-6">
+                                <div class="video_courses_img"> <img
+                                    src="{{videoDetails.vdo_banner}}">
+                                  <div class="video_overlay"> <img src="assets/images/icon-videos.png" width="70px"></div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="live_cont_lock">
+                                  <h4>Live Class <b class="liveclass-time">{{videoDetails.time}} {{videoDetails.province}}</b></h4> <span></span>
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </ng-container>
+                        <ng-container *ngIf="buy_now_stat == 0">
+                            <a
+                            href="javascript:void(0)"
+                            class="liveclass-div-sec-two">
+                            <div class="row flex-row">
+                              <div class="col-sm-6">
+                                <div class="video_courses_img"> <img
+                                    src="{{videoDetails.vdo_banner}}">
+                                  <div class="video_overlay"> <img src="assets/images/icon-videos.png" width="70px"></div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="live_cont_lock">
+                                  <h4>Live Class <b class="liveclass-time">{{videoDetails.time}} {{videoDetails.province}}</b></h4> <span></span>
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </ng-container>
+                      </div>
+                      <div class="col-sm-6">
+                        <ng-container *ngIf="buy_now_stat == 1">
+                          <ng-container *ngIf="videoDetails.vdo_pdf == ''">
+                              <a href="javascript:void(0)" class="liveclass-div-sec-two">
+                                  <ul class="liveclass-quiz-lock">
+                                    <li><i class="ion-ios-alarm-outline"></i></li>
+                                    <li>
+                                      <h4>Notes</h4>
+                                    </li>
+                                  </ul> <span class="liveclass_lock_icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                              </a>
+                          </ng-container>
+                          <ng-container *ngIf="videoDetails.vdo_pdf != ''">
+                              <a href="{{videoDetails.vdo_pdf}}" class="liveclass-div-sec-two" download="{{videoDetails.vdo_title}}" target="_blank">
+                                  <ul class="liveclass-quiz-lock">
+                                    <li><i class="ion-ios-alarm-outline"></i></li>
+                                    <li>
+                                      <h4>Notes</h4>
+                                    </li>
+                                  </ul> <span class="liveclass_lock_icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                              </a>
+                          </ng-container>
+                            
+                        </ng-container>
+                        <ng-container *ngIf="buy_now_stat == 0">
+                                <a href="javascript:void(0)" class="liveclass-div-sec-two">
+                                    <ul class="liveclass-quiz-lock">
+                                      <li><i class="ion-ios-alarm-outline"></i></li>
+                                      <li>
+                                        <h4>Notes</h4>
+                                      </li>
+                                    </ul> <span class="liveclass_lock_icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                </a>
+                          </ng-container> 
+                        
+                      </div>
+                      <div class="col-sm-6"> <a href="javascript:void(0)" class="liveclass-div-sec-two">
+                          <ul class="liveclass-quiz-lock">
+                            <li><i class="ion-ios-bookmarks-outline"></i></li>
+                            <li>
+                              <h4>Quiz</h4>
+                            </li>
+                          </ul> <span class="liveclass_lock_icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                        </a></div>
+                    </div>
+                   </ng-container> 
+                  </div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="videoList != curDay">
+                <div id="accordionCollapse{{videoList}}" class="collapse" aria-labelledby="headingOne"
+                  data-parent="#accordion">
+                  <div class="card-body" *ngIf="!videoLoader">
+                    <ngx-skeleton-loader                   
+                    [theme]="{ 
+                    'border-radius': '5px',
+                    height: '250px',                    
+                    border: '1px solid white'
+                    }"
+                  ></ngx-skeleton-loader>
+                  </div>
+                  <div class="card-body" *ngIf="videoLoader">
+                    <ng-container *ngFor="let videoDetails of videoDetails"> 
+                      <h6 class="liveclass-subject-sub-head">{{videoDetails.chapter}}</h6>
+                      <p class="liveclass-subject-sub-pera">{{videoDetails.vdo_title}}</p>
+                      <div class="row">
+                        <div class="col-sm-12"> <a
+                            href="javascript:void(0)"
+                            class="liveclass-div-sec-two" *ngIf="buy_now_stat == 0">
+                            <div class="row flex-row">
+                              <div class="col-sm-6">
+                                <div class="video_courses_img"> <img
+                                    src="{{videoDetails.vdo_banner}}">
+                                  <div class="video_overlay"> <img src="assets/images/icon-videos.png" width="70px"></div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="live_cont_lock">
+                                  <h4>Live Class <b class="liveclass-time">{{videoDetails.time}} {{videoDetails.province}}</b></h4> <span></span>
+                                </div>
+                              </div>
+                            </div>
+                          </a><a
+                          href="https://estore.avision24x7.com/student_dashboard/live_class_auth_cpanel/{{prodId}}-{{videoDetails.vdo_id}}"
+                          class="liveclass-div-sec-two" target="_blank" *ngIf="buy_now_stat == 1">
+                          <div class="row flex-row">
+                            <div class="col-sm-6">
+                              <div class="video_courses_img"> <img
+                                  src="{{videoDetails.vdo_banner}}">
+                                <div class="video_overlay"> <img src="assets/images/icon-videos.png" width="70px"></div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="live_cont_lock">
+                                <h4>Live Class <b class="liveclass-time">{{videoDetails.time}} {{videoDetails.province}}</b></h4> <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <ng-container *ngIf="buy_now_stat == 1">
+                                <ng-container *ngIf="videoDetails.vdo_pdf == ''">
+                                    <a href="javascript:void(0)" class="liveclass-div-sec-two">
+                                        <ul class="liveclass-quiz-lock">
+                                          <li><i class="ion-ios-alarm-outline"></i></li>
+                                          <li>
+                                            <h4>Notes</h4>
+                                          </li>
+                                        </ul> <span class="liveclass_lock_icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                    </a>
+                                </ng-container>
+                                <ng-container *ngIf="videoDetails.vdo_pdf != ''">
+                                    <a href="{{videoDetails.vdo_pdf}}" class="liveclass-div-sec-two" download="{{videoDetails.vdo_title}}" target="_blank">
+                                        <ul class="liveclass-quiz-lock">
+                                          <li><i class="ion-ios-alarm-outline"></i></li>
+                                          <li>
+                                            <h4>Notes</h4>
+                                          </li>
+                                        </ul> <span class="liveclass_lock_icon"></span>
+                                    </a>
+                                </ng-container>
+                                  
+                              </ng-container>
+                              <ng-container *ngIf="buy_now_stat == 0">
+                                      <a href="javascript:void(0)" class="liveclass-div-sec-two">
+                                          <ul class="liveclass-quiz-lock">
+                                            <li><i class="ion-ios-alarm-outline"></i></li>
+                                            <li>
+                                              <h4>Notes</h4>
+                                            </li>
+                                          </ul> <span class="liveclass_lock_icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                      </a>
+                                </ng-container> 
+                        </div>
+                        <div class="col-sm-6"> <a href="javascript:void(0)" class="liveclass-div-sec-two">
+                            <ul class="liveclass-quiz-lock">
+                              <li><i class="ion-ios-bookmarks-outline"></i></li>
+                              <li>
+                                <h4>Quiz</h4>
+                              </li>
+                            </ul> <span class="liveclass_lock_icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                          </a></div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </ng-container>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

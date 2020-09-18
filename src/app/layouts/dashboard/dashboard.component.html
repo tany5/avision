@@ -1,0 +1,15 @@
+
+<app-dashboardheader (toggleSibarForMe)="sideBarToggle($event)"></app-dashboardheader>
+
+<mat-drawer-container>
+    <mat-drawer [@openCloseSidenav]="isOpen ? 'open' : 'closed'" mode="side" opened role="navigation">
+      <app-dashboardsidebar (toggleSibarForMe1)="sideBarToggle1($event)"></app-dashboardsidebar>
+    </mat-drawer>
+    <mat-drawer-content [@openCloseSidenavContent]="isOpen ? 'open' : 'closed'">
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+<!-- <app-dashboardfooter></app-dashboardfooter> -->
+
+
+

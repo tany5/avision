@@ -1,0 +1,65 @@
+:host .mat-icon {
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+
+mat-nav-list h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin: 20px 0px;
+}
+
+
+
+
+mat-list-item , mat-list-item-content,  mat-nav-list a{  
+    color: #fff;
+    font-size: 1.1rem !important;
+    font-family: open sans,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif !important;
+    font-weight: 500 !important;
+    
+}
+.mat-list-item {  
+  color: #fff;    
+}
+
+
+mat-divider {
+  border-top-color: rgba(200, 198, 198, 0.12) !important
+}
+
+.active-list-item {
+  color: #1f2138 !important;
+  background: rgba(255,255,255,0.9) !important;
+    font-size: 1.1rem !important;
+    font-family: open sans,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif !important;   
+    font-weight: 600 !important;
+    display: block !important;
+    border-left: 3px solid #ff5b41 !important;
+    border-top: 1px solid  rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid  rgba(255, 255, 255, 0.12)
+}
+
+.mat-nav-list .mat-list-item:hover {
+  color: #1f2138 !important;
+  background: rgba(255,255,255,0.9) !important;
+}
+
+.mat-nav-list .active-list-item:hover {
+  color: #1f2138 !important;
+  background: rgba(255,255,255,0.9) !important;
+}
+.logo {
+  background-image: url("../../../../assets/images/avision_logo.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-color: #1f2138;
+  width: 251px;  
+  height: inherit !important;
+  margin-left: -17px;
+  transition: 0.4s ;
+  
+}
+

@@ -1,0 +1,403 @@
+<div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+
+    <mat-drawer-container>
+        <mat-drawer #drawer position="end" mode="side" opened role="navigation">
+            <mat-toolbar class="app-question-list-section-header">
+                <span>{{slectedTab}}</span>
+            </mat-toolbar>
+
+            <div class="container-fluid question-pallet">
+                <div class="row row-cols-5">
+
+                    <ng-container *ngFor="let quiz_details of quizQuestionAnswerDetails index as i" style="cursor: pointer;">
+                        <div class="col" [ngClass]="{activeQs: selectedQs == quiz_details.question_details.question_id}">
+
+                            <span *ngIf="quiz_details['question_details']['question_status'] == 2" class="card skipped" id="{{quiz_details['question_details']['question_id']}}" (click)="getQuestionAnswer(quiz_details.question_details.question_id, i)" style="cursor: pointer;">{{i+1}}</span>
+
+                            <span *ngIf="quiz_details['question_details']['question_status'] == 0" class="card" id="{{quiz_details.question_details.question_id}}" (click)="getQuestionAnswer(quiz_details.question_details.question_id, i)" style="cursor: pointer;">{{i+1}}</span>
+
+                            <span *ngIf="quiz_details['question_details']['question_status'] == 1" class="card attempted" id="{{quiz_details.question_details.question_id}}" (click)="getQuestionAnswer(quiz_details.question_details.question_id, i)" style="cursor: pointer;">{{i+1}}</span>
+
+
+
+                        </div>
+                    </ng-container>
+
+
+                </div>
+            </div>
+            <div class="container-fluid question-information">
+                <div class="row no-gutters">
+                    <div class="col-7">
+                        <div class="row no-gutters">
+                            <div class="col-3">
+                                <span class="card skipped"></span>
+                            </div>
+                            <div class="col-9">
+                                Wrong
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-5">
+                        <div class="row no-gutters">
+                            <div class="col-3">
+                                <span class="card attempted"></span>
+                            </div>
+                            <div class="col-9">
+                                Correct
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <button mat-raised-button color="primary" class="btn-block" (click)="submitQuiz()">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </mat-drawer>
+        <mat-drawer-content>
+
+            <mat-toolbar class="app-question-section-header">
+                <span>{{title}}</span>
+                <ng-container *ngFor="let quiz_details of quiz_details index as i">
+
+
+
+                    <ng-container>
+
+                        <button mat-raised-button id="{{quiz_details.question_type_id}}" (click)="getQUizDataById(quiz_details.question_type_id, quiz_details.question_type_name)" [ngClass]="{active: selected == quiz_details.question_type_id}">{{quiz_details.question_type_name}}</button>
+                    </ng-container>
+
+                </ng-container>
+
+            </mat-toolbar>
+
+            <ng-container *ngIf="questionPaper">
+                <mat-toolbar class="app-question-header">
+                    <span>Question No. <span *ngIf="questionNumber"> {{questionNumber+1}}</span> <span *ngIf="!questionNumber">1</span></span>
+                    <span class="example-spacer"></span>
+                    <span class="mark-li">
+          <li>Marks
+            <ul>
+              <li><span class="color-green">+{{correct_mark}}</span></li>
+                    <li><span class="color-red">-{{negative_mark}}</span></li>
+                    </ul>
+                    </li>
+                    </span>
+
+                </mat-toolbar>
+
+                <div class="container-fluid" style="min-height: 100%;">
+                    <div class="row">
+                        <ng-container *ngIf="directionsStatus == 1">
+                            <div class="col-6 question-div">
+                                <p [innerHTML]="directions"></p>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="main-question">
+                                    <p [innerHTML]="question"></p>
+                                </h6>
+                                <ng-container *ngIf="viewSolution">
+                                    <ng-container *ngFor="let answer of answers index as i">
+                                        <div id="{{answer.ans_id}}" class="row no-gutters" [ngClass]="{
+                                            'checkedClass': answer.status == '1',
+                                            'uncheckedClass': answer.status == '0',
+                                            'red': correctAnswerStatus ==  answer.ans_id && resultAnserStatus == false                                    
+                                            }">
+                                            <div class="col-1">
+                                                <label class="ans_no" style="padding-left: 10px !important">{{charArray[i]}} )</label>
+                                            </div>
+                                            <div class="col-10">
+                                                <label class="wrap-mat-radio-label" [innerHTML]="answer.ans"></label>
+                                            </div>
+                                            <div class="col-1" *ngIf="answer.status == '1'">
+                                                <mat-icon>done</mat-icon>
+                                            </div>
+
+                                            <div class="col-1" *ngIf="correctAnswerStatus ==  answer.ans_id && resultAnserStatus == false">
+                                                <mat-icon>clear</mat-icon>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="ans-desc-div">
+                                                <ng-container *ngIf="ansDesc">
+
+                                                    <mat-divider></mat-divider>
+                                                    <h3><b>Answer Description</b></h3>
+                                                    <span [innerHTML]="ansDesc"></span>
+
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+
+                                <ng-container *ngIf="studentAnswer.length > 0">
+                                    <ng-container *ngFor="let answer of answers index as i">
+                                        <div id="{{answer.ans_id}}" class="row no-gutters" [ngClass]="{
+                                            'checkedClass': answer.status == '1',
+                                            'uncheckedClass': answer.status == '0',
+                                            'red': studentAnswer[0].ans_id ==  answer.ans_id && studentAnswer[0].status  == '0'                                     
+                                            }">
+                                            <div class="col-1">
+                                                <label class="ans_no" style="padding-left: 10px !important">{{charArray[i]}} )</label>
+                                            </div>
+                                            <div class="col-10">
+                                                <label class="wrap-mat-radio-label" [innerHTML]="answer.ans"></label>
+                                            </div>
+                                            <div class="col-1" *ngIf="answer.status == '1'">
+                                                <mat-icon>done</mat-icon>
+                                            </div>
+
+                                            <div class="col-1" *ngIf="studentAnswer[0].ans_id ==  answer.ans_id && studentAnswer[0].status  == '0'">
+                                                <mat-icon>clear</mat-icon>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="ans-desc-div">
+                                                <ng-container *ngIf="ansDesc">
+
+                                                    <mat-divider></mat-divider>
+                                                    <h3><b>Answer Description</b></h3>
+                                                    <span [innerHTML]="ansDesc"></span>
+
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngIf="!viewSolution && studentAnswer.length == 0">
+
+                                    <mat-radio-group class="example-radio-group" [(ngModel)]="answerId" [disabled]="disabledRadio">
+                                        <ng-container *ngFor="let answer of answers index as i">
+                                            <div class="row no-gutters">
+                                                <div class="col-1">
+                                                    <label class="ans_no" style="padding-top: 10px !important;padding-left: 10px !important ">{{charArray[i]}} )</label>
+                                                </div>
+                                                <div class="col-11">
+                                                    <mat-radio-button value="{{answer.ans_id}}" color="primary" id="{{answer.ans_id}}" class="ans_no" (change)="radioChange(question_id, answer.ans_id, answer.status)">
+
+                                                        <span class="wrap-mat-radio-label" [innerHTML]="answer.ans"></span>
+                                                    </mat-radio-button>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </mat-radio-group>
+
+                                </ng-container>
+
+
+
+
+
+
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="directionsStatus == 0">
+                            <div class="col-12 question-div">
+                                <h6 class="main-question">
+                                    <p [innerHTML]="question"></p>
+                                </h6>
+                                <ng-container *ngIf="viewSolution">
+                                    <ng-container *ngFor="let answer of answers index as i">
+                                        <div id="{{answer.ans_id}}" class="row no-gutters" [ngClass]="{
+                                            'checkedClass': answer.status == '1',
+                                            'uncheckedClass': answer.status == '0',
+                                            'red': correctAnswerStatus ==  answer.ans_id                                                              
+                                            }">
+                                            <div class="col-1">
+                                                <label class="ans_no" style="padding-left: 10px;">{{charArray[i]}} )</label>
+                                            </div>
+                                            <div class="col-10">
+                                                <label class="wrap-mat-radio-label" [innerHTML]="answer.ans"></label>
+                                            </div>
+                                            <div class="col-1" *ngIf="answer.status == '1'">
+                                                <mat-icon>done</mat-icon>
+                                            </div>
+                                            <div class="col-1" *ngIf="correctAnswerStatus ==  answer.ans_id && resultAnserStatus == false">
+                                                <mat-icon>clear</mat-icon>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="ans-desc-div">
+                                                <ng-container *ngIf="ansDesc">
+
+                                                    <mat-divider></mat-divider>
+                                                    <h3><b>Answer Description</b></h3>
+                                                    <span [innerHTML]="ansDesc"></span>
+
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+
+                                <ng-container *ngIf="studentAnswer.length > 0">
+                                    <ng-container *ngFor="let answer of answers index as i">
+                                        <div id="{{answer.ans_id}}" class="row no-gutters" [ngClass]="{
+                                            'checkedClass': answer.status == '1',
+                                            'uncheckedClass': answer.status == '0',
+                                            'red': studentAnswer[0].ans_id ==  answer.ans_id && studentAnswer[0].status  == '0'                                     
+                                            }">
+                                            <div class="col-1">
+                                                <label class="ans_no" style="padding-left: 10px !important">{{charArray[i]}} )</label>
+                                            </div>
+                                            <div class="col-10">
+                                                <label class="wrap-mat-radio-label" [innerHTML]="answer.ans"></label>
+                                            </div>
+                                            <div class="col-1" *ngIf="answer.status == '1'">
+                                                <mat-icon>done</mat-icon>
+                                            </div>
+
+                                            <div class="col-1" *ngIf="studentAnswer[0].ans_id ==  answer.ans_id && studentAnswer[0].status  == '0'">
+                                                <mat-icon>clear</mat-icon>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="ans-desc-div">
+                                                <ng-container *ngIf="ansDesc">
+
+                                                    <mat-divider></mat-divider>
+                                                    <h3><b>Answer Description</b></h3>
+                                                    <span [innerHTML]="ansDesc"></span>
+
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+
+                                <ng-container *ngIf="!viewSolution && studentAnswer.length == 0">
+
+                                    <mat-radio-group class="example-radio-group" [(ngModel)]="answerId" [disabled]="disabledRadio">
+                                        <ng-container *ngFor="let answer of answers index as i">
+                                            <div class="row no-gutters">
+                                                <div class="col-1">
+                                                    <label class="ans_no" style="padding-top: 10px !important; padding-left: 10px !important">{{charArray[i]}} )</label>
+                                                </div>
+                                                <div class="col-11">
+                                                    <mat-radio-button value="{{answer.ans_id}}" color="primary" id="{{answer.ans_id}}" class="ans_no" (change)="radioChange(question_id, answer.ans_id, answer.status)">
+
+                                                        <span class="wrap-mat-radio-label" [innerHTML]="answer.ans"></span>
+                                                    </mat-radio-button>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </mat-radio-group>
+
+                                </ng-container>
+
+
+
+                            </div>
+                        </ng-container>
+                    </div>
+
+                </div>
+            </ng-container>
+
+
+            <ng-container *ngIf="!questionPaper">
+
+                <mat-toolbar class="app-question-header">
+                    <span class="mx-auto">{{slectedTab}}</span>
+                </mat-toolbar>
+
+                <div class="container-fluid">
+                    <div class="question-div">
+                        <div class="row" *ngFor="let quizQuestion of quizQuestionQuestionPaper index as i">
+                            <div class="col-12 ">
+                                <div class="col-12"> <span [innerHTML]="quizQuestion.question_details.directions"></span> </div>
+                                <div class="col-12"> Q. {{i+1}}) <span [innerHTML]="quizQuestion.question_details.question"></span> </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </ng-container>
+
+
+
+
+
+
+            <div class="toggle_button" (click)="iconToggle($event)">
+                <button mat-fab color="primary" (click)="drawer.toggle()">
+        <mat-icon *ngIf="toggleIcon == false">{{changedIcon}}</mat-icon>
+        <mat-icon *ngIf="toggleIcon == true">{{changedIcon}}</mat-icon>
+      </button>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+
+
+
+</div>
+
+
+<div class="modal fade bd-example-modal-sm" id="waitModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <mat-progress-bar mode="indeterminate" *ngIf="showProgress"></mat-progress-bar>
+                <h3 class="text-center">Please Wait....</h3>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="ResultModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <h3>Exam Summary</h3>
+                <div class="table-responsive-sm">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Section Name</th>
+                                <th>Correct</th>
+                                <th>Wrong</th>
+                                <th>Skip</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let result of result_arr;index as i">
+                                <td>{{i+1}}</td>
+                                <td>{{result.section_name}}</td>
+                                <td>{{result.correcct}}</td>
+                                <td>{{result.wrong}}</td>
+                                <td>{{result.skip}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="goToAnalytics()">Go To Analytics</button>
+            </div>
+        </div>
+    </div>
+</div>

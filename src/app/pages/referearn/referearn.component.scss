@@ -1,0 +1,399 @@
+/*=========================================================*/
+/*------------- Refer & Earn Page css------------*/
+/*=========================================================*/
+ h3 {
+     font-size: 3.2vmin;
+ }
+ hr{
+     color: #fff;
+ }
+.refer_back{
+	width:100%;		
+	background:#ff976d;
+	padding:50px 15px 200px;
+	overflow-x: hidden;
+}
+.refer_back .row{
+	margin:0;
+}
+
+	.earn-heading h1{
+		color:#fff;
+		font-size:24px;
+		font-weight:600;
+    }
+    .earn-heading p, .earn-heading p b{
+		color:#fff;
+		
+	}
+	.refar-back p{
+		color:#fff;
+		font-size:16px;
+	}
+	.earn-heading p{
+		color:#fff;
+		font-size:16px;
+	}
+	.refar-back hr{
+		border-color:#ffb89b;
+	}
+	.earn-light-back{
+		position:relative;
+		margin-top:-150px;
+		width: 100%;
+		overflow-x: hidden;
+		/* float: left; */
+	}
+	.refar-light-back{
+		width:100%;
+		float:left;
+		background:#fff;
+		padding:30px 15px;
+		border-radius:15px;
+		-webkit-box-shadow: -8px 12px 18px 0 rgba(117,138,172,.13);
+		box-shadow: -8px 12px 18px 0 rgba(117,138,172,.13);
+	}
+	.refar-light-back .send-invite-sec{
+		margin:30px 0;
+		display: inline-flex;
+	}
+	.refar-light-back .send-invite-sec input{
+		height:40px;
+		border:none;
+		border-bottom:2px solid #ff976d;
+		border-radius:0;
+		background:none;
+		box-shadow:none;
+	}
+	.refar-light-back .send-invite-sec input:focus{
+		border-color:#00d82f
+	}
+	.cus-invite-btn{
+		height:40px;
+	}
+	.cus-code-copy-input{
+		background:none !important;
+		border:none;
+		box-shadow:none;
+		border-left: 3px solid #ff976d6b;
+		border-radius: 0;
+		text-align:center;
+		margin-bottom:10px;
+		margin-top:10px;
+		font-size:16px;
+		font-weight:600;
+		color:#000;
+		width: auto;
+		margin: 0 auto;
+	}
+	.cus-code-copy-input:focus{
+		box-shadow:none;
+		border-left: 3px solid #ff976d6b;
+	}
+	.cus-coupon-code-btn{
+		background:#9ec1cc54;
+	}
+	.refar-code-title{
+		font-size:13px;
+	}
+	.refar-light-back hr{
+		width:80%;
+		margin:40px auto;
+	}
+	h4.cus-ref-main-title{
+		font-size:18px;
+		font-weight:600;
+		color:#000;
+	}
+	.cus-ref-social{
+		padding:0;
+	}
+	.cus-ref-social li{
+		display:inline-block;
+		font-size:16px;
+		padding:5px 3px;
+	}
+	.cus-ref-social li a i{
+		color:#fff;
+		border-radius:50%;
+		width:35px;
+		height:35px;
+		vertical-align:middle;
+		position:relative;
+		transition:.25s ease-in-out;
+		-webkit-transition:.25s ease-in-out;
+	}
+	.cus-ref-social li a i:before{
+		margin: 0 auto;
+		top: 50%;
+		position: absolute;
+		transform: translateY(-50%);
+		left: 0;
+		right: 0;
+	}
+	.cus-ref-social li a i.fa-facebook{
+		background:#124198;
+	}
+	.cus-ref-social li a i.fa-whatsapp{
+		background:#00b506;
+	}
+	.cus-ref-social li a i.fa-google-plus{
+		background:#bd1010;
+	}
+	.cus-ref-social li a i.fa-twitter{
+		background:#3ea3c1;
+	}
+	.cus-ref-social li a i.fa-envelope{
+		background:#cc0000;
+	}
+	.cus-ref-social li a:hover i{
+		background:#000;
+		color:#fff;
+	}
+	.cus-redeem-code{
+		margin-bottom:15px;
+	}
+	.cus-redeem-code input{
+		height:35px;
+		border:none;
+		border-bottom:2px solid #ff976d;
+		border-radius:0;
+		background:none;
+		box-shadow:none;
+		width:80% !important;
+	}
+	.cus-redeem-code input:focus{
+		border-color:#00d82f;
+		box-shadow:none;
+	}
+	.btn-redeem{
+		background:#fff;
+		color:#ff976d;
+		border:1px solid #eee;
+		border-radius:0;
+	}
+	.btn-redeem:hover{
+		color:#00d82f;
+	}
+	.pay-number{
+		width:80%;
+		margin-bottom:15px;
+	}
+	.earn-light-after-div{
+		width:100%;
+		
+		padding:60px 0;
+		text-align:center;
+		overflow-x: hidden;
+	}
+	.earn-light-after-div h3{
+		font-weight:600;
+		color:#000;
+	}
+	.earn-light-after-div-heading{
+		width:100%;
+		
+		margin-bottom:50px;
+	}
+	.cus-after-section{
+		width:60%;
+		margin:0 auto;
+	}
+	.cus-after-section p{
+		font-size:14px;
+		color:#666;
+		padding-top:20px;
+	}
+	.cus-line-span:before, .cus-line-span:after{
+		content: "";
+		position: absolute;
+		top: 50px;
+		width: calc(100% - 150px - 50px);
+		height: 1px;
+		margin: auto;
+		background-color: #e1e8ed;
+	}
+	.cus-line-span:before{
+		left: calc(-50% + 100px);
+	}
+	.cus-line-span:after{
+		right: calc(-50% + 100px);
+	}
+	.ref-fullwith-div{
+		width:100%;
+		
+		padding:80px 0;
+		text-align:center;
+		border:1px solid #ddd;
+		overflow-x: hidden;
+	}
+	.ref-fullwith-div h3{
+		font-weight:600;
+		color:#000;
+	}
+	.ref-testimonial-section{
+		width:100%;
+		
+		padding:50px 0;
+		text-align:center;
+	}
+	.ref-testimonial-section h3{
+		font-weight:600;
+		color:#000;
+	}
+	.ref-testimonial-section h3 i{
+		color:#ff976d;
+		font-size:20px;
+		margin-bottom:80px;
+	}
+	
+	
+
+	.ref-testimonial-section .testimonials {
+	  overflow: hidden;
+	  position: relative;
+	  text-align:left;
+	}
+
+	.ref-testimonial-section .testimonials {
+	  background: #161d25;
+	}
+	.testimonial img{
+		margin:0 auto;
+		border-radius:50%;
+	}
+	.ref-testimonial-section .testimonial{
+		background:#fff;
+		padding:30px 20px;
+		border:1px solid #ddd;
+	}
+	.ref-testimonial-section .one-slide,
+	.ref-testimonial-section .message {
+	  border: none !important;
+	  outline: none !important;
+	}
+	.ref-testimonial-section .message{
+		color:#666;
+		margin:15px 0;
+	}
+	.ref-testimonial-section .blockquote-footer{
+		color:#000;
+		font-weight:600;
+		font-size:16px;
+		
+	}
+	.ref-testimonial-section .icon-overlay {
+	  position: absolute;
+	  opacity: 0.3;
+	  right: 10%;
+	  top: 0;
+	  height: auto;
+	  width: 100%;
+	  max-width: 400px;
+	}
+
+	.ref-testimonial-section .carousel-controls .control {
+	  position: absolute;
+	  transform: translateY(-50%);
+	  border-radius: 50%;
+	  border: 2px solid #666;
+	  z-index: 1;
+	  top:50%;
+	  padding:5px 10px;
+	  cursor:pointer;
+	}
+
+	.ref-testimonial-section .prev {
+	  left: -2.25rem;
+	}
+
+	.ref-testimonial-section .next {
+	  right: -2.25rem;
+	}
+	
+	.ref-trams-section{
+		width:100%;		
+		padding:80px 0;
+		overflow-x: hidden;
+		
+	}
+	.ref-trams-heading{
+		width:100%;
+		
+		margin-bottom:50px;
+		text-align:center;
+		
+	}
+	.ref-trams-heading h3{
+		color:#000;
+		font-weight:600;
+	}
+	.ref-trams-section p{
+		color:#000;
+	}
+	.ref-trams-section ul li{
+		color:#555;
+		font-size:15px;
+		line-height:25px;
+		list-style-type: circle;
+		margin-left: 40px;
+	}
+	@media screen and (max-width: 991px) {
+		.cus-line-span:before, .cus-line-span:after{
+			   content:none;
+		}
+		.pay-number{
+			width:100%;
+			text-align:center;
+		}
+		.cus-redeem-code{
+			margin:15px auto;
+		}
+		.cus-redeem-code input{
+			width:auto !important;
+			display:block !important;
+		}
+		.cus-redeem-code .input-group-btn{
+			display:block !important;
+		}
+	}
+	@media screen and (max-width: 767px) {
+		.refar-light-back{
+			border-radius:0;
+		}
+		.refar-light-back .send-invite-sec{
+			display: inline-table;
+		}
+		.ref-testimonial-section .carousel-controls .control{
+			display:none !important;
+		}
+		.cus-redeem-code input{
+			width:100% !important;
+		}
+		.cus-redeem-code{
+			margin:20px 0;
+		}
+		.faq-section {
+			padding: 50px 0;
+		}
+		.accordion-box .block .icon-outer{
+			display: inline-block;
+		}
+		.cus-test-tab{
+			display: flex;
+			overflow: scroll;
+		}
+		.cus-test-tab button{
+			display: table-cell;
+			float: none;
+			margin: 5px;
+		}
+		.cus_result_tab{
+			overflow: scroll;
+		}
+		.cus_result_tab li{
+			float: none;
+			display: table-cell;
+			white-space: nowrap;
+		}
+	}

@@ -1,0 +1,265 @@
+<section class="liveclass-two-header">
+    <div class="auto-container">
+        <div class="row">
+            <div class="col-9 col-md-10">
+                <h3><span class="fa-icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> {{product_name}}</h3>
+            </div>
+            <div class="col-3 col-md-2">
+                <!-- <a (click)="onLogout()" href="javascript:void(0)" class="btn btn-success pull-right align-middle" style="margin-top: 10px;"><i class="fa fa-sign-out float-right"></i> Logout</a>   -->
+
+                <a (click)="onLogout()" mat-raised-button color="warn" class="float-right" style="margin-top: 5px;">
+                    <mat-icon>settings_backup_restore</mat-icon> Logout</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+<div class="main_content-panel" style="padding-top: 50px;">
+    <div class="liveclass-details-banner">
+        <div class="auto-container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <h1 class="liveclass-heading">{{product_name}}</h1>
+                    <p>Get guaranteed selection in the {{product_name}} exam with live coaching classes and personal coach by Avision Institute. Learn from the experienced faculties. Full coverage of Quant, Reasoning, English & General Awareness.</p>
+
+                    <div class="d-xl-none d-lg-none"><iframe width="100%" height="320px" [src]="demoVideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="liveclass-details-content">
+        <div class="auto-container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="liveclass-detais-content-back">
+                        <div class="liveclass-details-tab">
+                            <ul class="nav nav-tabs" style="overflow:auto;display:block;padding:0 35px;">
+                                <li><a href="javascript:void(0)" data-toggle="tab" routerLink="preview" routerLinkActive="active">Preview</a></li>
+                                <li><a data-toggle="tab" href="javascript:void(0)" routerLink="study-plan" routerLinkActive="active">Study Plan</a></li>
+                                <li><a data-toggle="tab" href="javascript:void(0)" routerLink="course-curriculum" routerLinkActive="active">Course Curriculum</a></li>
+                                <li><a data-toggle="tab" href="javascript:void(0)" routerLink="ask-doubts" routerLinkActive="active">Ask Doubts</a></li>
+                                <!-- <li><a data-toggle="tab" href="#report-card">Report card</a></li> -->
+                                <li><a data-toggle="tab" href="javascript:void(0)" routerLink="mock-tests" routerLinkActive="active">Mock tests</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <router-outlet></router-outlet>
+                </div>
+                <div class="col-lg-4 cus-sticky">
+                    <div class="liveclass-sidebar-details d-none d-lg-block d-xl-block">
+                        <ng-container *ngIf="buy_now_stat==0">
+                            <iframe width="100%" height="200px" [src]="demoVideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="liveclass-price"><i class="fa fa-inr"></i> {{productOfferPrice}}/- <span><i class="fa fa-inr"></i> {{productPrice}}/-</span></div>
+                            <a href="javascript:void(0)" data-toggle="modal" data-target="#cupon_code_modal_form" class="buynow-btn"><i class="fa fa-shopping-cart"></i> Buy Now</a>
+                            <ul class="liveclass-sidebar-details-list">
+                                <li><i class="fa fa-youtube"></i> {{liveClasses}}+ Live Classes</li>
+                                <li><i class="fa fa-file"></i> {{mockTest}}+ Mock Test</li>
+                                <li><i class="fa fa-question-circle"></i> {{practiceQuestion}}+ Practice Questions</li>
+                                <li><i class="fa fa-file-pdf-o"></i> {{pdfNotes}}+ PDF Notes</li>
+                                <li><i class="fa fa-user"></i> Expert Faculties</li>
+                            </ul>
+                        </ng-container>
+                        <ng-container *ngIf="buy_now_stat==1">
+                            <owl-carousel-o [options]="customOptions2">
+                                <ng-template carouselSlide *ngFor="let product of recommended_product;index as i ">
+                                    <!-- <iframe width="100%" height="200px" [src]="product.youtube_url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                    <img src="https://estore.avision24x7.com/{{product.image}}" class="img-fluid" alt="product_image" />
+                                    <div class="recomend">Recomended For You!!</div>
+                                    <div class="liveclass-price"><i class="fa fa-inr"></i> {{product.product_offer_price}}/- <span><i class="fa fa-inr"></i> {{product.product_price}}/-</span></div>
+                                    <a (click)="recomId(product.product_id)" href="javascript:void(0)" data-toggle="modal" data-target="#cupon_code_recomended_modal_form" class="buynow-btn"><i class="fa fa-shopping-cart"></i> Buy Now</a>
+                                    <ul class="liveclass-sidebar-details-list">
+                                        <li><i class="fa fa-youtube"></i> {{product.live_class}}+ Live Classes</li>
+                                        <li><i class="fa fa-file"></i> {{product.mock_test}}+ Mock Test</li>
+                                        <li><i class="fa fa-question-circle"></i> {{product.practice_question}}+ Practice Questions</li>
+                                        <li><i class="fa fa-file-pdf-o"></i> {{product.pdf_notes}}+ PDF Notes</li>
+                                        <li><i class="fa fa-user"></i> Expert Faculties</li>
+                                    </ul>
+                                </ng-template>
+                            </owl-carousel-o>
+
+
+                        </ng-container>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- live class details section -->
+<!-- <section class="live-class-details-two-section-tab">
+    <div class="auto-container">
+        <ul class="nav nav-tabs cus-liveclass-tab">
+            <li><a class="active" data-toggle="tab" routerLink="preview" class="preview">Preview</a></li>
+            <li><a data-toggle="tab" routerLink="study-plan" class="study-plan">Study Plan</a></li>
+            <li><a data-toggle="tab" routerLink="course-curriculum">Course Curriculum</a></li>
+            <li><a data-toggle="tab" routerLink="ask-doubts"> Ask Doubts</a></li>            
+            <li><a data-toggle="tab" routerLink="mock-tests">Mock tests</a></li>
+        </ul>
+    </div>
+</section> -->
+
+
+
+<div class="sticky_footer fixed-bottom" *ngIf="buy_now_stat==0">
+    <div class="container-fluid">
+        <div class="sticky-content">
+            <div class="row">
+                <div class="col-sm-7 col-md-8 col-12 my-auto">
+                    <h5>{{product_name}}</h5>
+                </div>
+                <div class="col-sm-5 col-md-4 col-12">
+                    <span><i class="fa fa-inr" aria-hidden="true"></i> {{product_offer_price}} </span> <span> /- <del><i class="fa fa-inr" aria-hidden="true"></i>
+                        {{product_price}}</del></span>
+                    <button data-toggle="modal" data-target="#cupon_code_modal_form" class="btn btn-liveclass-buynow">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----------cupon modal-------------->
+<!-- login Popup -->
+<!-- Modal -->
+<div id="cupon_code_modal_form" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static" style="margin-top: 35px;">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-body" style="padding:0 15px;">
+                <div class="row">
+                    <div class="col-md-6 hidden-xs hidden-sm" style="padding:0;">
+                        <img src="assets/images/login_side_img.png">
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div id="" class="text-center">
+                            <div class="login-title">
+                                <h2>APPLY CUPON CODE</h2>
+                                <p style="color: red;font-weight: 600;font-size: 15px;">Avail Interesting Discounts</p>
+                                <hr/>
+                            </div>
+                            <form [formGroup]="cupon_form" (ngSubmit)="onCuponSubmit(cupon_form)">
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                    <input type="text" class="form-control" formControlName="cupon" name="cupon" placeholder="coupon code" autocomplete="off">
+                                </div>
+
+
+                                <button type="submit" class="btn btn-primary">Apply</button>
+                                <a (click)="gotoPay()" class="btn btn-warning" style="color: #fff;margin-left: 15px;">I Don't Have Any Coupon Code </a>
+                            </form>
+                            <hr/>
+                            <div id="unmatch" style="display: none;">
+                                <p style="color: red;text-align: center;margin: 0 auto;font-size: 23px;font-weight: 600;">Coupon Code did not match.</p>
+                            </div>
+                            <div class="row" id="after_apply" style="display: none;">
+                                <div class="col-sm-12">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td style="text-align: left; padding: 0.25rem;">Product Price</td>
+                                            <td style="text-align: right;color:green;padding: 0.25rem;"><i class="fa fa-inr"></i> {{product_offer_price}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left;padding: 0.25rem;">Discount Price</td>
+                                            <td style="text-align: right;color:green;padding: 0.25rem;"><i class="fa fa-inr"></i> {{product_offer_price - after_price}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left;padding: 0.25rem;">Total Price</td>
+                                            <td style="text-align: right;color:green;padding: 0.25rem;"><i class="fa fa-inr"></i> {{after_price}}</td>
+                                        </tr>
+                                    </table>
+                                    <!-- <p class="text-center" style="color:green;text-align: center;margin: 0 auto;font-size: 23px;font-weight: 400;"> Price: <i class="fa fa-inr"></i> {{product_offer_price}}</p>
+                      <p style="color:green;text-align: center;margin: 0 auto;font-size: 23px;font-weight: 600;">Discount: <i class="fa fa-inr"></i> {{product_offer_price - after_price}} </p>
+                      <p class="text-center" style="color:green;text-align: center;margin: 0 auto;font-size: 23px;font-weight: 400;">Amount Payable: <i class="fa fa-inr"></i> {{after_price}}</p> -->
+                                </div>
+                                <button type="button" class="btn btn-success" (click)="onProcced()" style="margin: 0 auto;">Checkout</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <button type="button" class="close" data-dismiss="modal" style="position:absolute;top:1px;right: 0;width: 30px;height:30px;border:1px solid red;border-radius: 50%;background:#f60511;color: #fff;">&times;</button>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-----recomended products-->
+<div id="cupon_code_recomended_modal_form" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static" style="margin-top: 35px;">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-body" style="padding:0 15px;">
+                <div class="row">
+                    <div class="col-md-6 hidden-xs hidden-sm" style="padding:0;">
+                        <img src="assets/images/login_side_img.png">
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div id="" class="text-center">
+                            <div class="login-title">
+                                <h2>APPLY CUPON CODE</h2>
+                                <p style="color: red;font-weight: 600;font-size: 15px;">Avail Interesting Discounts</p>
+                                <hr/>
+                            </div>
+                            <form [formGroup]="cupon_form_recomended" (ngSubmit)="onCuponRecomendSubmit(cupon_form_recomended)">
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                    <input type="text" class="form-control" formControlName="cupon" name="cupon" placeholder="coupon code" autocomplete="off">
+                                    <input type="hidden" id="prod_id" class="form-control" formControlName="prodid" name="prodid" />
+                                </div>
+
+
+                                <button type="submit" class="btn btn-primary">Apply</button>
+                                <a (click)="gotoPay()" class="btn btn-warning" style="color: #fff;margin-left: 15px;">I Don't Have Any Coupon Code </a>
+                            </form>
+                            <hr/>
+                            <div id="unmatch" style="display: none;">
+                                <p style="color: red;text-align: center;margin: 0 auto;font-size: 23px;font-weight: 600;">Coupon Code did not match.</p>
+                            </div>
+                            <div class="row" id="after_apply" style="display: none;">
+                                <div class="col-sm-12">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td style="text-align: left; padding: 0.25rem;">Product Price</td>
+                                            <td style="text-align: right;color:green;padding: 0.25rem;"><i class="fa fa-inr"></i> {{product_offer_price}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left;padding: 0.25rem;">Discount Price</td>
+                                            <td style="text-align: right;color:green;padding: 0.25rem;"><i class="fa fa-inr"></i> {{product_offer_price - after_price}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left;padding: 0.25rem;">Total Price</td>
+                                            <td style="text-align: right;color:green;padding: 0.25rem;"><i class="fa fa-inr"></i> {{after_price}}</td>
+                                        </tr>
+                                    </table>
+                                    <!-- <p class="text-center" style="color:green;text-align: center;margin: 0 auto;font-size: 23px;font-weight: 400;"> Price: <i class="fa fa-inr"></i> {{product_offer_price}}</p>
+                      <p style="color:green;text-align: center;margin: 0 auto;font-size: 23px;font-weight: 600;">Discount: <i class="fa fa-inr"></i> {{product_offer_price - after_price}} </p>
+                      <p class="text-center" style="color:green;text-align: center;margin: 0 auto;font-size: 23px;font-weight: 400;">Amount Payable: <i class="fa fa-inr"></i> {{after_price}}</p> -->
+                                </div>
+                                <button type="button" class="btn btn-success" (click)="onProcced()" style="margin: 0 auto;">Checkout</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <button type="button" class="close" data-dismiss="modal" style="position:absolute;top:1px;right: 0;width: 30px;height:30px;border:1px solid red;border-radius: 50%;background:#f60511;color: #fff;">&times;</button>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

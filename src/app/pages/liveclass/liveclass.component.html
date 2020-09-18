@@ -1,0 +1,323 @@
+<!--Page Title-->
+<section class="page-title cus-page-title" style="background-image:url(assets/images/background/pattern-4.png);">
+    <div class="auto-container">
+        <h1>Live Classes</h1>
+        <!-- <p>SBI PO 2019 Exam is a wonderful opportunity for you to turn your dreams into reality! Get all information about onlinesbi po - syllabus, preparation guide, last date to apply, exam dates, admit card, latest exam pattern and results here. Kick start your preparation now!</p> -->
+    </div>
+    <!--Page Info-->
+    <div class="page-info">
+        <div class="auto-container">
+            <div class="inner-container">
+                <ul class="bread-crumb">
+                    <li><a [routerLink]="['/']">Home</a></li>
+                    <li>Live Classes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--End Page Info-->
+</section>
+<!--End Page Title-->
+
+
+<section id="banking-courses" class="blog-page-section populer-course-section all-courses-section">
+    <div class="auto-container">
+        <div class="sec-title">
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <h3>Live Classes</h3>
+                </div>
+
+                <div class="col-12 col-sm-6">
+                    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching by course name or exam name....">
+                </div>
+            </div>
+
+        </div>
+        <div class="row" *ngIf="!liveCLassLoader">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 ">
+                <ngx-skeleton-loader [theme]="{ 
+                    'border-radius': '5px',
+                    height: '250px',                    
+                    border: '1px solid white'
+                    }"></ngx-skeleton-loader>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 ">
+                <ngx-skeleton-loader [theme]="{ 
+                    'border-radius': '5px',
+                    height: '250px',                    
+                    border: '1px solid white'
+                    }"></ngx-skeleton-loader>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 ">
+                <ngx-skeleton-loader [theme]="{ 
+                    'border-radius': '5px',
+                    height: '250px',                    
+                    border: '1px solid white'
+                    }"></ngx-skeleton-loader>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <ngx-skeleton-loader [theme]="{ 
+                    'border-radius': '5px',
+                    height: '250px',                    
+                    border: '1px solid white'
+                    }"></ngx-skeleton-loader>
+            </div>
+        </div>
+        <div class="row" *ngIf="liveCLassLoader">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12" style="padding:10px 15px;" *ngFor="let liveClassData of liveClassData | filter: searchText" (click)="gotoLiveClassComponent(liveClassData.product_slug)">
+                <div class="card">
+                    <div class="video_courses_img">
+                        <img src="{{liveClassData.image}}">
+                    </div>
+                    <!-- <div class="cus-courses-price">
+                        
+                    </div> -->
+                    <div class="card-body">
+                        <div class="lower-content">
+                            <div class="upper">
+                                <h3><a href="javascript:void(0)" (click)="gotoLiveClassComponent(liveClassData.product_slug)">{{liveClassData.live_class_title}}</a></h3>
+                                <div class="desc_pro">
+                                    <ul>
+                                        <li><label><mat-icon style="color: #ff343491;">duo</mat-icon> {{liveClassData.live_class}} Live Classes</label></li>
+                                        <li><label><mat-icon style="color: #207dff99;">assignment</mat-icon> {{liveClassData.mock_test}} Mock Tests</label></li>
+                                        <li><label><mat-icon style="color: #3fab139e;">picture_as_pdf</mat-icon> {{liveClassData.pdf_notes}} Pdf Notes</label></li>
+                                        <li><label><mat-icon style="color: #1a30ccad;">contact_support</mat-icon> {{liveClassData.practice_question}} Practice Questions</label></li>
+                                    </ul>
+                                </div>
+                                <!-- <hr/> -->
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <span class="liveclass-price-tag"><i class="fa fa-inr"></i> {{liveClassData.product_offer_price}}/-</span>
+                                </div>
+                                <div class="col-7">
+                                    <a (click)="gotoLiveClassComponent(liveClassData.product_slug)" class="btn btn btn-block btn-primary btn-sm"> View Course</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--row-->
+    </div>
+</section>
+<!---live class feature section-->
+<section class="best_feature_section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h3>Best Features of Avision Online Classes</h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-4" style="margin-bottom: 15px;">
+                <div class="best_feature_back">
+                    <ul>
+                        <li><img src="assets/images/best-feature-icon/live-interactive-classes.png"></li>
+                        <li>
+                            <h4>Live & interactive classes</h4>
+                            <p>Two-way Interaction between student &amp; teacher.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4" style="margin-bottom: 15px;">
+                <div class="best_feature_back">
+                    <ul>
+                        <li><img src="assets/images/best-feature-icon/time-saver.png"></li>
+                        <li>
+                            <h4>Complete learning Solutions</h4>
+                            <p>Attempt interactive Quizzes, Doubt Session, Practice Questions and PDF Notes.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4" style="margin-bottom: 15px;">
+                <div class="best_feature_back">
+                    <ul>
+                        <li><img src="assets/images/best-feature-icon/peer-learning.png"></li>
+                        <li>
+                            <h4>Peer learning</h4>
+                            <p>Online Forum lets you interact with your peers 24*7 Learn new approaches and questions posted by other students.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4" style="margin-bottom: 15px;">
+                <div class="best_feature_back">
+                    <ul>
+                        <li><img src="assets/images/best-feature-icon/proven-results.png"></li>
+                        <li>
+                            <h4>Proven results</h4>
+                            <p>45+ 99 percentilers in CAT 2019.150+ 97 percentilers.Excellent Pedagogy with shortcuts taught.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4" style="margin-bottom: 15px;">
+                <div class="best_feature_back">
+                    <ul>
+                        <li><img src="assets/images/best-feature-icon/doubt-solving.png"></li>
+                        <li>
+                            <h4>Instant Doubt Resolution</h4>
+                            <p>Clear all your doubts instantly with subject expert.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4" style="margin-bottom: 15px;">
+                <div class="best_feature_back">
+                    <ul>
+                        <li><img src="assets/images/best-feature-icon/flexible-timings.png"></li>
+                        <li>
+                            <h4>Best Teachers</h4>
+                            <p>Expert Faculty with 10+ years of Teaching Experience helps to crack exam with ease.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!---live class feature section-->
+<section class="student-review-section">
+    <div class="container">
+        <div class="row">
+            <div class="title-column col-md-5 col-sm-12 col-12">
+                <div class="inner-column">
+                    <h2>Student Reviews</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="!testimonialLoader">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                <ngx-skeleton-loader [theme]="{ 
+                'border-radius': '5px',
+                height: '30vh',
+                'width': '100%',                    
+                border: '1px solid white'
+                }"></ngx-skeleton-loader>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                <ngx-skeleton-loader [theme]="{ 
+                'border-radius': '5px',
+                height: '30vh',
+                'width': '100%',                    
+                border: '1px solid white'
+                }"></ngx-skeleton-loader>
+            </div>
+        </div>
+        <div class="row" *ngIf="testimonialLoader">
+            <div class="col-lg-12 col-12">
+                <owl-carousel-o [options]="customOptions3">
+                    <ng-template carouselSlide *ngFor="let timonialDetails of timonialDetails">
+                        <div class="student-review">
+                            <!-- slide-->
+                            <div class="student-review-block">
+                                <div class="student-review-inner-block">
+                                    <div class="review-student-details col-lg-12 col-12">
+
+
+                                        <ul class="review-students">
+                                            <li><img src="assets/images/resource/{{timonialDetails.image}}"></li>
+                                            <li>
+                                                <h3>{{timonialDetails.user_name}}</h3>
+                                            </li>
+                                        </ul>
+
+                                        <ul class="student-review-star">
+                                            <li><i class="fa fa-star" aria-hidden="true" *ngFor="let i of createRange(timonialDetails.rating)"></i></li>
+                                        </ul>
+
+
+                                    </div>
+                                    <div class="student-review-content">
+                                        <p>"{{timonialDetails.content}}"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </owl-carousel-o>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Testimonial Section-->
+
+
+<section class="faq-section">
+    <div class="auto-container">
+        <!--Accordian Boxed-->
+        <div class="accordian-boxed">
+            <h3>Frequently Asked Questions</h3>
+
+            <!--Accordian Box-->
+            <ul class="accordion-box" id="faq_box">
+
+                <!--Block-->
+                <li class="accordion block active-block">
+                    <div class="acc-btn active">
+                        <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>In what languages mock tests are available? </div>
+                    <div class="acc-content current">
+                        <div class="content">
+                            <div class="text">Tests are provided either in English or in both English and Hindi. For a particular test, you may check the languages it is available in while purchasing the package.</div>
+                        </div>
+                    </div>
+                </li>
+
+                <!--Block-->
+                <li class="accordion block">
+                    <div class="acc-btn">
+                        <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>I have completed a mock test. When will I get my score? </div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">On submission of your mock test, your score and All-India rank would be immediately generated. The All India ranking is dynamic in nature and it would change as more users attempt that mock test.</div>
+                        </div>
+                    </div>
+                </li>
+
+
+                <!--Block-->
+                <li class="accordion block">
+                    <div class="acc-btn">
+                        <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>What happens if I get disconnected during a test? </div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">If you get disconnected while attempting a test, all your data till the disconnection will get saved and you will be able to resume from the same state later. You are advised to close the test window in this case and resume
+                                when you have connectivity again.</div>
+                        </div>
+                    </div>
+                </li>
+
+                <!--Block-->
+                <li class="accordion block">
+                    <div class="acc-btn">
+                        <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Can I attempt a test more than once?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">A test can be attempted only once. However, you can review the solutions and analysis of the attempted tests as many times as you want.</div>
+                        </div>
+                    </div>
+                </li>
+
+                <!--Block-->
+                <li class="accordion block">
+                    <div class="acc-btn">
+                        <div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>I do not have online payment activated. Can i use any other mode of payment ?</div>
+                    <div class="acc-content">
+                        <div class="content">
+                            <div class="text">You can use your Debit card, ATM card, Credit card, Netbanking account or payment wallets like Paytm/PayZapp/Freecharge/Ola Money to pay for the PLAN. If you do not have any of the above payment methods, send us an email at
+                                support@AVISION.CO.IN and we will suggest an alternative method.</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</section>

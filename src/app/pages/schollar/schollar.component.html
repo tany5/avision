@@ -1,0 +1,244 @@
+<div class="loading-indicator" *ngIf="showSpinner">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>
+<section class="schollar-section">
+    <div class="container-fluid" *ngIf="showPhoneNumberDiv">
+        <div class="row">
+            <div class="col-12">
+                <img class="logo" src="assets/images/avision_icon.png">
+            </div>
+            <div class="col-12">
+                <h3>Get Started with Avision!</h3>
+                <p>Boost your exam preparation with us</p>
+            </div>
+        </div>
+        <!--row-->
+        <div class="row">
+
+            <img src="assets/images/google-btn.png" class="img-fluid google-login-btn" (click)="googleLogin()">
+
+            <div class="col-12">
+                <h5>OR</h5>
+                <mat-divider style="margin-top: -30px;"></mat-divider>
+            </div>
+        </div>
+        <!--row-->
+        <div class="row" style="padding-top: 20px;">
+
+
+            <div class="col-12">
+                <mat-form-field appearance="outline">
+                    <input matInput type="number" placeholder="Enter 10 Digit Phone Number." type="number" class="example-right-align" #phone_number>
+                </mat-form-field>
+            </div>
+
+            <div class="row" style="width: 150px; padding-left: 20px;">
+                <div class="col-12" id="recaptcha-container"></div>
+            </div>
+        </div>
+        <!--row-->
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-success btn-block" (click)="onSubmit(phone_number)">Continue</button>
+            </div>
+        </div>
+        <!--row-->
+
+        <div class="row" style="padding-top: 20px;">
+            <div class="col-12">
+                <button class="btn btn-outline-info btn-block mail-btn" (click)="continueWithEmail()">
+          <mat-icon>mail_outline</mat-icon> Continue With Email
+        </button>
+            </div>
+        </div>
+        <!--row-->
+    </div>
+
+    <div class="container-fluid otp-section" *ngIf="showOtp">
+        <div class="row otp-text-section">
+            <div class="col-9 text-left">
+                <h3>Enter OTP</h3>
+                <p>Please Enter OTP Sent To</p>
+                <p>+91 {{phoneNumberString}} <span (click)="showPhoneDiv()">EDIT</span> </p>
+            </div>
+            <div class="col-3">
+                <img src="assets/images/group-img.webp" class="img-fluid">
+            </div>
+        </div>
+        <!--row-->
+        <div class="row main-otp-section">
+            <div class="container">
+                <div class="col-12">
+                    <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:6}"></ng-otp-input>
+
+                </div>
+                <div class="row" style="padding-top: 30px;">
+                    <div class="col-12 col-md-10 mx-auto">
+                        <button mat-raised-button class="btn-block btn-success" (click)="verifyLoginCode()">Submit OTP</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" *ngIf="continueEmail">
+        <div class="row social-login-section" style="max-width: 400px;">
+            <div class="col-12">
+                <img src="assets/images/google-btn.png" class="img-fluid google-login-btn" (click)="googleLogin()">
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" *ngIf="continueEmail">
+        <div class="row login-section" style="max-width: 400px;">
+            <div class="col-12 text-center">
+                <h3 class="text-center">Continue With Email</h3>
+            </div>
+
+            <div class="col-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email / Phonenumber</mat-label>
+                    <input matInput placeholder="youremail@example.com" [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">You must enter Email Or Phone Number</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+
+                    <mat-error *ngIf="password.invalid">You must enter your passowrd</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-12 register-section">
+                <button mat-raised-button class="btn-block btn-success" (click)="login()">Login</button>
+                <p>New User? <span (click)="showRegister()">Register Now</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" *ngIf="showRegisterSection">
+        <div class="row login-section" style="max-width: 400px;">
+            <div class="col-12 text-center">
+                <h3 class="text-center">Register With Email And Password</h3>
+            </div>
+        </div>
+
+        <div class="row" style="max-width: 400px;">
+            <div class="col-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>Full Name</mat-label>
+                    <input matInput placeholder="youremail@example.com" [formControl]="fullName" required>
+                    <mat-error *ngIf="fullName.invalid">You must enter Your Name</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="youremail@example.com" [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">You must enter Email Or Phone Number</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <input matInput placeholder="youremail@example.com" [formControl]="phone" required>
+                    <mat-error *ngIf="phone.invalid">You must enter Email Or Phone Number</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+
+                    <mat-error *ngIf="password.invalid">You must enter your passowrd</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-12 register-section">
+                <button mat-raised-button class="btn-block btn-success" (click)="new_register()">Register</button>
+                <p>Already have an account? <span (click)="showlogin()">Login</span></p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container-fluid" *ngIf="showUpdateEmail">
+        <div class="row login-section" style="max-width: 400px;">
+            <div class="col-12 text-center">
+                <h3 class="text-center">Complete Registration</h3>
+            </div>
+        </div>
+
+        <div class="row" style="max-width: 400px;">
+            <mat-form-field appearance="outline">
+                <mat-label>Full Name</mat-label>
+                <input matInput placeholder="youremail@example.com" [formControl]="fullName" required>
+                <mat-error *ngIf="fullName.invalid">You must enter Your Name</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email / Phonenumber</mat-label>
+                <input matInput placeholder="youremail@example.com" [formControl]="requiredEmail" required>
+                <mat-error *ngIf="requiredEmail.invalid">You must enter Email</mat-error>
+            </mat-form-field>
+
+
+            <div class="col-12 register-section">
+                <button mat-raised-button class="btn-block btn-success" (click)="register()">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" *ngIf="showverifyPhone">
+        <div class="row" style="padding-top: 20px; max-width: 400px;">
+            <div class="row">
+                <div class="col-12">
+                    <img class="logo" src="assets/images/avision_icon.png" class="mx-auto">
+                </div>
+                <div class="col-12 text-center">
+                    <h3>Get Started with Avision!</h3>
+                    <p>Boost your exam preparation with us</p>
+                </div>
+            </div>
+            <!--row-->
+
+            <div class="col-12">
+                <mat-form-field appearance="outline">
+                    <input matInput type="number" placeholder="Enter 10 Digit Phone Number." type="number" class="example-right-align" #phone_number>
+                </mat-form-field>
+            </div>
+
+            <div class="row" style="width: 150px; padding-left: 20px;">
+                <div class="col-12" id="recaptcha-container"></div>
+            </div>
+        </div>
+        <!--row-->
+        <div class="row" style="max-width: 400px;">
+            <div class="col-12">
+                <button class="btn btn-success btn-block" (click)="onSubmit(phone_number)">Continue</button>
+            </div>
+        </div>
+        <!--row-->
+    </div>
+
+
+
+</section>

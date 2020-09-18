@@ -1,0 +1,281 @@
+.container-fluid {
+    max-width: 1366px;
+}
+
+.mat-card {
+    padding: 0px !important;
+}
+
+.row.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    &>[class^="col-"],
+    &>[class*=" col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+mat-card-content {
+    padding: 16px !important;
+}
+
+mat-card-content h1 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    color: #000;
+    font-weight: 600;
+}
+
+mat-card-content span {
+    color: #86a1ae;
+    font-size: .75rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    white-space: nowrap;
+}
+
+.view_icon mat-icon {
+    color: #86a1ae;
+}
+
+.view-section {
+    padding: 20px 0px;
+}
+
+.details-section {
+    padding: 20px 0px;
+}
+
+.details-section p {
+    color: #86a1ae;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 300;
+}
+
+mat-card-content span.main_count {
+    margin-top: -5px;
+}
+
+.share-section span {
+    padding-right: 15px;
+}
+
+.share-section a {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.share-section .facebook i {
+    height: 24px;
+    width: 24px;
+    background: #3b5998;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 5px;
+}
+
+.share-section .whatsapp i {
+    height: 24px;
+    width: 24px;
+    background: #34af23;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 3px;
+}
+
+.share-section .google i {
+    height: 24px;
+    width: 24px;
+    background: #34af23;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 3px;
+}
+
+.share-section .google mat-icon {
+    margin-top: -7px;
+    margin-left: -7px;
+    height: 24px;
+    width: 24px;
+    background: #fff;
+    color: red;
+    font-size: 32px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.share-section .twitter i {
+    height: 24px;
+    width: 24px;
+    background: #55acee;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 3px;
+}
+
+.teacher-section {
+    padding: 20px 0px;
+}
+
+.teacher-sub {
+    padding-top: 30px;
+}
+
+.teacher-section p {
+    color: #5a6872!important;
+    font-size: .75rem!important;
+    font-weight: 400!important;
+    line-height: 1.125rem!important;
+}
+
+.list-item-title {
+    font-size: 12px;
+    font-weight: 400;
+    height: auto;
+    overflow: hidden;
+    line-height: 18px;
+    color: #000;
+}
+
+.view-details {
+    margin-top: -10px;
+}
+
+.view-details p mat-icon {
+    font-size: 15px;
+    color: #86a1ae;
+    height: 1rem;
+    line-height: 1rem;
+}
+
+.view-details p {
+    font-size: 10px;
+    color: #86a1ae;
+    height: 1rem;
+    line-height: 1rem;
+}
+
+.exp-all span {
+    color: #1f2138;
+    padding: 27px 0px;
+    cursor: pointer;
+    font: 14px;
+}
+
+.video-list-section p.card-title {
+    color: #292f33;
+    font-weight: 500;
+    font-size: 12px;
+    height: 56px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    white-space: normal;
+}
+
+.video-list-section p.video-title {
+    color: #86a1ae;
+    font-size: .75rem;
+    height: 18px;
+}
+
+.video-list-section .view_details {
+    padding-top: 10px;
+}
+
+.video-list-section mat-card-content {
+    padding: 5px 16px !important;
+}
+
+.view_details p {
+    color: #86a1ae;
+    font-size: .75rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.video-section-list {
+    padding-top: 30px;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.video-section-list h1 {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.video-section-list p mat-icon {
+    font-size: 16px;
+    margin-top: 3px;
+}
+
+.video-section-list p.card-title {
+    color: #292f33;
+    font-weight: 500;
+    font-size: 12px;
+    height: 56px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    white-space: normal;
+}
+
+.video-section-list p.video-title {
+    color: #86a1ae;
+    font-size: .75rem;
+    height: 18px;
+}
+
+.video-section-list .view_details p {
+    color: #86a1ae;
+    font-size: .75rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    white-space: nowrap;
+    padding-top: 20px;
+}
+
+.video-section-list mat-card {
+    margin: 10px 0px !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .share-section i {
+        margin-bottom: 1rem;
+    }
+    .share-section .google mat-icon {
+        margin-top: -27px;
+        margin-left: -15px;
+    }
+    .teacher-section img {
+        padding-top: 36px;
+    }
+    .video-list-section {
+        padding: 10px 0px;
+    }
+    .video-section-list h1 {
+        padding-left: 5%;
+    }
+}

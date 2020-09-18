@@ -1,0 +1,140 @@
+.btn-primary {
+    color: #fff;
+}
+
+
+/*=============== Best Features of avision css ====================*/
+
+.best_feature_section {
+    background: #ebf0f3;
+    padding: 50px 0;
+}
+
+.best_feature_back {
+    background: #fff;
+    padding: 15px 15px;
+    height: 100%;
+    margin: 10px 0;
+    box-shadow: 0 0 10px #ddd;
+    border-radius: 5px;
+    float: left;
+    width: 100%;
+    display: block;
+}
+
+.best_feature_section .col-lg-4:first-child .best_feature_back {
+    background: linear-gradient(45deg, white, #ff2c9a59);
+}
+
+.best_feature_section .col-lg-4:nth-child(2) .best_feature_back {
+    background: linear-gradient(45deg, white, #ffcc0170);
+}
+
+.best_feature_section .col-lg-4:nth-child(3) .best_feature_back {
+    background: linear-gradient(45deg, white, #4061b961);
+}
+
+.best_feature_section .col-lg-4:nth-child(4) .best_feature_back {
+    background: linear-gradient(45deg, white, #0c59db40);
+}
+
+.best_feature_section .col-lg-4:nth-child(5) .best_feature_back {
+    background: linear-gradient(45deg, white, #00014330);
+}
+
+.best_feature_section .col-lg-4:nth-child(6) .best_feature_back {
+    background: linear-gradient(45deg, white, #014b845e);
+}
+
+.best_feature_back ul li {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.best_feature_back ul li:first-child {
+    width: 120px;
+    padding-right: 15px;
+}
+
+.best_feature_back ul li h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #000;
+}
+
+.best_feature_back ul li p {
+    font-size: 11px;
+    font-weight: 300;
+    color: #3f3f3f;
+    line-height: 20px;
+}
+
+.form-control {
+    box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+
+.form-control::placeholder {
+    font-family: FontAwesome;
+}
+
+.desc_pro ul li label img {
+    vertical-align: middle;
+    /*color: #75d41e;*/
+    font-size: 20px;
+    height: 18px;
+    width: 18px;
+    margin-right: 5px;
+}
+
+.all-courses-section .card {
+    padding: 10px;
+    background: linear-gradient(0deg, white, #c4dcffbd);
+    box-shadow: 0px 0px 5px #00000036;
+    border: none;
+}
+
+.all-courses-section .card .card-body {
+    padding: 10px 5px 0;
+}
+
+.all-courses-section .card .card-body .upper {
+    min-height: 165px;
+}
+
+.all-courses-section .card .card-body h3 {
+    margin-bottom: 15px;
+    font-size: 15px;
+    min-height: auto;
+    line-height: 23px;
+}
+
+.all-courses-section .card .card-body h3 a {
+    color: #081d75;
+}
+
+.all-courses-section .card .card-body .desc_pro ul li {
+    display: inline-block;
+    font-size: 13px;
+    padding: 3px;
+}
+
+.all-courses-section .card .card-body .liveclass-price-tag {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin-top: 5px;
+}
+
+.all-courses-section .card .card-body .desc_pro ul li .mat-icon {
+    height: 16px;
+    width: 15px;
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 18px;
+}
+
+.all-courses-section .card .card-body .desc_pro ul li label {
+    margin-bottom: 0;
+}

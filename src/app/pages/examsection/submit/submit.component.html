@@ -1,0 +1,45 @@
+<mat-toolbar class="app-toolbar-bottom">
+  <img src="assets/images/logo.png">
+  <span class="example-spacer"></span>
+  <span flex></span>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu2" class="float-right-button">
+    Tanmay Dey <mat-icon class="down_icon">keyboard_arrow_down</mat-icon>
+  </button>
+
+  <mat-menu #menu2="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      Sign out
+    </button>
+
+    <button mat-menu-item [routerLink]="['profile']">
+      <mat-icon>account_circle</mat-icon>
+      Profile
+    </button>
+
+  </mat-menu>
+</mat-toolbar>
+
+<section class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-9">
+
+        <div class="row">      
+          <div class="col-12">
+            <mat-card>Simple card</mat-card>
+          </div>
+        </div>
+        <h3>Overall Question & Answer Summary</h3>
+        <mat-card>
+          <div class="row">
+    
+          </div>
+        </mat-card>
+
+      </div>
+    </div>
+    
+  </div>
+</section>

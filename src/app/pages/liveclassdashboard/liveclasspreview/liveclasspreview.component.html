@@ -1,0 +1,89 @@
+<div class="liveclass-details-tab-content">
+    <div id="preview">
+        <div class="row">
+            <div class=" col-sm-12">
+                <ng-container *ngFor="let demoVideo of demoVideo" style="border:1px solid #ddd">
+                    <h3 class="liveclass-day">Demo <span>{{demoVideo.vdo_date}}</span></h3>
+                    <!-- <h5 class="next-liveclass-heading">Next LiveClass</h5> -->
+                    <a href="#" class="liveclass-div-sec" target="_blank" href="https://estore.avision24x7.com/student_dashboard/live_class_auth_cpanel/{{prodId}}-{{demoVideo.vdo_id}}">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="video_courses_img">
+                                    <img src="{{demoVideo.vdo_banner}}">
+                                    <div class="video_overlay">
+                                        <img src="images/icon-videos.png" width="70px">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="liveclass-thumb-content">
+                                    <h4 class="liveclass-thumb-heading">{{demoVideo.vdo_title}}</h4>
+                                    <h6 class="liveclass-subject-sub-head">{{demoVideo.subject}} - {{demoVideo.chapter}}</h6>
+                                    <span class="livclass-livenow cus-blink"><i class="fa fa-circle" aria-hidden="true"></i> Live Now</span>
+                                    <span class="liveclass-lock-btn"><i class="fa fa-lock" aria-hidden="true"></i> Join Now</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </ng-container>
+                <ng-container class="row" *ngFor="let demoVideo of currentVideo" style="border:1px solid #ddd">
+                    <h5 class="next-liveclass-heading"><span> Day {{demoVideo.day_id}} </span> Today’s Tasks <span>{{demoVideo.vdo_date}}</span></h5>
+                    <h6 class="liveclass-subject-sub-head">{{demoVideo.vdo_title}}</h6>
+                    <p class="liveclass-subject-sub-pera">{{demoVideo.subject}} - {{demoVideo.chapter}}</p>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ng-container *ngIf="buy_now_stat == 1">
+                                <a href="javascript:void(0)" class="liveclass-div-sec-two" target="_blank" href="https://estore.avision24x7.com/student_dashboard/live_class_auth_cpanel/{{prodId}}-{{demoVideo.vdo_id}}">
+                                    <div class="row flex-row">
+                                        <div class="col-sm-5">
+                                            <div class="video_courses_img">
+                                                <img src="{{demoVideo.vdo_banner}}">
+                                                <div class="video_overlay">
+                                                    <img src="assets/images/icon-videos.png" width="70px">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="live_cont_lock">
+                                                <h4>Live Class</h4>
+                                                <!-- <span><i class="fa fa-lock" aria-hidden="true"></i></span> -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </a>
+                            </ng-container>
+                            <ng-container *ngIf="buy_now_stat == 0">
+                                <a href="javascript:void(0)" class="liveclass-div-sec-two">
+                                    <div class="row flex-row">
+                                        <div class="col-sm-5">
+                                            <div class="video_courses_img">
+                                                <img src="{{demoVideo.vdo_banner}}">
+                                                <div class="video_overlay">
+                                                    <img src="assets/images/icon-videos.png" width="70px">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="live_cont_lock">
+                                                <h4>Live Class</h4>
+                                                <span><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </a>
+
+                            </ng-container>
+
+                        </div>
+
+                    </div>
+                </ng-container>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,321 @@
+<!--Page Title-->
+<section class="page-title cus-page-title" style="background-image:url(assets/images/background/pattern-4.png);">
+    <div class="auto-container">
+        <h1>Enquiry Form</h1>
+        <!-- <p>SBI PO 2019 Exam is a wonderful opportunity for you to turn your dreams into reality! Get all information about onlinesbi po - syllabus, preparation guide, last date to apply, exam dates, admit card, latest exam pattern and results here. Kick start your preparation now!</p> -->
+    </div>
+    <!--Page Info-->
+    <div class="page-info">
+        <div class="auto-container">
+            <div class="inner-container">
+                <ul class="bread-crumb">
+                    <li><a [routerLink]="['/']">Home</a></li>
+                    <li>Enquiry Form</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--End Page Info-->
+</section>
+<!--End Page Title-->
+
+<section class="enquiry-section">
+    <div class="container">
+        <mat-card>
+            <h1>Enquiry Form</h1>
+            <div class="row">
+                <form (ngSubmit)="submitEnquiry()" [formGroup]="enquiryFormGroup">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="fill">
+
+                                    <mat-label>First name</mat-label>
+                                    <input matInput placeholder="Ex. Anirban" formControlName="firstName" required>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Last name</mat-label>
+                                    <input matInput placeholder="Ex. Mukherjee" formControlName="lastName" required>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Email Address</mat-label>
+                                    <input matInput placeholder="Ex. anirbanmukherjee@gmail.com" formControlName="email" required>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Phone Number</mat-label>
+                                    <input matInput placeholder="Ex. 7980429185" formControlName="phoneNo" required>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <mat-form-field appearance="fill" required>
+                                    <mat-label>Select Exam Name</mat-label>
+                                    <mat-select formControlName="examName" multiple>
+                                        <mat-option *ngFor="let cousesName of cousesName" [value]="cousesName.sub_courses_name">
+                                            {{cousesName.sub_courses_name}}({{cousesName.sub_courses_desc}})
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Your Message</mat-label>
+                                    <textarea matInput rows="5" formControlName="message"></textarea>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-11 mx-auto">
+                                <button class="btn-block" type="submit" mat-raised-button color="primary">Submit Your Enquiry
+                  Form</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+        </mat-card>
+    </div>
+
+</section>
+<section class="service-style-four">
+        <div class="container">
+            <div class="inner-content">
+				<!-- <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-back">
+						<img src="images/avision-1.png" class="img-responsive">
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12 service-back">
+						<img src="images/avision-2.png" class="img-responsive">
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12 service-back">
+						<img src="images/avision-3.png" class="img-responsive">
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12 service-back">
+						<img src="images/avision-4.png" class="img-responsive">
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12 service-back">
+						<img src="images/avision-5.png" class="img-responsive">
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12 service-back">
+						<img src="images/avision-6.png" class="img-responsive">
+					</div>
+				</div> -->
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-three wow fadeInLeft animated animated" data-wow-delay="00ms" data-wow-duration="1500ms" >
+                            <div class="inner-box">
+                                <div class="icon-box">
+                                    <div class="bg-layer" style="background-image: url(assets/images/icons/icon-bg-3.png);"></div>
+                                    <img src="assets/images/icons/serv-icon1.png" width="80px">
+                                </div>
+                                <h3><a href="#">Smart Classroom </a></h3>
+                                <div class="text">Class room session plays a important role for every aspirants to achieve their goals. Smart classroom is a new concept of teaching and learning by using newly arising technologies like smart board, Pen, high tech. projectors etc. It is a platform where students can interact and get clear view of each subject</div>
+                                <!-- <div class="link-btn"><a href="#"><i class="far fa-arrow-alt-circle-right"></i></a></div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-three wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms" >
+                            <div class="inner-box">
+                                <div class="icon-box">
+                                    <div class="bg-layer" style="background-image: url(assets/images/icons/icon-bg-1.png);"></div>
+                                    <img src="assets/images/icons/serv-icon2.png" width="80px">
+                                </div>
+                                <h3><a href="#">Faculties</a></h3>
+                                <div class="text">Avision has a team of highly qualified & experienced faculties for every subject. They understand the needs of the students & teach them suitably. </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-three wow fadeInRight animated animated" data-wow-delay="00ms" data-wow-duration="1500ms" >
+                            <div class="inner-box">
+                                <div class="icon-box">
+                                    <div class="bg-layer" style="background-image: url(assets/images/icons/icon-bg-4.png);"></div>
+                                    <img src="assets/images/icons/serv-icon3.png" width="80px">
+                                </div>
+                                <h3><a href="#">Course Materials</a></h3>
+                                <div class="text">Avision provides specially designed books for each subject that helps the students learning each and every concept of their subjects perfectly. In our book you can also find easy learning approach, shortcut tricks, exam oriented suggestive question answers etc. based on updated exam pattern </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-three wow fadeInLeft animated animated" data-wow-delay="300ms" data-wow-duration="1500ms" >
+                            <div class="inner-box">
+                                <div class="icon-box">
+                                    <div class="bg-layer" style="background-image: url(assets/images/icons/icon-bg-2.png);"></div>
+                                    <img src="assets/images/icons/serv-icon4.png" width="80px">
+                                </div>
+                                <h3><a href="#">Mobile App</a></h3>
+                                <div class="text">Avision also provides a Free android learning app that will enhance your systematic learning plan by providing CA updates, Job notifications, video lectures, class Schedules and many more.</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-three wow fadeInUp animated animated" data-wow-delay="300ms" data-wow-duration="1500ms" >
+                            <div class="inner-box">
+                                <div class="icon-box">
+                                    <div class="bg-layer" style="background-image: url(assets/images/icons/icon-bg-6.png);"></div>
+                                    <img src="assets/images/icons/serv-icon5.png" width="80px">
+                                </div>
+                                <h3><a href="#">Online Mock Test</a></h3>
+                                <div class="text">Avision has Specific exam based mock test with real time assessments so that a student can know their strength and position among others</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-three wow fadeInRight animated animated" data-wow-delay="300ms" data-wow-duration="1500ms" >
+                            <div class="inner-box">
+                                <div class="icon-box">
+                                    <div class="bg-layer" style="background-image: url(assets/images/icons/icon-bg-5.png);"></div>
+                                    <img src="assets/images/icons/serv-icon6.png" width="80px">
+                                </div>
+                                <h3><a href="#">E-Study Materials</a></h3>
+                                <div class="text">We provide study materials and daily updated information not only through books, magazines & newspapers but also through the electronic mode on Avision's official website. </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- <section class="cus_avision_pass_section">
+    <div class="container">
+        <h2 class="text-center main_avi_heading">Why should you buy Avision Prime?</h2>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="avision_passes">
+                    <div class="avision_passes_img"><img src="https://estore.avision24x7.com/frnt_assest/img/pass_ic1.png" class="img-responsive" alt="" style=""></div>
+                    <h5 class="avision_passes_head">Best Quality Content</h5>
+                    <div class="avision_passes_details">
+                        Our content is what brings people back to us every time. We continuously research and try to outperform ourselves and everyone else </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="avision_passes">
+                    <div class="avision_passes_img"><img src="https://estore.avision24x7.com/frnt_assest/img/pass_ic2.png" class="img-responsive" alt="" style=""></div>
+                    <h5 class="avision_passes_head">Adaptive Learning</h5>
+                    <div class="avision_passes_details">
+                        Your learning must reflect your preparation. Adaptive Learning helps you start from the level you are at and then takes you higher </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="avision_passes">
+                    <div class="avision_passes_img"><img src="https://estore.avision24x7.com/frnt_assest/img/pass_ic3.png" class="img-responsive" alt="" style=""></div>
+                    <h5 class="avision_passes_head">All India Ranking</h5>
+                    <div class="avision_passes_details">
+                        Comparison with thousands of test takers all over the country gives you a better idea about your preparation and progress </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="avision_passes">
+                    <div class="avision_passes_img"><img src="https://estore.avision24x7.com/frnt_assest/img/pass_ic4.png" class="img-responsive" alt="" style=""></div>
+                    <h5 class="avision_passes_head">Detailed Solutions</h5>
+                    <div class="avision_passes_details">
+                        Elaborate solutions to every question help you understand your mistakes and in improving your future performance </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="avision_passes">
+                    <div class="avision_passes_img"><img src="https://estore.avision24x7.com/frnt_assest/img/pass_ic5.png" class="img-responsive" alt="" style=""></div>
+                    <h5 class="avision_passes_head">Insightful Personalized Analytics</h5>
+                    <div class="avision_passes_details">
+                        Analytics work when they are insightful and actionable. We bring just that and tell you in simple terms where you need to focus </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="avision_passes">
+                    <div class="avision_passes_img"><img src="https://estore.avision24x7.com/frnt_assest/img/pass_ic6.png" class="img-responsive" alt="" style=""></div>
+                    <h5 class="avision_passes_head">New TCS Theme</h5>
+                    <div class="avision_passes_details">
+                        All Mock Tests are powered by the new TCS Theme </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="why-take-test-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h3>Why should you buy Avision Pass?</h3>
+        </div>
+        <div class="row clearfix">
+
+            <div class="col-lg-4 col-sm-8 mx-auto col-12">
+                <div class="why-test-scries-inner">
+                    <img src="https://estore.avision24x7.com/frnt_assest/img/subscribe_icon.png">
+                    <h3>Subscribe Avision Prime</h3>
+                    <p>Select Avision Prime to subscribe for your exam preparation</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-8 mx-auto col-12">
+                <div class="why-test-scries-inner">
+                    <img src="https://estore.avision24x7.com/frnt_assest/img/unlocked_icon.png">
+                    <h3>Unlocked all the tests</h3>
+                    <p>Its done and you have subscribe to all test series and exams covered in the Avision Prime.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-8 mx-auto col-12">
+                <div class="why-test-scries-inner">
+                    <img src="https://estore.avision24x7.com/frnt_assest/img/unlimited_test_icon.png">
+                    <h3>Access to unlimited test and exams</h3>
+                    <p>Now take any number of tests till your subscription validity date.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="partners-section" style="background:url('assets/images/back_3.png');background-repeat:no-repeat;background-size:cover;">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!--Title Column-
+            <div class="title-column col-md-8 col-sm-8 col-12">
+                <div class="inner-column">
+                    <h2>Start Your Exam Preparation Now!</h2>
+                    <div class="text">Practice, Analyze and Improve.</div>
+                    <a href="#" class="theme-btn btn-style-one">Explore Courses</a>
+                </div>
+            </div>
+
+            <!--Partners Column-
+            <div class="partners-column col-md-4 col-sm-4 col-12">
+                <div class="partner-block">
+                    <div class="inner-box">
+                        <img src="assets/images/explore-courses.png">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section> -->

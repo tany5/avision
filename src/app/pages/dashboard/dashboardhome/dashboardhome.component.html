@@ -1,0 +1,477 @@
+<div class="container-fluid">
+    <div class="row no-gutters">
+        <div class="col-md-12 col-lg-9 col-xl-7 col-12  padding-0">
+            <div class="container-fluid  dashboard-main-banner-slider">
+                <div class="col-xl-12 col-lg-12 ml-auto">
+                    <owl-carousel-o [options]="customOptions">
+                        <ng-container class="main-carousel">
+                            <div class="main-carousel" *ngFor="let bannerdata of banner ;  index as i " style="padding: 30px 0px;">
+                                <ng-template carouselSlide #oddTemplate>
+                                    <div class="item" id="{{i}}">
+                                        <div class="cover" [ngStyle]="{'background-image': 'url(' + bannerdata.banner_background_image + ')'}">
+                                            <div class="container">
+                                                <div *ngIf="(i%2)===0;" class="row">
+                                                    <div class="col-sm-7 col-md-6 d-flex justify-content-center flex-column">
+
+                                                        <div class="header-content">
+                                                            <h2 [innerHTML]="bannerdata.main_heading"></h2>
+                                                        </div>
+
+                                                        <div class="header-content" [innerHTML]="bannerdata.sub_heading">
+                                                        </div>
+
+                                                        <div class="header-content" style="display: inline-block;" [innerHTML]="bannerdata.banner_sub_sub_heading">
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    <div class="col-sm-5 col-md-6 d-none d-sm-block">
+                                                        <div class="slide-image fadeinleft animated">
+                                                            <img src="{{bannerdata.banner_image}}" class="img-responsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div *ngIf="(i%2)!==0;" class="row">
+                                                    <div class="col-sm-5 col-md-6 d-none d-sm-block">
+                                                        <div class="slide-image fadeinleft animated ">
+                                                            <img src="{{bannerdata.banner_image}}" class="img-responsive">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-7 col-md-6 d-flex justify-content-center flex-column">
+                                                        <div class="header-content">
+                                                            <h2 [innerHTML]="bannerdata.main_heading"></h2>
+                                                        </div>
+
+
+
+                                                        <div class="header-content" [innerHTML]="bannerdata.sub_heading">
+                                                        </div>
+
+                                                        <div class="header-content" [innerHTML]="bannerdata.banner_sub_sub_heading">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </div>
+
+                        </ng-container>
+
+                    </owl-carousel-o>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="full_width2">
+                    <section class="test-series-section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-sm-8">
+                                    <div class="sec-title">
+                                        <h3>Trending Test Series</h3>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-4">
+                                    <div class="sec-title">
+                                        <button class="btn btn-outline-primary float-right" [routerLink]="['testseries']" style="border-radius: 40px;">View All Test Series <i
+                      class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <!-- singel test series -->
+                                <ng-container *ngFor="let testSeriesData of testSeriesData;index as i">
+                                    <div class="col-md-6 col-sm-6 col-12 col-lg-6 col-xl-4   mx-auto d-none d-sm-block" style="max-width:300px;" *ngIf="(testSeriesData.total_count > 0) && (i < 3)">
+                                        <div class="cus-test-series-slide">
+                                            <div class="test-series-back">
+                                                <div class="test-icon text-center">
+                                                    <img src="https://estore.avision24x7.com/{{testSeriesData.sub_category_image}}" width="50px">
+                                                </div>
+                                                <div class="test-title-text text-center">
+                                                    <h4>{{testSeriesData.product_name}} {{testSeriesData.section_name}}</h4>
+                                                    <p>{{testSeriesData.total_count}} Total Test</p>
+                                                    <hr>
+                                                    <ul>
+                                                        <li>{{testSeriesData.full_test_count}} Full Test - Prelims</li>
+                                                        <li *ngIf="testSeriesData.prev_year_count == 0">
+                                                            <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                                        </li>
+                                                        <li *ngIf="testSeriesData.prev_year_count > 0">{{testSeriesData.prev_year_count}} Advanced Test - Prelims</li>
+                                                    </ul>
+                                                    <hr>
+                                                </div>
+                                                <a [routerLink]="['testseriesinner/',testSeriesData.product_id]" class="btn btn-block btn-primary">Take
+                          Test</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </ng-container>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="container-fluid">
+                                    <owl-carousel-o [options]="customOptions4" class="d-block d-sm-none">
+                                        <ng-template carouselSlide *ngFor="let testSeriesData of testSeriesData">
+                                            <div class="col-md-3 col-sm-6 col-12 mx-auto" *ngIf="testSeriesData.total_count > 0">
+                                                <div class="cus-test-series-slide">
+                                                    <div class="test-series-back">
+                                                        <div class="test-icon text-center">
+                                                            <img src="https://estore.avision24x7.com/{{testSeriesData.sub_category_image}}" style="width:50px; height:50px; margin: 0 auto;">
+                                                        </div>
+                                                        <div class="test-title-text text-center">
+                                                            <h4>{{testSeriesData.product_name}} {{testSeriesData.section_name}}</h4>
+                                                            <p>{{testSeriesData.total_count}} Total Test</p>
+                                                            <hr>
+                                                            <ul>
+                                                                <li>{{testSeriesData.full_test_count}} Full Test - Prelims</li>
+                                                                <li>{{testSeriesData.prev_year_count}} Advanced Test - Prelims</li>
+                                                            </ul>
+                                                            <hr>
+                                                        </div>
+                                                        <a [routerLink]="['testinner/',testSeriesData.product_id]" class="btn btn-block btn-primary">Take
+                              Test</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </ng-template>
+                                    </owl-carousel-o>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <section class="recent-test-section">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="sec-title">
+                                <h3>Attempted Test Test</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="getQuizStatus.length > 0">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12" *ngFor="let quizStatus of getQuizStatus">
+                            <div class="card recent-test" *ngIf="quizStatus.status > '1'">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col-12 col-lg-8 col-md-12 align-items-center">
+                                        <p [innerHTML]="quizStatus.quiz_name"></p>
+                                    </div>
+
+                                    <ng-container *ngIf="quizStatus.status == '2'">
+                                        <div class="col-12 col-lg-4 col-md-12">
+                                            <button class="btn btn-outline-success float-right btn-block" style="border-radius: 40px;" [routerLink]="['/exam/',quizStatus.test_id,'analysis']">Result</button>
+                                        </div>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="quizStatus.status == '3'">
+                                        <div class="col-12 col-lg-4 col-md-12">
+
+                                            <button class="btn btn-outline-primary float-right btn-block" style="border-radius: 40px;" [routerLink]="['/exam/',quizStatus.test_id,'resume']">Resume</button>
+                                        </div>
+                                    </ng-container>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--col-->
+                    </div>
+                </section>
+            </div>
+            <div class="full_width2">
+                <div class="container-fluid">
+                    <section class="popular-test-section">
+
+
+                        <div class="row">
+                            <div class="col-12 col-sm-8">
+                                <div class="sec-title">
+                                    <h3>Popular Courses</h3>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="sec-title">
+                                    <button class="btn btn-outline-primary float-right" [routerLink]="['dashboardvideocourses']" style="border-radius: 40px;">View All Course <i
+                    class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 d-none d-sm-block" *ngFor="let videoData of videoData; index as i">
+                                <ng-container *ngIf="i < 3">
+                                    <div class="card">
+                                        <img class="card-img-top" src="{{videoData.product_img}}" alt="Card image cap">
+                                        <div class="cus-courses-price">
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="lower-content">
+                                                <div class="upper">
+                                                    <h3><a href="#">{{videoData.product_name}}</a></h3>
+                                                    <!-- <p class="courses_tags"><span><i class="fa fa-tag"></i> {{videoData.courses_name}}</span></p> -->
+                                                    <hr />
+                                                    <div class="post-limit vid_detail_price">
+                                                        <h5><i aria-hidden="true" class="fa fa-inr"></i>{{videoData.product_offer_price}}
+                                                            <span class="vid_main_price"><i aria-hidden="true"
+                                  class="fa fa-inr"></i>{{videoData.product_price}}</span>
+                                                            <span class="vid_offer_per">{{(videoData.product_price - videoData.product_offer_price)*100/videoData.product_price | number: "2.0-0"}}
+                                % off</span>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                                <a class="btn  btn-block btn-primary btn-sm" style="color: #fff"> View Course</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+
+                            </div>
+                            <!--col-->
+                        </div>
+
+
+                        <div class="row">
+                            <div class="container-fluid">
+                                <owl-carousel-o [options]="customOptions" class="d-block d-sm-none">
+                                    <ng-template carouselSlide *ngFor="let videoData of videoData">
+                                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                            <div class="card">
+                                                <img class="card-img-top" src="{{videoData.product_img}}" alt="Card image cap">
+                                                <div class="cus-courses-price">
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="lower-content">
+                                                        <div class="upper">
+                                                            <h3><a href="#">{{videoData.product_name}}</a></h3>
+                                                            <!-- <p class="courses_tags"><span><i class="fa fa-tag"></i> {{videoData.courses_name}}</span>
+                              </p> -->
+                                                            <hr />
+                                                            <div class="post-limit vid_detail_price">
+                                                                <h5><i aria-hidden="true" class="fa fa-inr"></i>{{videoData.product_offer_price}}
+                                                                    <span class="vid_main_price"><i aria-hidden="true"
+                                      class="fa fa-inr"></i>{{videoData.product_price}}</span>
+                                                                    <span class="vid_offer_per">{{(videoData.product_price - videoData.product_offer_price)*100/videoData.product_price | number: "2.0-0"}}
+                                    % off</span>
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                        <a class="btn  btn-block btn-primary btn-sm" style="color: #fff"> View Course</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+
+
+                                </owl-carousel-o>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="full-width2">
+                        <section class="quiz-test-section">
+
+
+                            <div class="row">
+                                <div class="col-12 col-sm-8">
+                                    <div class="sec-title">
+                                        <h3>All Quiz</h3>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-4">
+                                    <div class="sec-title">
+                                        <button class="btn btn-outline-primary float-right" [routerLink]="['freequiz']" style="border-radius: 40px;">View All Quiz <i
+                    class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+
+
+                                <owl-carousel-o [options]="customOptions5" class="quiz-test">
+
+                                    <ng-template carouselSlide *ngFor="let quiz of quiz_details">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <img class="card-img-top" src="assets/images/quiz_clock.png" alt="Card image cap">
+                                                <mat-divider></mat-divider>
+                                                <div class="card-body">
+                                                    <h5>{{quiz.quiz_name}}</h5>
+
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="float-left">
+                                                                Question
+                                                            </div>
+
+                                                            <div class="float-right">
+                                                                {{quiz.tot_qus}}
+                                                            </div>
+                                                        </div>
+
+                                                        <mat-divider></mat-divider>
+                                                        <div class="col-12">
+                                                            <mat-divider></mat-divider>
+                                                            <div class="float-left">
+                                                                Duration
+                                                            </div>
+
+                                                            <div class="float-right">
+                                                                {{quiz.tot_qus}} min
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-primary btn-block" (click)="addTopic(quiz.quiz_id)" [routerLink]="['/dashboard/freequizpanel',quiz.quiz_id+'-'+replaceAll (quiz.quiz_name, ' ', '-')]">Start
+                              Quiz</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </owl-carousel-o>
+
+                            </div>
+                        </section>
+                    </div>
+
+
+                    <div class="full-width2">
+                        <section class="quiz-practice-section">
+                            <div class="sec-title">
+                                <h3>Practice</h3>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12" *ngFor="let practice of practiceSubject" (click)="hideSidebar()" style="cursor:pointer">
+                                        <div class="card">
+                                            <ng-container *ngIf="practice.subject_img">
+                                                <img class="card-img-top" src="https://estore.avision24x7.com/{{practice.subject_img}}" alt="{{practice.subject_name}}">
+                                            </ng-container>
+
+                                            <ng-container *ngIf="!practice.subject_img">
+                                                <img class="card-img-top" src="https://estore.avision24x7.com/upload/st_icon09.png" alt="{{practice.subject_name}}">
+                                            </ng-container>
+
+                                            <div class="card-body">
+                                                <p class="card-text">{{practice.subject_name}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--col-9-->
+        <div class="col-md-6 col-lg-3 col-xl-3 col-12 padding-0  d-none d-xl-block">
+            <div class="container-fluid sticky-top">
+                <div class="row no-gutters">
+                    <section class="section-profile">
+                        <h3>Profile</h3>
+                        <div class="col-12 progress_div">
+                            <div class="row">
+
+
+
+                                <div class="col-10">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <mat-icon style="cursor:pointer" [routerLink]="['profile']">edit</mat-icon>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <section class="section-profile">
+                        <h3>Student Corner</h3>
+                        <div class="col-12 student_corner_div">
+                            <div class="row">
+                                <div class="col-12 student_corner_section">
+                                    <mat-list style="cursor: pointer;">
+                                        <mat-list-item target="_blank" href="https://avision.co.in/article/">
+                                            <mat-icon matListIcon>menu_book</mat-icon>
+                                            Daily GK & Current Affairs
+                                        </mat-list-item>
+
+                                        <mat-list-item>
+                                            <mat-icon matListIcon>notifications_active</mat-icon>
+                                            Exam Notification
+                                        </mat-list-item>
+
+                                        <mat-list-item [routerLink]="(['freequiz'])">
+                                            <mat-icon matListIcon>assignment</mat-icon>
+                                            Our Small Quiz
+                                        </mat-list-item>
+
+                                        <mat-list-item [routerLink]="(['videos'])">
+                                            <mat-icon matListIcon>movie</mat-icon>
+                                            Our Videos
+                                        </mat-list-item>
+
+                                    </mat-list>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section-profile">
+                        <h3>Your History</h3>
+                        <div class="col-12 student_corner_div">
+                            <div class="row">
+                                <div class="col-12 student_corner_section">
+                                    <mat-list>
+                                        <mat-list-item style="cursor: pointer;">
+                                            <mat-icon matListIcon [routerLink]="['order']">history_toggle_off</mat-icon>
+                                            Order History
+                                        </mat-list-item>
+                                    </mat-list>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <section class="section-profile">
+                        <h3>Student Corner</h3>
+                        <div class="col-12 student_corner_div">
+                            <div class="row">
+                                <div class="col-12 student_corner_section">
+                                    <mat-list>
+                                        <mat-list-item *ngFor="let liveClassList of liveClassList" (click)="gotoLiveClassComponent(liveClassList.product_slug)">
+                                            <img src="{{liveClassList.image}}"> {{liveClassList.live_class_title}}
+                                        </mat-list-item>
+
+                                    </mat-list>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

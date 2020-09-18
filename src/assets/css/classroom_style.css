@@ -1,0 +1,265 @@
+*{
+margin:0;
+padding:0;
+}
+/* ================== header part======================== */
+body{
+	font-family: 'Karla', sans-serif ;
+	
+}
+
+.classroom_coaching_main{
+	width:100%;
+	float:left;
+}
+.about_classroom_section{
+	width:100%;
+	float:left;
+	padding:50px 0;
+}
+.classroom_main_heading{
+	color: #009ed6;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-family: 'Quicksand', sans-serif;
+    position: relative;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    font-weight: 600;
+}
+.about_classroom_section p{
+	font-size:19px;
+	color:#000;
+}
+.about_classroom_section p:last-child{
+	font-size:16px;
+}
+.classroom_form_back{
+	background: #fff;
+    border: 1px solid #84a2ad;
+    padding: 15px;
+}
+.classroom_form_back h3{
+	margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #d6003c;
+    padding-bottom: 15px;
+    color: #e81700;
+    font-weight: 500;
+}
+.classroom_form_back input.form-control, .classroom_form_back select.form-control{
+	height: 35px;
+    border-radius: 0;
+    border: 1px solid #b5b5b5;
+    font-size: 14px;
+    color: #000;
+}
+.classroom_form_back textarea.form-control{
+    border-radius: 0;
+    border: 1px solid #b5b5b5;
+    font-size: 14px;
+    color: #000;
+}
+.btn-classroom-submit{
+	color: #fff;
+    background: #06c59c;
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 18px;
+	transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+}
+.btn-classroom-submit:hover{
+	color: #fff;
+    background: #2fa98f;
+}
+.classroom-features-section{
+	width:100%;
+	float:left;
+	padding:30px 0;
+	background: #f5f5f5;
+}
+.classroom-heading-two{
+	color: #000;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: 'Quicksand', sans-serif;
+    position: relative;
+    margin-right: 15px;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    font-weight: 600;
+	text-align:center;
+	position:relative;
+}
+.classroom-heading-two:after{
+	position: absolute;
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #06c59c;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: -17px;
+    border-radius: 50%;
+}
+.classroom-heading-two:before{
+	position: absolute;
+    content: '';
+    width: 100px;
+    height: 2px;
+    background: #f1bc19;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: -12px;
+}
+.custom-rows{
+	display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.feature_back{
+	width: 100%;
+    text-align: center;
+    background: #fff;
+    min-height: 200px;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #ddd;
+}
+.feature_back h4{
+	color: #a96767;
+    margin-top: 10px;
+	font-size: 18px;
+}
+.classroom-teacher-section{
+	width:100%;
+	float:left;
+	padding:30px 0;
+}
+.classroom-heading-three{
+	text-align: center;
+    margin-bottom: 60px;
+    font-size: 30px;
+    color: #000;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 40px;
+	font-family: 'Quicksand', sans-serif;
+	position:relative;
+}
+.classroom-heading-three span{
+	display: block;
+    color: #009ed6;
+    font-size: 35px;
+}
+.classroom-heading-three:after{
+	position: absolute;
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #06c59c;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: -17px;
+    border-radius: 50%;
+}
+.classroom-heading-three:before{
+	position: absolute;
+    content: '';
+    width: 100px;
+    height: 2px;
+    background: #f1bc19;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: -12px;
+}
+#classroom-teacher .item{
+	padding:20px;
+	text-align:center;
+	display:block;
+}
+#classroom-teacher .item:hover,#classroom-teacher .item:focus{
+	text-decoration:none;
+}
+#classroom-teacher .item h4{
+	font-size: 20px;
+    background: #50c7f1;
+    display: block;
+    padding: 15px 10px;
+    color: #fff;
+    margin-top: -13px;
+    z-index: 6;
+    position: relative;
+    text-transform: uppercase;
+	transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+}
+#classroom-teacher .item:hover h4{
+	background:#06c59c;
+}
+#classroom-teacher .owl-buttons .owl-prev{
+	position: absolute;
+    left: -12px;
+    font-size: 31px;
+    top: 50%;
+    transform: translateY(-50%);
+    background:#dddddd40;
+    padding: 2px 13px;
+}
+#classroom-teacher .owl-buttons .owl-next{
+	position: absolute;
+    right: -12px;
+    font-size: 31px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #dddddd40;
+    padding: 2px 13px;
+}
+#classroom-teacher .owl-buttons .owl-prev:hover, #classroom-teacher .owl-buttons .owl-next:hover{
+	background:#50c7f191;
+}
+#teacherModal .modal-content{
+	background: #66b3ce;
+	color:#fff;
+}
+#teacherModal .modal-content img{
+	background:#fff;
+}
+#teacherModal button.close{
+	position: absolute;
+    right: 1px;
+    top: 2px;
+    background: #ddd;
+    padding: 5px 10px;
+	z-index:99;
+}
+#teacherModal .modal-content h4{
+	font-size:20px;
+    font-weight: 600;
+}
+#teacherModal .modal-content h5{
+	font-size: 16px;
+    margin: 5px 0;
+	font-weight: 600;
+}
+#teacherModal .modal-content p{
+	font-size: 14px;
+    margin-top: 13px;
+}
+#teacherModal.modal .modal-dialog{
+	top: 50%;
+    transform: translateY(-50%);
+}

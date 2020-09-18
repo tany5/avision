@@ -1,0 +1,152 @@
+.schollar-section {
+    text-align: center;
+    padding: 10px 0px 40px 10px;
+}
+
+::ng-deep mat-card {
+    padding: 0PX !important;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+}
+
+.schollar-section .logo {
+    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.schollar-section h3 {
+    font-size: 1.25rem;
+    color: #000;
+}
+
+.schollar-section h5 {
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.example-right-align {
+    text-align: left;
+    font-size: 16px;
+}
+
+mat-form-field,
+input {
+    width: 100%;
+}
+
+.mail-btn mat-icon {
+    //padding-top: 5px;
+    vertical-align: middle !important;
+    font-size: 18px;
+}
+
+.google-login-btn {
+    height: 60px;
+    //max-width: 300px;
+}
+
+.otp-section {
+    padding: 30px 20px 90px 20px;
+}
+
+.otp-text-section {
+    padding-bottom: 40px;
+}
+
+.loading-indicator {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
+/* Transparent Overlay */
+
+.loading-indicator:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.otp-text-section p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.otp-text-section p span {
+    font-size: 1rem;
+    color: blue;
+    cursor: pointer;
+}
+
+.social-login-section {
+    padding: 0px 0px 30px 0px;
+}
+
+.login-section h3 {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 20px 0px;
+}
+
+.register-section p {
+    padding: 20px 0px;
+    cursor: pointer;
+}
+
+.register-section p span {
+    color: blue;
+    font-weight: 600;
+}
+
+.close {
+    position: absolute;
+    top: -24px;
+    right: -5px;
+    color: #000;
+    cursor: pointer;
+    opacity: 1 !important;
+}
+
+.close mat-icon {
+    font-size: 22px;
+}
+
+.schollar-section .close {
+    position: absolute;
+    top: 7px;
+    right: 8px;
+    color: red;
+    opacity: 1 !important;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.schollar-section {
+    position: relative;
+}
+
+::ng-deep .cdk-overlay-dark-backdrop {
+    background: rgb(0 0 0 / 71%);
+}

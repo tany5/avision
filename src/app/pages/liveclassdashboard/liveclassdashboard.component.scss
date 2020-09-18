@@ -1,0 +1,369 @@
+/*=============----------------------------=============*/
+
+
+/*============= live class details css two =============*/
+
+
+/*=============++++++++++++++++++++++++++++=============*/
+
+a a:hover {
+    text-decoration: none;
+}
+
+.cus-liveclass-tab {
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.cus-liveclass-tab li a {
+    color: #fff;
+    padding: 15px 0;
+    position: relative;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.liveclass-two-header {
+    background: #fff;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    /* top: 0; */
+    z-index: 9999;
+}
+
+.liveclass-two-header h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: green;
+    font-weight: 600;
+}
+
+.live-class-details-two-section-tab {
+    background: #28227a;
+    width: 100%;
+    height: 53px;
+    margin-bottom: 50px;
+    /* position: fixed;
+    top: 50px;
+    height: 56px; */
+}
+
+.live-class-details-two-section-tab.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 9;
+}
+
+.live-class-details-two-section-tabcontent {
+    background: #f6fdff;
+    padding: 30px 0;
+    position: relative;
+    width: 100%;
+    /* top: 106px;
+    bottom: 0; */
+    /* overflow: auto; */
+    min-height: 100vh
+}
+
+.cus-liveclass-tab {
+    border: none;
+    width: 100%;
+    overflow-x: auto;
+    display: table;
+}
+
+.cus-liveclass-tab li {
+    float: none;
+    display: table-cell;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.cus-liveclass-tab li a {
+    color: #fff;
+    padding: 15px 0;
+    position: relative;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.cus-liveclass-tab li a.active {
+    border: none;
+    color: #fff;
+}
+
+.live-class-details-two-section-tab {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.live-class-details-two-section-tab li {
+    padding-left: 20px;
+}
+
+.live-class-details-two-section-tab li:first-child {
+    padding-left: 0px;
+}
+
+.live-class-details-two-section-tab li:last-child {
+    padding-right: 20px;
+}
+
+.cus-liveclass-tab li a.active,
+.cus-liveclass-tab li a:hover {
+    background: none;
+    color: #fff;
+}
+
+.late_banner .fa {
+    margin: 0px;
+}
+
+.btn-liveclass-buynow {
+    background: #1546d4;
+    color: #fff;
+    padding: 8px 20px;
+}
+
+.sticky_footer {
+    width: 100%;
+    padding-bottom: 10px;
+    background-image: linear-gradient( to top, #1a806c, #50b167);
+    display: none;
+}
+
+.sticky-content {
+    margin-top: 10px;
+}
+
+.sticky-content h5 {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.sticky-content span {
+    color: #fff;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.sticky-content button {
+    margin-left: 5px;
+}
+
+.btn-liveclass-buynow {
+    background: #1546d4;
+    color: #fff;
+    padding: 8px 20px;
+}
+
+.fa-icon {
+    color: red;
+}
+
+
+/*****************live class new css*************************************/
+
+.liveclass-two-header h3 {
+    color: green !important;
+}
+
+.liveclass-details-banner {
+    background: #3659a2;
+    padding: 70px 0 100px;
+}
+
+.liveclass-heading {
+    font-size: 23px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.liveclass-details-banner p {
+    font-size: 15px;
+    color: #fff;
+}
+
+.liveclass-details-content .cus-sticky {
+    margin-top: -233px;
+}
+
+.liveclass-sidebar-details {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 0 4px #d6d6d6;
+    text-align: center;
+}
+
+.liveclass-price {
+    text-align: center;
+    font-size: 30px;
+    color: #000;
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.liveclass-price span {
+    margin-left: 10px;
+    color: #999;
+    font-size: 22px;
+    text-decoration: line-through;
+    font-weight: 500;
+}
+
+.buynow-btn {
+    display: inline-block;
+    background: #f00;
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.liveclass-sidebar-details-list {
+    display: block;
+    margin: 15px 0;
+}
+
+.liveclass-sidebar-details-list li {
+    display: inline-block;
+    font-size: 15px;
+    text-align: left;
+    padding: 4px 10px;
+}
+
+.liveclass-sidebar-details-list li i {
+    color: #02aeef;
+}
+
+.liveclass-detais-content-back {
+    margin-top: -47px
+}
+
+.liveclass-details-tab ul {
+    border: none;
+    padding: 0 10px;
+    overflow-x: auto;
+}
+
+.liveclass-details-tab ul li {
+    padding: 0 15px;
+    float: none;
+    display: table-cell;
+    white-space: nowrap;
+}
+
+.liveclass-details-tab ul li a {
+    color: #fff;
+    border: none;
+    position: relative;
+    padding: 14px 13px;
+    display: block;
+}
+
+.liveclass-details-tab ul li a:hover,
+.liveclass-details-tab ul li a:focus {
+    background: none;
+    border: none;
+    color: #fff;
+    text-decoration: none;
+}
+
+.liveclass-details-tab ul li a.active {
+    background: #edeff0;
+    border: none;
+    color: #555;
+}
+
+.liveclass-details-tab ul li a.active:before {
+    position: absolute;
+    content: "";
+    background: url(../../../assets/images/tab-border-left.png);
+    width: 36px;
+    height: 47px;
+    background-size: cover;
+    top: 0;
+    left: -35px;
+}
+
+.liveclass-details-tab ul li a.active:after {
+    position: absolute;
+    content: "";
+    background: url(../../../assets/images/tab-border-right.png);
+    width: 36px;
+    height: 47px;
+    background-size: cover;
+    top: 0;
+    right: -32px;
+}
+
+.liveclass-details-tab ul li a.active:hover,
+.liveclass-details-tab ul li a.active:focus {
+    background: #edeff0;
+    border: none;
+}
+
+.liveclass-details-content {
+    background: #edeff0;
+}
+
+.liveclass-details-tab-content {
+    padding-top: 40px;
+}
+
+.liveclass-details-content .sticky-fixed {
+    position: sticky;
+    top: 80px;
+}
+
+.live_class_study_tab {
+    overflow: auto;
+}
+
+.live_class_study_tab li {
+    display: table-cell;
+    float: none;
+    white-space: nowrap;
+}
+
+.live_class_study_tab li a:after {
+    content: none;
+}
+
+@media (max-width:767px) {
+    .liveclass-details-content .cus-sticky {
+        margin-top: 0;
+        padding-top: 30px;
+    }
+}
+
+.liveclass-details-content .sticky-fixed .liveclass-sidebar-details {
+    position: sticky;
+    top: 80px;
+}
+
+@media (max-width: 767px) {
+    .liveclass-two-header {
+        height: 80px;
+    }
+    .liveclass-two-header h3 {
+        font-size: 17px;
+    }
+}
+
+.recomend {
+    background: #22c217;
+    padding: 6px 10px;
+    color: #fff;
+    top: 33px;
+    margin-top: 0px;
+    z-index: 9999;
+    font-size: 15px;
+}

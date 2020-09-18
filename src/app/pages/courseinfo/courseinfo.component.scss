@@ -1,0 +1,29 @@
+.tab-pane li p{
+    color: #777777;
+    line-height: 1.8em;
+    font-weight: 400;
+}
+.exam-info-deatils{
+    background: #fff;
+}
+.cus-exam-info-tab li {
+    width: 100%;
+    display: block;
+}
+
+.cus-exam-info-tab li a{
+    width: 100%;
+    display: block;
+    padding: 10px;
+}
+
+table{
+    border: 1px solid #ddd
+}
+
+.tab-content {
+    padding: 20px;
+    height: 70vh;
+    overflow-y: auto ;
+    border: 1px solid #ddd;
+}

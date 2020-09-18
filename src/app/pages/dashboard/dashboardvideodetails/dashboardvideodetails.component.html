@@ -1,0 +1,589 @@
+
+    
+	 <!--Page Title-->
+   <section class="page-title cus-page-title" style="background-image:url(assets/images/background/pattern-4.png);margin-top: -30px;">
+    <div class="auto-container">
+  <h6 class="liveclasses-tag"><i class="fa fa-circle" aria-hidden="true"></i> Video Courses</h6>
+        <h1>{{product_name}}</h1>
+    </div>
+
+</section>
+<!--End Page Title-->
+
+
+
+<!-- coueses main section -->
+<section class="courses-main-detail-section video_courses_details_inner">
+    <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+<div class="auto-container">
+  <div class="row clearfix">
+
+            <div class="col-sm-5 col-md-4  d-block d-sm-none">
+      <div class="vid_courses_right_details" *ngIf="!loader">
+        <ngx-skeleton-loader                   
+        [theme]="{ 
+        'border-radius': '5px',
+        height: '250px',
+        'width': '100%',                    
+        border: '1px solid white'
+        }"
+      ></ngx-skeleton-loader>
+      </div>
+      <div class="vid_courses_right_details" *ngIf="loader">
+        <div class="vid_detail_img">
+          <img src="{{product_img}}" class="img-responsive">
+        </div>
+        <div class="vid_detail_price" *ngIf="buystat == 0">
+          <h5><i class="fa fa-inr" aria-hidden="true"></i>{{product_offer_price}} <span class="vid_main_price"><i class="fa fa-inr" aria-hidden="true"></i>{{product_price}}</span> <span class="vid_offer_per">70% off</span></h5>
+          <a href="javascript:void(0)" class="btn vid_btn_buynow" (click) ="indicateVdocourse()">Buy Now</a>
+          <a href="javascript:void(0)" class="btn vid_btn_buynow" (click)="showDemoVideos(demo_vdoId)">Start Free Trial</a>
+        </div>
+        
+        <div class="vid_detail_price"  *ngIf="buystat == 1">
+          <a (click)="showDemoVideos(demo_vdoId)"  class="btn vid_btn_buynow btn_view_course">View Course <span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="col-sm-7 col-md-8">
+      <div class="courses-main-detail" *ngIf="!loader">
+        <ngx-skeleton-loader                   
+        [theme]="{ 
+        'border-radius': '5px',
+        height: '250px',
+        'width': '100%',                    
+        border: '1px solid white'
+        }"
+      ></ngx-skeleton-loader>
+
+      </div>
+      
+      <div class="courses-main-detail" *ngIf="loader">
+        <h4>About course</h4>
+        <div [innerHTML]="product_desc"> 
+
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="what_need">
+            <h4>Why take this Course?</h4>
+          </div>
+          <div class="row flex-row">
+            <!-- <div class="col-md-6">
+              <ul class="what_get">
+                <li><img src="http://estore.avision24x7.com/frnt_assest/img/live_class_icon_1.png" width="80px"></li>
+                <li>
+                  <h4>40+ LIVE Classes</h4>
+                  <p>Revise concepts and practice exam level questions LIVE in class.</p>
+                </li>
+              </ul>
+            </div> -->
+            <div class="col-md-6">
+              <ul class="what_get">
+                <li><img src="http://estore.avision24x7.com/frnt_assest/img/live_class_icon_2.png" width="80px"></li>
+                <li>
+                  <h4>30+ Video Lessons</h4>
+                  <p>Theory &amp; MCQ form videos covering basic concepts</p>
+                </li>
+              </ul>
+            </div>
+            <!-- <div class="col-md-6">
+              <ul class="what_get">
+                <li><img src="http://estore.avision24x7.com/frnt_assest/img/live_class_icon_3.png" width="80px"></li>
+                <li>
+                  <h4>20+ Quizzes &amp; Sectional Tests</h4>
+                  <p>Attempt quizzes and sectional tests to increase SPEED &amp; ACCURACY and build the right strategy</p>
+                </li>
+              </ul>
+            </div> -->
+            <div class="col-md-6">
+              <ul class="what_get">
+                <li><img src="http://estore.avision24x7.com/frnt_assest/img/live_class_icon_4.png" width="80px"></li>
+                <li>
+                  <h4>2+ Exam Strategy Session</h4>
+                  <p>Clear your doubts live from expert faculty &amp; get attempt strategies.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="what_need">
+            <h4>What You Need For This Course?</h4>
+            <ul>
+              <li>Access to Smart Phone / Computer</li>
+              <li>Good Internet Speed (Wifi/3G/4G)</li>
+              <li>Good Quality Earphones / Speakers</li>
+              <li>Basic Understanding of English & Hindi</li>
+              <li>Dedication & Confidence to clear any exam</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="take_demo_main_div">
+                <div class="row">
+                    <div class="sec-title sec_title_two">
+                        <h3>Study Plan</h3>
+                    </div>
+                </div>
+                
+                <div class="row take_demo_back video_course_back">
+                    
+                    <div class="col-12 " style="margin-bottom: 20px; padding: 0px;">
+                      <ul class="nav nav-tabs live_class_study_tab" *ngIf="!subjectLoader">
+                        <ngx-skeleton-loader                   
+                          [theme]="{ 
+                          'border-radius': '5px',
+                          height: '250px',                    
+                          border: '1px solid white'
+                          }">
+                        </ngx-skeleton-loader>
+                      </ul>
+                      <ul class="nav nav-tabs live_class_study_tab sticky" *ngIf="subjectLoader">
+                        <ng-container *ngFor="let subjectList of videoDetailsSubData index as i">
+                        <li *ngIf="i==0" class="active col-12">
+                          <a class="active" data-toggle="tab" (click)="fetchChapter(subjectList.subject_id)">{{subjectList.subject_name}}
+                          <span>{{subjectList.video_count}} videos</span></a>
+                        </li>
+                        <li class="col-12" *ngIf="i >0">
+                          <a  data-toggle="tab" (click)="fetchChapter(subjectList.subject_id)">{{subjectList.subject_name}}
+                          <span>{{subjectList.video_count}} videos</span></a>
+                        </li>
+                        </ng-container>
+                      </ul>
+                      </div>
+                    <div class="col-12" *ngIf="chapterLoader">
+                      <div id="accordion">
+                      <div class="card">
+                          <div class="card-header" id="headingOne" class="btn btn-link" data-toggle="collapse" [attr.data-target]="'#collapse_demo'" aria-expanded="true"
+                          aria-controls="collapseOne">
+                            <h5 class="mb-0">
+                              
+                             <h5 class="text-left subject_header panel-title"  style="font-size: 16px"><i class="fa fa-bandcamp" aria-hidden="true" style="color: blueviolet;"></i> Demo <span class="float-right"><i class="fa fa-video-camera" style="color: blueviolet;"></i> Activity</span></h5>
+                            
+                            </h5>
+                          </div>
+                          <div id="collapse_demo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                              <div class="card-body" *ngFor="let video of demo_chpa_arr">
+                                <div  class="row clearfix">
+                                  <div  class="col-sm-12 col-md-8 col-12 col-12">
+                                  <h5  class="take_demo_text" style="font-size: 16px;"> <i class="fa fa-video-camera" style="color: blue;padding-right: 10px;"></i> {{video.video_name}} <br/><br/><span
+                                     class="live_class">Video Course</span></h5> 
+                                  </div>
+                                  <div  class="col-sm-12 col-md-4 col-12 text-center">
+                                    <a  class="btn btn-sm btn-info" 
+                                    href="javascript:void(0)" (click)="showDemoVideos(video.video_url)">Start Lesson
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div>				
+                        <div class="card" *ngFor="let videoList of chap_arr index as count">
+                        <div class="card-header" id="headingOne" class="btn btn-link" data-toggle="collapse" [attr.data-target]="'#collapse'+videoList.chapter_id" aria-expanded="true"
+                        aria-controls="collapseOne">
+                          <h5 class="mb-0">
+                            
+                           <h5 class="text-left subject_header panel-title" *ngIf="(count % 2) == 0" style="font-size: 16px"><i class="fa fa-bandcamp" aria-hidden="true" style="color: blueviolet;"></i> {{(count)+1}}. {{videoList.chapter_name}} <span class="float-right"><i class="fa fa-video-camera" style="color: blueviolet;"></i> Activity</span></h5> 
+                           <h5 class="text-left subject_header panel-title" *ngIf="(count % 2) != 0" style="font-size: 16px"><i class="fa fa-bandcamp" aria-hidden="true" style="color: blue;"></i> {{(count)+1}}. {{videoList.chapter_name}} <span class="float-right"><i class="fa fa-video-camera" style="color: blue;"></i> Activity</span></h5> 
+                          
+                          </h5>
+                        </div>
+                  
+                        <!-- <div *ngIf="count==0" id="collapse{{videoList.chapter_id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body" *ngFor="let video of videoList.vdo_arr">
+                          <div  class="row clearfix">
+                            <div  class="col-sm-12 col-md-8 col-12 col-12">
+                            <h5  class="take_demo_text">{{video.video_name}} <span
+                               class="live_class">Video Course</span></h5> 
+                            </div>
+                            <div  class="col-sm-12 col-md-4 col-12 text-center">
+                            <a  class="btn btn-info" 
+                              href="javascript:void(0)" (click)="viewVideoCourse(product_id)">Demo View
+                              Class</a>
+                            </div>
+                          </div>
+                          </div>
+                        </div> -->
+                  
+                        <div id="collapse{{videoList.chapter_id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body" *ngFor="let video of videoList.vdo_arr">
+                          <div  class="row clearfix">
+                            <div  class="col-sm-12 col-md-8 col-12 col-12">
+                              <h5  class="take_demo_text" style="font-size: 16px;"> <i class="fa fa-video-camera" style="color: blue;padding-right: 10px;"></i> {{video.video_name}} <br/><br/><span
+                                 class="live_class">Video Course</span></h5> 
+                            </div>
+                            <div  class="col-sm-12 col-md-4 col-12 text-center">
+                              <a  class="btn btn-sm btn-info"
+                              href="javascript:void(0)" (click)="showDemoVideos(video.video_url)">View
+                              Class</a>
+                              
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                  
+                        </div>
+                  
+                  
+                      </div>
+                      </div>
+                  </div>
+            </div>							
+        </div>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="title-column col-md-5 col-sm-12 col-12">
+                  <div class="inner-column">
+                    <h2>Know Your Teachers</h2>
+                  </div>
+                </div> 
+              </div>
+              <div *ngIf="teacherLoader">
+                <owl-carousel-o [options]="customOptions" *ngIf="teacherDetails.length > 4">
+                  <ng-template carouselSlide *ngFor="let timonialDetails of teacherDetails">
+                    <div class="slide">
+                      <div  class="courses_instructors">
+                        <div  class="instructor-carousel">
+                          <div  class="courses_instructors_details text-center">
+                            <img  style="width: 85px; height: 85px;" src="{{timonialDetails.teacher_image}}">
+                            <h4>{{timonialDetails.teacher_name}}</h4>
+                            <p >{{timonialDetails.teacher_qualification}}</p>
+                            <hr >
+                            <p >{{timonialDetails.teacher_experience}} Years | {{timonialDetails.teacher_designation}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>            
+                </owl-carousel-o>
+              </div>
+              <div class="row" *ngIf="!teacherLoader">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                  <ngx-skeleton-loader                    
+                  [theme]="{ 
+                  'border-radius': '5px',
+                  height: '30vh',
+                  'width': '100%',                    
+                  border: '1px solid white'
+                  }"
+                  ></ngx-skeleton-loader>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                  <ngx-skeleton-loader                    
+                  [theme]="{ 
+                  'border-radius': '5px',
+                  height: '30vh',
+                  'width': '100%',                    
+                  border: '1px solid white'
+                  }"
+                  ></ngx-skeleton-loader>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                  <ngx-skeleton-loader                    
+                  [theme]="{ 
+                  'border-radius': '5px',
+                  height: '30vh',
+                  'width': '100%',                    
+                  border: '1px solid white'
+                  }"
+                  ></ngx-skeleton-loader>
+                </div>
+          
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                  <ngx-skeleton-loader                    
+                  [theme]="{ 
+                  'border-radius': '5px',
+                  height: '30vh',
+                  'width': '100%',                    
+                  border: '1px solid white'
+                  }"
+                  ></ngx-skeleton-loader>
+                </div>
+              </div>
+          
+          
+                <div *ngIf="teacherLoader">
+                    <div class="row" *ngIf="teacherDetails.length == 1">
+          
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-10" *ngFor="let timonialDetails of teacherDetails">
+                          <div  class="courses_instructors1" style="max-height:200px">
+                            <div  class="instructor-carousel">
+                              <div  class="courses_instructors_details single text-center">
+                                <div class="row">
+                                  <div class="col-12 col-md-6 col-lg-4">
+                                      <img  src="{{timonialDetails.teacher_image}}" class="img-fluid float-left" style="max-height:180px"/>
+                                  </div>
+                                  <div class="col-12 col-md-6 col-lg-8">
+                                      <h4>{{timonialDetails.teacher_name}}</h4>
+                                      <p >{{timonialDetails.teacher_qualification}}</p>
+                                      <hr >
+                                      <p >{{timonialDetails.teacher_experience}} Years | {{timonialDetails.teacher_designation}}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>         
+                        </div>
+                  
+                      </div>
+                  <div class="row" *ngIf="teacherDetails.length > 2">
+          
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-10 mx-auto" *ngFor="let timonialDetails of teacherDetails">
+                      <div  class="courses_instructors">
+                        <div  class="instructor-carousel">
+                          <div  class="courses_instructors_details text-center">
+                            <img  style="width: 85px; height: 85px;" src="{{timonialDetails.teacher_image}}">
+                            <h4>{{timonialDetails.teacher_name}}</h4>
+                            <p >{{timonialDetails.teacher_qualification}}</p>
+                            <hr >
+                            <p >{{timonialDetails.teacher_experience}} Years | {{timonialDetails.teacher_designation}}</p>
+                          </div>
+                        </div>
+                      </div>         
+                    </div>
+              
+                  </div>
+                </div>
+
+        </div>
+      </div>
+
+      
+            </div>
+            
+
+            <div class="col-sm-5 col-md-4 h-100 sticky pull-right cus-mg-top d-none d-sm-block">
+      <img src="{{product_img}}" class="img-responsive">
+      <div class="courses_detail_price_back" *ngIf="!loader">
+        <ngx-skeleton-loader                   
+        [theme]="{ 
+        'border-radius': '5px',
+        height: '250px',
+        'width': '100%',                    
+        border: '1px solid white'
+        }"
+      ></ngx-skeleton-loader>
+      </div>
+      <div class="courses_detail_price_back" *ngIf="loader">
+        <div class="vid_detail_price"  *ngIf="buystat == 0">
+          <h5><i class="fa fa-inr" aria-hidden="true"></i>{{product_offer_price}} <span class="vid_main_price"><i class="fa fa-inr" aria-hidden="true"></i>{{product_price}}</span> <span class="vid_offer_per">70% off</span></h5>
+          <a href="javascript:void(0)" class="btn vid_btn_buynow" (click) ="indicateVdocourse()">Buy Now</a>
+          <a href="javascript:void(0)" class="btn vid_btn_buynow" (click)="showDemoVideos(demo_vdoId)">Start Free Trial</a>
+        </div>
+        <div class="vid_detail_price"  *ngIf="buystat == 1">
+          <a (click)="showDemoVideos(demo_vdoId)" class="btn vid_btn_buynow btn_view_course">View Course <span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+
+</div>
+</div>
+</section>
+<!------------Study plan video course-------------->
+
+
+
+<!-- end coueses main section -->
+<!--Testimonial Section-->
+
+<!--Testimonial Section-->
+<section class="student-review-section">
+    <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+<div class="container">
+    <div class="row">
+        <div class="title-column col-md-5 col-sm-12 col-12">
+            <div class="inner-column">
+                <h2>Student Reviews</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="!testimonialLoader">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+            <ngx-skeleton-loader                    
+            [theme]="{ 
+            'border-radius': '5px',
+            height: '30vh',
+            'width': '100%',                    
+            border: '1px solid white'
+            }"
+            ></ngx-skeleton-loader>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+            <ngx-skeleton-loader                    
+            [theme]="{ 
+            'border-radius': '5px',
+            height: '30vh',
+            'width': '100%',                    
+            border: '1px solid white'
+            }"
+            ></ngx-skeleton-loader>
+        </div>
+    </div>
+    <div class="row" *ngIf="testimonialLoader">
+        <div class="col-lg-12 col-12">
+            <owl-carousel-o [options]="customOptions2">
+                <ng-template carouselSlide *ngFor="let timonialDetails of timonialDetails">
+                    <div class="student-review">
+                        <!-- slide-->
+                        <div class="student-review-block">
+                            <div class="student-review-inner-block">
+                                <div class="review-student-details col-lg-12 col-12">
+                                    
+                                    
+                                        <ul class="review-students">
+                                            <li><img src="assets/images/resource/{{timonialDetails.image}}" ></li>
+                                            <li><h3>{{timonialDetails.user_name}}</h3></li>
+                                        </ul>
+
+                                        <ul class="student-review-star">
+                                            <li><i class="fa fa-star" aria-hidden="true" *ngFor="let i of createRange(timonialDetails.rating)"></i></li>                                                
+                                        </ul>
+                                                                        
+                                    
+                                </div>
+                                <div class="student-review-content" style="min-height: 120px;">
+                                    <p>"{{timonialDetails.content}}"</p>
+                                </div>
+                            </div>
+                        </div>                    
+                    </div>
+                </ng-template>            
+            </owl-carousel-o>
+        </div>
+    </div>        
+</div>
+</div>
+</section>
+
+<!-- student review section end -->
+<section class="faq-section">
+    <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0"> 
+<div class="auto-container">
+  <!--Accordian Boxed-->
+  <div class="accordian-boxed">
+    <h3>Frequently Asked Questions</h3>
+    
+    <!--Accordian Box-->
+    <ul class="accordion-box" id="faq_box">
+      
+      <!--Block-->
+      <li class="accordion block active-block">
+        <div class="acc-btn active"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Why should I go for AVISION Live Course ?</div>
+        <div class="acc-content current">
+          <div class="content">
+            <div class="text">AVISION Live Classes helps you get complete classroom coaching at home with live classes, personal guidance and doubt clearing sessions. The Live Classes will aid you in learning important concepts with tips & tricks by India’s top faculties and will also offer you an opportunity to interact with the faculty during the live classes.</div>
+          </div>
+        </div>
+      </li>
+  
+      <!--Block-->
+      <li class="accordion block">
+        <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>How to buy the course?</div>
+        <div class="acc-content">
+          <div class="content">
+            <div class="text">To buy a paid course go to join this course,register yourself and make payment online(net banking /cards/upi). If there is an issue in buying online course you can get in touch on 9331002233.</div>
+          </div>
+        </div>
+      </li>
+      
+       
+       <!--Block-->
+      <li class="accordion block">
+        <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Can we ask doubts?</div>
+        <div class="acc-content">
+          <div class="content">
+            <div class="text">If you get disconnected while attempting a test, all your data till the disconnection will get saved and you will be able to resume from the same state later. You are advised to close the test window in this case and resume when you have connectivity again.</div>
+          </div>
+        </div>
+      </li>
+      
+       <!--Block-->
+      <li class="accordion block">
+        <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Can we download videos?</div>
+        <div class="acc-content">
+          <div class="content">
+            <div class="text">No,you can only watch videos.you can’t download</div>
+          </div>
+        </div>
+      </li>
+      
+       <!--Block-->
+      <li class="accordion block">
+        <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Do you provide study materials?</div>
+        <div class="acc-content">
+          <div class="content">
+            <div class="text">yes ,we do provide study material in pdf format which you can download or take print.</div>
+          </div>
+        </div>
+      </li>
+      <li class="accordion block">
+        <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Do you provide study materials?</div>
+        <div class="acc-content">
+          <div class="content">
+            <div class="text">yes ,we do provide study material in pdf format which you can download or take print.</div>
+          </div>
+        </div>
+      </li>
+      <li class="accordion block">
+        <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Can I get refund of the payment made?</div>
+        <div class="acc-content">
+          <div class="content">
+            <div class="text">Fee once paid is not refundable. Avision reserves the right to refund along with otherconsideration.</div>
+          </div>
+        </div>
+      </li>
+      <li class="accordion block">
+        <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>What are the hardware requirements to join this course?</div>
+        <div class="acc-content">
+          <div class="content">
+            <div class="text">Laptop/smartphone to run website/app, high speed internet connectivity to watch live/recorded videos workingheadphones/earphones/speakers. Chrome browser is preferred for playing videos</div>
+          </div>
+        </div>
+      </li>
+      <li class="accordion block">
+        <div class="acc-btn"><div class="icon-outer"><img src="assets/images/icons/acc-1.png" alt="" /></div>Can I pay in installments?</div>
+        <div class="acc-content">
+          <div class="content">
+            <div class="text">We do not provide option to make payments in installments.You can pay using credit card by availing EMI option.</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    
+  </div>
+</div>
+</div>
+</section>
+
+<!-- end coueses main section -->
+<div id="videoModal" class="modal fade vid_modal" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+  <div class="modal-header">
+  <h4 class="modal-title">Video title</h4>
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+  </div>
+  <div class="modal-body" id="vdoPlayer">
+  <iframe width="100%" height="400" src="https://www.youtube.com/embed/Bey4XXJAqS8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  
+</div>
+
+</div>
+</div>
+
+
+
+
+
+

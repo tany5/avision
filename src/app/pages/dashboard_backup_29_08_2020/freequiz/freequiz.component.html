@@ -1,0 +1,102 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<!--Page Title-->
+<section class="page-title cus-page-title" style="background-image:url(assets/images/background/pattern-4.png); margin-top:-30px;">
+    <div class="container">
+        <h1>Free Quiz</h1>
+        <!-- <p>SBI PO 2019 Exam is a wonderful opportunity for you to turn your dreams into reality! Get all information about onlinesbi po - syllabus, preparation guide, last date to apply, exam dates, admit card, latest exam pattern and results here. Kick start your preparation now!</p> -->
+    </div>
+    <!--Page Info-->
+    <div class="page-info">
+        <div class="container">
+            <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a [routerLink]="['dashboard']">Home</a></li>
+                        <li>Free Quiz</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Page Info-->
+</section>
+<!--End Page Title-->
+<mat-progress-bar mode="indeterminate" [color]="color" *ngIf="showProgress"></mat-progress-bar>
+<section class="freequiz">
+
+    <div class="col-md-12 col-lg-11 col-xl-10 col-12  padding-0">
+        <div class="container-fluid">
+            <h1>Banking Quiz</h1>
+            <p>Banking Quiz for SBI Clerk, SBI PO, RBI, IBPS PO/Clerk/RRB/SO & other Banking & insurance exams 2020. Practice free online banking questions from GK, Current Affairs, English, Quant, Reasoning, & Computer section with multiple choice answers.</p>
+            <div class="row" style="margin-top: 40px;">
+                <div class="col-md-4 col-lg-3">
+                    <label id="example-radio-group-label"><h1>Select EXAM CATEGORY</h1> </label>
+                    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="quizType">
+                        <mat-radio-button class="example-radio-button" [value]="0" (click)="getQuizAll()">All</mat-radio-button>
+                        <mat-radio-button class="example-radio-button" *ngFor="let quiz of quizTypeList" [value]="quiz.type_id" (change)="getQuizTypeId(quiz.type_id)">
+                            {{quiz.type_name}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+
+                </div>
+                <div class="col-md-8 col-lg-9" style="border: 1px solid #ddd;">
+                    <ng-container *ngIf="quiz_details.length == 0" style="min-height: 40vh;">
+                        <div class="container d-flex h-100">
+                            <div class="row justify-content-center align-self-center" style="width: 100%;">
+                                <h1 class="text-center">
+                                    <mat-icon style="vertical-align:middle;">sentiment_very_dissatisfied</mat-icon>
+                                    Sorry No Quiz Found...
+                                </h1>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="quiz_details.length > 0">
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="col-12 col-sm-6">
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching by course name or exam name....">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12" *ngFor="let quiz of quiz_details | filter: searchText">
+                                <div class="cus-test-series-slide">
+                                    <div class="test-series-back">
+                                        <div class="test-icon text-center">
+                                            <mat-icon>pending_actions</mat-icon>
+                                        </div>
+                                        <div class="test-title-text text-center">
+                                            <h4>{{quiz.quiz_name}}</h4>
+                                            <hr>
+                                            <ul>
+                                                <li>{{quiz.tot_qus}} Total Question</li>
+                                                <li>{{quiz.tot_qus}} mins Time</li>
+                                            </ul>
+                                            <hr>
+                                        </div>
+                                        <a (click)="addTopic(quiz.quiz_id)" [routerLink]="['/dashboard/freequizpanel',quiz.quiz_id+'-'+replaceAll (quiz.quiz_name, ' ', '-')]" class="btn btn-block btn-primary" style="color: #fff">Take Test</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="alert alert-primary text-center" role="alert">
+                                    <label style="cursor: pointer;" (click)="getFreeQuizListAll()">View More
+                    <mat-icon style="vertical-align:middle;">expand_more</mat-icon></label>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <!--col-->
+
+            </div>
+        </div>
+    </div>
+</section>

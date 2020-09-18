@@ -1,0 +1,39 @@
+<mat-nav-list>
+    <a mat-list-item [routerLink]="['/dashboard']" matTooltip="Dashboard" matTooltipPosition="after">
+        <mat-icon>dashboard</mat-icon> Dashboard</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item [routerLink]="['testseries']" matTooltip="Test Series" matTooltipPosition="after" routerLinkActive="active-list-item">
+        <mat-icon>chrome_reader_mode</mat-icon> Test Series</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item [routerLink]="['dashboardvideocourses']" matTooltip="Video Courses" matTooltipPosition="after" routerLinkActive="active-list-item">
+        <mat-icon>movie</mat-icon> Video Courses</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item [routerLink]="['dashboardliveclass']" matTooltip="Live Class" matTooltipPosition="after" routerLinkActive="active-list-item">
+        <mat-icon>featured_play_list</mat-icon> Live Class</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item (click)="hideSidebar()" matTooltip="Practice" matTooltipPosition="after" routerLinkActive="active-list-item">
+        <mat-icon>edit_road</mat-icon> Practice</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item [routerLink]="['studyplan']" matTooltip=" Study Plan" matTooltipPosition="after" routerLinkActive="active-list-item">
+        <mat-icon>playlist_add_check</mat-icon> Study Plan</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item [routerLink]="['freequiz']" matTooltip=" Free quiz" matTooltipPosition="after" routerLinkActive="active-list-item">
+        <mat-icon>pending_actions</mat-icon> Free quiz</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item [routerLink]="['videos']" matTooltip=" Study Plan" matTooltipPosition="after" routerLinkActive="active-list-item">
+        <mat-icon>ondemand_video</mat-icon> Free Live Classes</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item [routerLink]="['previous-year']" matTooltip=" Study Plan" matTooltipPosition="after" routerLinkActive="active-list-item">
+        <mat-icon>settings_backup_restore</mat-icon> Previous Year</a>
+    <mat-divider></mat-divider>
+
+    <br>
+    <a mat-list-item [routerLink]="['dashboardpass']" matTooltip="Pass" matTooltipPosition="after" routerLinkActive="active-list-item">
+        <mat-icon>mark_chat_read</mat-icon> Pass</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item [routerLink]="['dashboardreferearn']" matTooltip="Refer & Earn" matTooltipPosition="after" routerLinkActive="active-list-item">
+        <mat-icon>money</mat-icon> Refer & Earn</a>
+    <a mat-list-item [routerLink]="['order']" matTooltip="Refer & Earn" matTooltipPosition="after" routerLinkActive="active-list-item">
+        <mat-icon>history_toggle_off</mat-icon> Order History</a>
+
+</mat-nav-list>

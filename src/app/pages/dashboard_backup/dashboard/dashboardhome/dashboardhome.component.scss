@@ -1,0 +1,222 @@
+.owl-prev {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  top: 40%;
+  margin-left: -20px;
+  display: block !important;
+  border:0px solid black;
+}
+
+.owl-next {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  top: 40%;
+  right: -25px;
+  display: block !important;
+  border:0px solid black;
+}
+.owl-prev i, .owl-next i {transform : scale(1,6); color: #ccc;}
+
+
+mat-drawer-content {
+  position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 20px 0px;
+}
+
+.test-series-section {
+  margin-top: 30px;
+}
+
+.recent-test-section {
+  background: #f3f3f3;
+  position: relative;
+  margin-top: 30px;
+  padding: 90px 30px;
+}
+.popular-test-section {
+  background: #f3f3f3;
+  position: relative;
+  margin-top: 30px;
+  padding: 90px 30px;
+}
+.quiz-test-section {
+  background: #f3f3f3;
+  position: relative;
+  margin-top: 30px;
+  padding: 90px 30px;
+}
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  & > [class^="col-"],
+  & > [class*=" col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.card {
+  box-shadow: 0 0.46875rem 2.1875rem rgba(4,9,20,0.03), 0 0.9375rem 1.40625rem rgba(4,9,20,0.03), 0 0.25rem 0.53125rem rgba(4,9,20,0.05), 0 0.125rem 0.1875rem rgba(4,9,20,0.03);
+    border-width: 0;
+    transition: all .2s;
+}
+
+.recent-test {
+  padding: 20px 10px;
+  //background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%) !important;
+  border: 1px solid #ddd;
+  color: #1f2138 ;
+  font-weight: 600;
+}
+
+.recent-test p {
+  padding-top: 15px;
+}
+
+
+.card-body h3 {
+  height: 90px;
+  line-height: 20px;
+}
+
+.full_width2 {
+  width: 100%;
+  background-image:  #f3f3f3 !important;
+}
+
+
+.quiz-test img.card-img-top {
+  padding: 20px 0px;
+  width: 50px;
+  margin: 0 auto;
+}
+
+.quiz-test-section mat-divider {
+  padding:4px;
+}
+
+.quiz-test-section .card .btn-block {
+  margin-top: 10px;
+}
+
+.quiz-test-section .card h5 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.quiz-practice-section .card {
+    background: #f1f1f1;
+    text-align: center;
+    padding: 20px 10px;
+    box-shadow: 0px 0px 10px #ddd;
+    border-radius: 15px;
+    display: block;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    border: 1px solid #f1f1f1;
+    margin: 15px 0;
+}
+
+.quiz-practice-section {
+  background: #f3f3f3;
+  position: relative;
+  margin-top: 30px;
+  padding: 90px 30px;
+}
+.quiz-practice-section .card img {
+  width: 65px;
+  margin: 0 auto;
+}
+
+.quiz-practice-section .card-text {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #717171;
+}
+
+.section-profile {
+  position: relative;
+  width:100%;
+  padding: 10px;
+
+}
+
+.padding-0{
+  padding-right:0;
+  padding-left:0;
+}
+
+.progress {
+  background: #f3f3f3;
+}
+.progress_div {
+  background: #e6e6e6;
+  padding: 20px 30px 10px 20px;
+}
+.section-profile h3 {
+  font-weight:600;
+  padding-bottom: 10px;
+}
+
+.student_corner_div {
+  background: #e6e6e6;
+  padding: 5px 0px;
+
+}
+
+.student_corner_section mat-list mat-list-item {
+  font-size: 14px;
+  font-weight: 500;
+}
+.student_corner_section mat-list mat-list-item mat-icon {
+  font-size: 22px;
+  padding: 10px 8px 8px 10px;
+  background: #1e7cff;
+  border-radius: 50%;
+  vertical-align: middle;
+  color: #fff;
+  margin-right: 8px;
+  box-shadow: 0px 0px 5px #027115;
+  display: inline-block;
+}
+
+
+
+.student_corner_section mat-list mat-list-item img{
+ width:50px;
+ margin-right:10px;
+}
+.student_corner_section mat-list mat-list-item:first-child mat-icon{
+  background: #1e7cff;
+}
+
+.student_corner_section mat-list mat-list-item:nth-child(2) mat-icon{
+  background: #ff861e;
+}
+
+.student_corner_section mat-list mat-list-item:nth-child(3) mat-icon{
+  background: #0eaf47;
+  box-shadow: 0px 0px 5px #ff2020;
+}
+
+.student_corner_section mat-list mat-list-item:nth-child(4) mat-icon{
+  background: #ff1e1e;
+  box-shadow: 0px 0px 5px #027171;
+}
+
+.progress_div mat-icon {
+  color: #2bb31a;
+  margin-top: -3px;
+  font-size: 12px;
+}
